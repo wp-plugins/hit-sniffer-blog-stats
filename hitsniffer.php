@@ -119,16 +119,6 @@ hit sniffer can measure your visitors more accurate.</p>
 }
 
 
-
-
-
-
-
-
-
-
-// Create the fun ction to output the contents of our Dashboard Widget
-
 function hitsniffer_dashboard_widget_function() {
 	
 	$option=get_hs_conf();
@@ -145,4 +135,25 @@ function hitsniffer_dashboard_widget_function() {
 
 <?php
 
-}else{ ?><tabl
+}else{ ?><table border="0" cellpadding="0" style="border-collapse: collapse" width="100%" height="54">
+	<tr>
+		<td>
+		<p align="left">Hit Sniffer API Code is not installed. Please open Setting -> Hit Sniffer for instruction.</td>
+	</tr>
+</table>
+
+<?php
+
+}
+}
+
+
+function hitsniffer_add_dashboard_widgets() {
+	wp_add_dashboard_widget('hitsniffer_dashboard_widget', 'Hit Sniffer', 'hitsniffer_dashboard_widget_function');	
+}
+
+
+add_action('wp_dashboard_setup', 'hitsniffer_add_dashboard_widgets' );
+
+
+?>
