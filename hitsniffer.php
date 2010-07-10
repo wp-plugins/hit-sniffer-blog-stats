@@ -4,7 +4,7 @@ Plugin Name: Hit Sniffer Blog Stats
 Plugin URI: http://www.hitsniffer.com/
 Description: Hit Sniffer
 Author: Hitsniffer.com
-Version: 1.0
+Version: 1.1
 Author URI: http://www.HitSniffer.com/
 */ 
 
@@ -65,20 +65,51 @@ if ($saved==1){
 <center>
 <table width="90%" border="1" style="background-color: rgb(255, 251, 204);" id="message" class="updated fade">
   <tr>
-    <td>Hit Sniffer Setting Saved</td>
+    <td>Hit Sniffer Setting Saved<br>
+	<a href="http://www.hitsniffer.com/stats/dashboard.php?code=<?php echo $option['code']; ?>&tag=wordpress-to-dashboard-saved-setting">
+	Open your Dashboard and Watch and monitor your visitors now!</a></td>
   </tr>
 </table>
 </center>
 <?php } ?>
 
-<h2><a target="_blank" href="http://www.hitsniffer.com/">Hit Sniffer</a></h2>
+<h2>
+<a target="_blank" href="http://www.hitsniffer.com/?tag=wordpress-to-homepage">Hit Sniffer</a></h2>
 <form method="POST" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
-<p>Please enter your Hit Sniffer API Code to activate it, If you don't have an API Code, get one for free at HitSniffer.com<br><br>API Code:<br>
+<?php if ($option['code']!=''){ ?><table border="0" cellpadding="0" style="border-collapse: collapse" width="100%" height="54">
+	<tr>
+		<td>
+		<p align="center">
+		<a href="http://www.hitsniffer.com/stats/dashboard.php?code=<?php echo $option['code']; ?>&tag=wordpress-to-dashboard">
+		<span style="font-weight: 700">
+		<font face="Verdana" style="font-size: 13pt">Watch and Monitor Your 
+		Visitors</font></span></a></td>
+	</tr>
+</table><?php } ?>
+<?php if ($option['code']==''){ ?><p>Please enter your Hit Sniffer API Code to activate it, If you don't have an API Code, get 
+your one at 
+<a href="http://www.hitsniffer.com/register.php?tag=wordpress-to-register">HitSniffer.com</a><br><?php } ?><br>API Code:<br>
 	<textarea rows="2" name="code" cols="117" ><?php echo $option['code']; ?></textarea></p>
     
 	
 	<p class="submit"><input type="submit" value="Save" style="width: 120px;"></p>
-	<p class="submit">More Configuration is available in Hit Sniffer Administration Area.</p>
+<?php if ($option['code']==''){ ?><p class="submit">Just 
+<a href="http://www.hitsniffer.com/register.php?tag=wordpress-to-register">Sign up 
+at Hit Sniffer</a> and get your free account.<br>
+Add your website address and in setting page, get your Wordpress API code.<br>
+Input that code here.</p><?php } ?>
+	<p class="submit">More Configuration is available in your HitSniffer.com 
+	Setting.</p>
+<p class="submit">Hit Sniffer also support normal websites ( non wordpress pages 
+).<?php if ($option['code']!=''){ ?><br>
+If you have a website too, Please put following code into your website pages, 
+hit sniffer can measure your visitors more accurate.</p>
+<p class="submit">Website Code:<br>
+<textarea rows="5" name="wcode" cols="100" readonly><!-- HITSNIFFER TRACKING CODE - DO NOT CHANGE -->
+<script src="http://www.hitsniffer.com/track.php?code=<?php echo $option['code']; ?>" type="text/javascript" ></script>
+<noscript><a href="http://www.hitsniffer.com/">
+<img src="http://www.hitsniffer.com/track.php?mode=img&code=<?php echo $option['code']; ?>" alt="Realtime website statistics" />Real time website tracking wordpress</a></noscript>
+<!-- HITSNIFFER TRACKING CODE - DO NOT CHANGE --></textarea></p><?php } ?>
 <input type="hidden" name="action" value="do">
 </form>
 	
