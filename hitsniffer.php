@@ -117,4 +117,32 @@ hit sniffer can measure your visitors more accurate.</p>
 
 <?php
 }
-?>
+
+
+
+
+
+
+
+
+
+
+// Create the fun ction to output the contents of our Dashboard Widget
+
+function hitsniffer_dashboard_widget_function() {
+	
+	$option=get_hs_conf();
+	
+ if ($option['code']!=''){ ?><table border="0" cellpadding="0" style="border-collapse: collapse" width="100%" height="54">
+	<tr>
+		<td>
+		<p align="center">
+		<a href="http://www.hitsniffer.com/stats/dashboard.php?code=<?php echo $option['code']; ?>&tag=wp-dash-to-hs-dash">
+		<span>
+		<font face="Verdana" style="font-size: 12pt">Open Hit Sniffer Dashboard</font></span></a></td>
+	</tr>
+</table>
+
+<?php
+
+}else{ ?><tabl
