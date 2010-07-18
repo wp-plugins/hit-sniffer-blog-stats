@@ -4,7 +4,7 @@ Plugin Name: Hit Sniffer Blog Stats
 Plugin URI: http://www.hitsniffer.com/
 Description: Hit Sniffer
 Author: Hitsniffer.com
-Version: 1.3
+Version: 1.1
 Author URI: http://www.hitsniffer.com/
 */ 
 
@@ -66,7 +66,7 @@ if ($saved==1){
   <tr>
     <td>Hit Sniffer Setting Saved<br>
 	<a href="http://www.hitsniffer.com/stats/dashboard.php?code=<?php echo $option['code']; ?>&tag=wordpress-to-dashboard-saved-setting">
-	Open your Dashboard and Watch and monitor your visitors now!</a></td>
+	Now, You can track your visitors here. ( Please wait until we track some visitors )</a></td>
   </tr>
 </table>
 </center>
@@ -81,8 +81,7 @@ if ($saved==1){
 		<p align="center">
 		<a href="http://www.hitsniffer.com/stats/dashboard.php?code=<?php echo $option['code']; ?>&tag=wordpress-to-dashboard">
 		<span style="font-weight: 700">
-		<font face="Verdana" style="font-size: 13pt">Watch and Monitor Your 
-		Visitors</font></span></a></td>
+		<font face="Verdana" style="font-size: 13pt">Click here to Track your Visitors</font></span></a></td>
 	</tr>
 </table><?php } ?>
 <?php if ($option['code']==''){ ?><p>Please enter your Hit Sniffer API Code to activate it, If you don't have an API Code, get 
@@ -125,10 +124,12 @@ function hitsniffer_dashboard_widget_function() {
  if ($option['code']!=''){ ?><table border="0" cellpadding="0" style="border-collapse: collapse" width="100%" height="54">
 	<tr>
 		<td>
+	<iframe name="hit-sniffer-stats" frameborder="0" border="0" width="100%" height="270" src="http://www.hitsniffer.com/stats/wp.php?code=<?php echo $option['code']; ?>">	
+		
 		<p align="center">
 		<a href="http://www.hitsniffer.com/stats/dashboard.php?code=<?php echo $option['code']; ?>&tag=wp-dash-to-hs-dash">
 		<span>
-		<font face="Verdana" style="font-size: 12pt">Watch Hit Sniffer Dashboard</font></span></a></td>
+		<font face="Verdana" style="font-size: 12pt">Watch Hit Sniffer Dashboard</font></span></a></iframe></td>
 	</tr>
 </table>
 
@@ -137,7 +138,7 @@ function hitsniffer_dashboard_widget_function() {
 }else{ ?><table border="0" cellpadding="0" style="border-collapse: collapse" width="100%" height="54">
 	<tr>
 		<td>
-		<p align="left">Hit Sniffer API Code is not installed. Please open Setting -> Hit Sniffer for instruction.</td>
+		<p align="left">Hit Sniffer API Code is not installed. Please open Wordpress Setting -> Hit Sniffer for instruction.</td>
 	</tr>
 </table>
 
