@@ -4,7 +4,7 @@ Plugin Name: Hit Sniffer Blog Stats
 Plugin URI: http://www.hitsniffer.com/
 Description: Hit Sniffer
 Author: Hitsniffer.com
-Version: 1.5.1
+Version: 1.5.2
 Author URI: http://www.hitsniffer.com/
 */ 
 
@@ -85,19 +85,18 @@ if ($saved==1){
 	</tr>
 </table><?php } ?>
 <?php if ($option['code']==''){ ?><p>Please enter your Hit Sniffer API Code to activate it, If you don't have an API Code, get 
-your one at 
-<a href="http://www.hitsniffer.com/?tag=wordpress-to-ht">HitSniffer.com</a><br><?php } ?><br>API Code:<br>
+your free trial one at 
+<a href="http://www.hitsniffer.com/?tag=wordpress-to-ht">HitSniffer.com</a><br><?php } ?><br>Hit Sniffer API Code:<br>
 	<textarea rows="2" name="code" cols="117" ><?php echo $option['code']; ?></textarea></p>
     
 	
 	<p class="submit"><input type="submit" value="Save" style="width: 120px;"></p>
-<?php if ($option['code']==''){ ?><p class="submit"><h2>How use Hit Sniffer at Wordpress?</h2>Just 
-<a href="http://www.hitsniffer.com/?tag=wordpress-to-ht">Sign up 
+<?php if ($option['code']==''){ ?><p class="submit"><br><h2>How use Hit Sniffer at Wordpress?</h2>Just 
+<a href="http://www.hitsniffer.com/register.php?tag=wordpress-to-ht-reg">Sign up 
 at Hit Sniffer</a> and get your free account.<br>
-Add your website address in hit sniffer website and then in hitsniffer.com setting page, get your Wordpress API code.<br>
-Input that code here.<br>Your Visitors data will be logged in realtime and you can open and watch them in your hitsniffer.com dashboard.</p><?php } ?>
-	<p class="submit">More Configuration is available in your HitSniffer.com 
-	Setting.</p>
+Login to your hit sniffer account and Add your website address in hit sniffer website.<br>then in hitsniffer.com setting page, get your Wordpress API code.<br>
+Input that code here.<br>Your All Visitors information will be logged in real-time and you can open and watch them in your hitsniffer.com dashboard, Real-time! means you open dashboard and it will show your current visitors, once they change a page, it will show you and more!</p><?php } ?>
+	<p class="submit">More Detail is available in your HitSniffer.com</p>
 <p class="submit">Hit Sniffer also support normal websites ( non wordpress pages 
 ).<?php if ($option['code']!=''){ ?><br>
 If you have a website too, Please put following code into your website pages, 
@@ -124,7 +123,7 @@ function hitsniffer_dashboard_widget_function() {
  if ($option['code']!=''){ ?><table border="0" cellpadding="0" style="border-collapse: collapse" width="100%" height="54">
 	<tr>
 		<td>
-	<iframe name="hit-sniffer-stats" frameborder="0" border="0" width="100%" height="270" src="http://www.hitsniffer.com/stats/wp.php?code=<?php echo $option['code']; ?>">	
+	<iframe name="hit-sniffer-stats" frameborder="0" border="0" width="100%" height="175" src="http://www.hitsniffer.com/stats/wp.php?code=<?php echo $option['code']; ?>">	
 		
 		<p align="center">
 		<a href="http://www.hitsniffer.com/stats/dashboard.php?code=<?php echo $option['code']; ?>&tag=wp-dash-to-hs-dash">
