@@ -2,8 +2,8 @@
 Contributors: San Arena
 Tags: hit, sniffer, stats, web stats, visitor, monitor, monitoring, blog, tracking, activity, pageview, seo,counter,visit,hit,analytics,website stats, counter, hit counter, hit counters, free hit counter, free web counter, web counter, tracker, web tracker, visitor tracker,page,links,analytic,analytics
 Requires at least: 1
-Tested up to: 3
-Stable tag: 1.6
+Tested up to: 3.0.1
+Stable tag: 1.6.1
 
 Hit Sniffer is a powerful real time visitors activity tracker. Monitor your visitors live. 
 
