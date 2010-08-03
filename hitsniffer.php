@@ -4,7 +4,7 @@ Plugin Name: Hit Sniffer Blog Stats
 Plugin URI: http://www.hitsniffer.com/
 Description: Hit Sniffer
 Author: Hitsniffer.com
-Version: 1.5.2
+Version: 1.6
 Author URI: http://www.hitsniffer.com/
 */ 
 
@@ -91,7 +91,7 @@ your free trial one at
     
 	
 	<p class="submit"><input type="submit" value="Save" style="width: 120px;"></p>
-<?php if ($option['code']==''){ ?><p class="submit"><br><h2>How use Hit Sniffer at Wordpress?</h2>Just 
+<?php if ($option['code']==''){ ?><p class="submit"><br><br><br><h2>How use Hit Sniffer at Wordpress?</h2>Just 
 <a href="http://www.hitsniffer.com/register.php?tag=wordpress-to-ht-reg">Sign up 
 at Hit Sniffer</a> and get your free account.<br>
 Login to your hit sniffer account and Add your website address in hit sniffer website.<br>then in hitsniffer.com setting page, get your Wordpress API code.<br>
@@ -123,7 +123,7 @@ function hitsniffer_dashboard_widget_function() {
  if ($option['code']!=''){ ?><table border="0" cellpadding="0" style="border-collapse: collapse" width="100%" height="54">
 	<tr>
 		<td>
-	<iframe name="hit-sniffer-stats" frameborder="0" border="0" width="100%" height="175" src="http://www.hitsniffer.com/stats/wp.php?code=<?php echo $option['code']; ?>">	
+	<iframe name="hit-sniffer-stats" frameborder="0" border="0" width="100%" height="300" src="http://www.hitsniffer.com/stats/wp-new.php?code=<?php echo $option['code']; ?>">	
 		
 		<p align="center">
 		<a href="http://www.hitsniffer.com/stats/dashboard.php?code=<?php echo $option['code']; ?>&tag=wp-dash-to-hs-dash">
