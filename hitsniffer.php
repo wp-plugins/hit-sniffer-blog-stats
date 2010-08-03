@@ -4,7 +4,7 @@ Plugin Name: Hit Sniffer Blog Stats
 Plugin URI: http://www.hitsniffer.com/
 Description: Hit Sniffer
 Author: Hitsniffer.com
-Version: 1.5.3
+Version: 1.6
 Author URI: http://www.hitsniffer.com/
 */ 
 
@@ -123,7 +123,7 @@ function hitsniffer_dashboard_widget_function() {
  if ($option['code']!=''){ ?><table border="0" cellpadding="0" style="border-collapse: collapse" width="100%" height="54">
 	<tr>
 		<td>
-	<iframe name="hit-sniffer-stats" frameborder="0" border="0" width="100%" height="180" src="http://www.hitsniffer.com/stats/wp.php?code=<?php echo $option['code']; ?>">	
+	<iframe name="hit-sniffer-stats" frameborder="0" border="0" width="100%" height="300" src="http://www.hitsniffer.com/stats/wp-new.php?code=<?php echo $option['code']; ?>">	
 		
 		<p align="center">
 		<a href="http://www.hitsniffer.com/stats/dashboard.php?code=<?php echo $option['code']; ?>&tag=wp-dash-to-hs-dash">
