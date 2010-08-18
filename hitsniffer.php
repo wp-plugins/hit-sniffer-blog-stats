@@ -4,7 +4,7 @@ Plugin Name: Hit Sniffer Blog Stats
 Plugin URI: http://www.hitsniffer.com/
 Description: Hit Sniffer
 Author: Hitsniffer.com
-Version: 1.7
+Version: 1.7.1
 Author URI: http://www.hitsniffer.com/
 */ 
 
@@ -96,7 +96,7 @@ your free trial one at
 at Hit Sniffer</a> and get your free account.<br>
 Login to your hit sniffer account and Add your website address in hit sniffer website.<br>then in hitsniffer.com setting page, get your Wordpress API code.<br>
 Input that code here.<br>Your All Visitors information will be logged in real-time and you can open and watch them in your hitsniffer.com dashboard, Real-time! means you open dashboard and it will show your current visitors, once they change a page, it will show you and more!</p><?php } ?>
-	<p class="submit"><a href="http://www.hitsniffer.com/blog/2010/08/how-do-you-check-visitor-stats-on-wordpress-website/" target="_blank">More Detail is available in your HitSniffer.com</a></p>
+	<p class="submit"><a href="http://www.hitsniffer.com/features.php" target="_blank">View More detail about Hit Sniffer</a></p>
 <p class="submit">Hit Sniffer also support normal websites ( non wordpress pages 
 ).<?php if ($option['code']!=''){ ?><br>
 If you have a website too, Please put following code into your website pages, 
