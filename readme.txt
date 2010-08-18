@@ -1,9 +1,9 @@
 === Hit Sniffer Blog Stats ===
 Contributors: San Arena
-Tags: hit, sniffer, stats, web stats, visitor, monitor, monitoring, blog, tracking, activity, pageview, seo,counter,visit,hit,analytics,website stats, counter, hit counter, hit counters, free hit counter, free web counter, web counter, tracker, web tracker, visitor tracker,page,links,analytic,analytics
+Tags: hit, sniffer, stats, web stats, visitor, monitor, monitoring, blog, tracking, activity, pageview, seo,counter,visit,hit,analytics,website stats, counter, hit counter, hit counters, free hit counter, free web counter, web counter, tracker, web tracker, visitor tracker,page,links,analytic,analytics,dashboard,wordpress,statistics,graph
 Requires at least: 1
 Tested up to: 3.0.1
-Stable tag: 1.6.1
+Stable tag: 1.7.1
 
 Hit Sniffer is a powerful real time visitors activity tracker. Monitor your visitors live. 
 
@@ -29,9 +29,19 @@ To use this plugin, you must have a hitsniffer.com account. Get your free accoun
 4. Place API code in wordpress setting section.
 5. Now, your site is being tracker. you can watch your stats info on hitsniffer.com dashboard.
 
+More on: http://www.hitsniffer.com/blog/2010/08/how-do-you-check-visitor-stats-on-wordpress-website/
 
 
 == Changelog ==
+
+= 1.7.1 =
++ Updated Detail Link.
+
+= 1.7 =
++ Updated Dashboard Widget.
++ Updated Plugin Tags
++ New Hit Sniffer Dashboard Menu.
++ New Graph on Wordpress Dashboard.
 
 = 1.6 =
 + Updated Dashboard Widget.

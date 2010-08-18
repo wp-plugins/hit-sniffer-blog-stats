@@ -4,7 +4,7 @@ Plugin Name: Hit Sniffer Blog Stats
 Plugin URI: http://www.hitsniffer.com/
 Description: Hit Sniffer
 Author: Hitsniffer.com
-Version: 1.6.1
+Version: 1.7.1
 Author URI: http://www.hitsniffer.com/
 */ 
 
@@ -96,7 +96,7 @@ your free trial one at
 at Hit Sniffer</a> and get your free account.<br>
 Login to your hit sniffer account and Add your website address in hit sniffer website.<br>then in hitsniffer.com setting page, get your Wordpress API code.<br>
 Input that code here.<br>Your All Visitors information will be logged in real-time and you can open and watch them in your hitsniffer.com dashboard, Real-time! means you open dashboard and it will show your current visitors, once they change a page, it will show you and more!</p><?php } ?>
-	<p class="submit">More Detail is available in your HitSniffer.com</p>
+	<p class="submit"><a href="http://www.hitsniffer.com/features.php" target="_blank">View More detail about Hit Sniffer</a></p>
 <p class="submit">Hit Sniffer also support normal websites ( non wordpress pages 
 ).<?php if ($option['code']!=''){ ?><br>
 If you have a website too, Please put following code into your website pages, 
@@ -123,7 +123,7 @@ function hitsniffer_dashboard_widget_function() {
  if ($option['code']!=''){ ?><table border="0" cellpadding="0" style="border-collapse: collapse" width="100%" height="54">
 	<tr>
 		<td>
-	<iframe name="hit-sniffer-stats" frameborder="0" border="0" width="100%" height="300" src="http://www.hitsniffer.com/stats/wp-new.php?code=<?php echo $option['code']; ?>">	
+	<iframe name="hit-sniffer-stats" frameborder="0" border="0" width="100%" height="250" src="http://www.hitsniffer.com/stats/wp-new.php?code=<?php echo $option['code']; ?>">	
 		
 		<p align="center">
 		<a href="http://www.hitsniffer.com/stats/dashboard.php?code=<?php echo $option['code']; ?>&tag=wp-dash-to-hs-dash">
@@ -148,7 +148,7 @@ function hitsniffer_dashboard_widget_function() {
 
 
 function hitsniffer_add_dashboard_widgets() {
-	wp_add_dashboard_widget('hitsniffer_dashboard_widget', 'Hit Sniffer', 'hitsniffer_dashboard_widget_function');	
+	@wp_add_dashboard_widget('hitsniffer_dashboard_widget', 'Hit Sniffer', 'hitsniffer_dashboard_widget_function');	
 }
 
 
