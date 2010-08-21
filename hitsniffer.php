@@ -4,7 +4,7 @@ Plugin Name: Hit Sniffer Blog Stats
 Plugin URI: http://www.hitsniffer.com/
 Description: Hit Sniffer
 Author: Hitsniffer.com
-Version: 1.7.2
+Version: 1.7.3
 Author URI: http://www.hitsniffer.com/
 */ 
 
@@ -148,7 +148,11 @@ function hitsniffer_dashboard_widget_function() {
 
 
 function hitsniffer_add_dashboard_widgets() {
-	@wp_add_dashboard_widget('hitsniffer_dashboard_widget', 'Hit Sniffer', 'hitsniffer_dashboard_widget_function');	
+
+    if (function_exists('wp_add_dashboard_widget')){
+      wp_add_dashboard_widget('hitsniffer_dashboard_widget', 'Hit Sniffer Analytics Summary', 'hitsniffer_dashboard_widget_function');	
+    }
+
 }
 
 
