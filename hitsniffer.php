@@ -3,8 +3,8 @@
 Plugin Name: Hit Sniffer Blog Stats
 Plugin URI: http://www.hitsniffer.com/
 Description: Hit Sniffer
-Author: Hitsniffer.com
-Version: 1.7.3
+Author: sanarena.com
+Version: 1.7.4
 Author URI: http://www.hitsniffer.com/
 */ 
 
@@ -64,16 +64,15 @@ if ($saved==1){
 <center>
 <table width="90%" border="1" style="background-color: rgb(255, 251, 204);" id="message" class="updated fade">
   <tr>
-    <td>Hit Sniffer Setting Saved<br>
-	<a href="http://www.hitsniffer.com/stats/dashboard.php?code=<?php echo $option['code']; ?>&tag=wordpress-to-dashboard-saved-setting">
-	Now, You can track your visitors here. ( Please wait until we track some visitors )</a></td>
+    <td>Hit Sniffer plugin Setting Saved<br>We have started tracking your visitors from now. <a href="http://www.hitsniffer.com/stats/dashboard.php?code=<?php echo $option['code']; ?>&tag=wordpress-to-dashboard-saved-setting">
+	Now, Monitor your visitors here, but hey! please wait until we track some visitors first!</a></td>
   </tr>
 </table>
 </center>
 <?php } ?>
 
 <h2>
-<a target="_blank" href="http://www.hitsniffer.com/?tag=wordpress-to-homepage">Hit Sniffer</a></h2>
+<a target="_blank" href="http://www.hitsniffer.com/?tag=wordpress-to-homepage">Hit Sniffer - an eye on your site</a></h2>
 <form method="POST" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
 <?php if ($option['code']!=''){ ?><table border="0" cellpadding="0" style="border-collapse: collapse" width="100%" height="54">
 	<tr>
@@ -94,13 +93,13 @@ your free trial one at
 <?php if ($option['code']==''){ ?><p class="submit"><br><br><br><h2>How use Hit Sniffer at Wordpress?</h2>Just 
 <a href="http://www.hitsniffer.com/register.php?tag=wordpress-to-ht-reg">Sign up 
 at Hit Sniffer</a> and get your free account.<br>
-Login to your hit sniffer account and Add your website address in hit sniffer website.<br>then in hitsniffer.com setting page, get your Wordpress API code.<br>
-Input that code here.<br>Your All Visitors information will be logged in real-time and you can open and watch them in your hitsniffer.com dashboard, Real-time! means you open dashboard and it will show your current visitors, once they change a page, it will show you and more!</p><?php } ?>
+Login to your hit sniffer account and Add your website address in hit sniffer website list.<br>then in hitsniffer.com setting page, get your Wordpress API code.<br>
+Input that code here.<br>All Visitors information will be tracked in real-time and you can open and watch them in your hitsniffer.com dashboard, Real-time! it means you open dashboard and it will show your current visitors, once they change a page, it have more to offer!</p><?php } ?>
 	<p class="submit"><a href="http://www.hitsniffer.com/features.php" target="_blank">view hit sniffer features</a></p>
 <p class="submit">Hit Sniffer also support normal websites ( non wordpress pages 
 ).<?php if ($option['code']!=''){ ?><br>
 If you have a website too, Please put following code into your website pages, 
-hit sniffer can measure your visitors more accurate.</p>
+then hit sniffer can measure your visitors more accurate.</p>
 <p class="submit">Website Code:<br>
 <textarea rows="5" name="wcode" cols="100" readonly><!-- HITSNIFFER TRACKING CODE - DO NOT CHANGE -->
 <script src="http://www.hitsniffer.com/track.php?code=<?php echo $option['code']; ?>" type="text/javascript" ></script>
@@ -128,7 +127,7 @@ function hitsniffer_dashboard_widget_function() {
 		<p align="center">
 		<a href="http://www.hitsniffer.com/stats/dashboard.php?code=<?php echo $option['code']; ?>&tag=wp-dash-to-hs-dash">
 		<span>
-		<font face="Verdana" style="font-size: 12pt">Watch Hit Sniffer Dashboard</font></span></a></iframe></td>
+		<font face="Verdana" style="font-size: 12pt">Open Hit Sniffer Dashboard</font></span></a></iframe></td>
 	</tr>
 </table>
 
@@ -150,7 +149,7 @@ function hitsniffer_dashboard_widget_function() {
 function hitsniffer_add_dashboard_widgets() {
 
     if (function_exists('wp_add_dashboard_widget')){
-      wp_add_dashboard_widget('hitsniffer_dashboard_widget', 'Hit Sniffer Analytics Summary', 'hitsniffer_dashboard_widget_function');	
+      wp_add_dashboard_widget('hitsniffer_dashboard_widget', 'Hit Sniffer - Your Analytics Summary', 'hitsniffer_dashboard_widget_function');	
     }
 
 }
