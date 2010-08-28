@@ -3,7 +3,7 @@
 Plugin Name: Hit Sniffer Blog Stats
 Plugin URI: http://www.hitsniffer.com/
 Description: Hit Sniffer
-Author: sanarena.com
+Author: hitsniffer.com
 Version: 1.7.4
 Author URI: http://www.hitsniffer.com/
 */ 
