@@ -4,7 +4,7 @@ Plugin Name: Hit Sniffer Blog Stats
 Plugin URI: http://www.hitsniffer.com/
 Description: Hit Sniffer
 Author: hitsniffer.com
-Version: 1.8.2
+Version: 1.8.5
 Author URI: http://www.hitsniffer.com/
 */ 
 
@@ -28,6 +28,7 @@ $option['code']=str_ireplace(" ","",html_entity_decode($option['code']));
 
 function get_hs_conf(){
 $config=get_option('hs_setting');
+if (round($option['wgd'])==0) $option['wgd']=1;
 return $config;
 }
 function set_hs_conf($conf){update_option('hs_setting',$conf);}
@@ -40,6 +41,7 @@ function hs_admin_menu(){
 function hs_optionpage(){
 $option=get_hs_conf();
 $option['code']=html_entity_decode($option['code']);
+$option['wgd']=html_entity_decode($option['wgd']);
 
 
 		if ($_POST['action']=='do'){
@@ -87,6 +89,9 @@ if ($saved==1){
 your free trial one at 
 <a href="http://www.hitsniffer.com/?tag=wordpress-to-ht">HitSniffer.com</a><br><?php } ?><br>Hit Sniffer API Code:<br>
 	<textarea rows="2" name="code" cols="117" ><?php echo $option['code']; ?></textarea></p>
+<p>Show Hit Sniffer Quick Summary in Wordpress Dashboard?&nbsp;&nbsp;&nbsp;
+<input type="radio" value="1" name="wgd" style="width: 22px; height: 20px;" <?php if ($option['wgd']!=2) echo "checked"; ?>>Yes&nbsp;
+<input type="radio" value="2" name="wgd" style="width: 22px; height: 20px;" <?php if ($option['wgd']==2) echo "checked"; ?>>No</p>
     
 	
 	<p class="submit"><input type="submit" value="Save" style="width: 120px;"></p>
@@ -122,7 +127,7 @@ function hitsniffer_dashboard_widget_function() {
  if ($option['code']!=''){ ?><table border="0" cellpadding="0" style="border-collapse: collapse" width="100%" height="54">
 	<tr>
 		<td>
-	<iframe scrollable='no' name="hit-sniffer-stat" frameborder="0" border="0" width="100%" height="390" src="http://www.hitsniffer.com/stats/wp-new.php?code=<?php echo $option['code']; ?>">	
+	<iframe scrollable='no' name="hit-sniffer-stat" frameborder="0" border="0" width="100%" height="400" src="http://www.hitsniffer.com/stats/wp-new.php?code=<?php echo $option['code']; ?>">	
 		
 		<p align="center">
 		<a href="http://www.hitsniffer.com/stats/dashboard.php?code=<?php echo $option['code']; ?>&tag=wp-dash-to-hs-dash">
@@ -148,10 +153,14 @@ function hitsniffer_dashboard_widget_function() {
 
 function hitsniffer_add_dashboard_widgets() {
 
+$option=get_hs_conf();
+
+if ($option['wgd']!=2){
+
     if (function_exists('wp_add_dashboard_widget')){
       wp_add_dashboard_widget('hitsniffer_dashboard_widget', 'Hit Sniffer - Your Analytics Summary', 'hitsniffer_dashboard_widget_function');	
     }
-
+}
 }
 
 
