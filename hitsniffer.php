@@ -4,7 +4,7 @@ Plugin Name: Hit Sniffer Blog Stats
 Plugin URI: http://www.hitsniffer.com/
 Description: Hit Sniffer
 Author: hitsniffer.com
-Version: 1.8.5
+Version: 1.9
 Author URI: http://www.hitsniffer.com/
 */ 
 
@@ -19,6 +19,39 @@ function hitsniffer() {
 $option=get_hs_conf();
 $option['code']=str_ireplace(" ","",html_entity_decode($option['code']));
 
+
+	if( round($option['iga'])!=2 && current_user_can("manage_options") ) {
+		echo "\n<!-- ".__("Hit Sniffer tracking code not shown because you're an administrator and you've configured Hit Sniffer plugin to ignore administrators.", 'hitsniffer')." -->\n";
+		return;
+	}
+
+	if( $option['tkn']!=2 ) { 
+?>
+	<script type='text/javascript'>
+	function hitsniffer_gc( name ) {
+		var ca = document.cookie.split(';');
+		for( var i in ca ) {
+			if( ca[i].indexOf( name+'=' ) != -1 )
+				return decodeURIComponent( ca[i].split('=')[1] );
+		}
+		return '';
+	}
+
+ipname='<?php
+
+global $current_user;
+      get_currentuserinfo();
+
+      echo $current_user->user_login
+?>';
+
+
+		ipnames=hitsniffer_gc( 'comment_author_<?php echo md5( get_option("siteurl") ); ?>' );
+		if (ipnames!='') ipname=ipnames;
+  	</script>
+<?php
+	}
+	
 ?><!-- HITSNIFFER TRACKING CODE - DO NOT CHANGE -->
 <script src="http://www.hitsniffer.com/track.php?code=<?php echo $option['code']; ?>" type="text/javascript" ></script>
 <noscript><a href="http://www.hitsniffer.com/"><img src="http://www.hitsniffer.com/track.php?mode=img&code=<?php echo $option['code']; ?>" alt="Realtime hit counter" />web stats</a></noscript>
@@ -29,6 +62,8 @@ $option['code']=str_ireplace(" ","",html_entity_decode($option['code']));
 function get_hs_conf(){
 $config=get_option('hs_setting');
 if (round($option['wgd'])==0) $option['wgd']=1;
+if (round($option['tkn'])==0) $option['tkn']=1;
+if (round($option['iga'])==0) $option['iga']=2;
 return $config;
 }
 function set_hs_conf($conf){update_option('hs_setting',$conf);}
@@ -92,6 +127,12 @@ your free trial one at
 <p>Show Hit Sniffer Quick Summary in Wordpress Dashboard?&nbsp;&nbsp;&nbsp;
 <input type="radio" value="1" name="wgd" style="width: 22px; height: 20px;" <?php if ($option['wgd']!=2) echo "checked"; ?>>Yes&nbsp;
 <input type="radio" value="2" name="wgd" style="width: 22px; height: 20px;" <?php if ($option['wgd']==2) echo "checked"; ?>>No</p>
+<p>Track Visitors Name ( using name they enter when commenting )?&nbsp;&nbsp;&nbsp;
+<input type="radio" value="1" name="tkn" style="width: 22px; height: 20px;" <?php if ($option['tkn']!=2) echo "checked"; ?>>Yes&nbsp;
+<input type="radio" value="2" name="tkn" style="width: 22px; height: 20px;" <?php if ($option['tkn']==2) echo "checked"; ?>>No</p>
+<p>Ignore Admin Visits?&nbsp;&nbsp;&nbsp;
+<input type="radio" value="1" name="iga" style="width: 22px; height: 20px;" <?php if (round($option['iga'])!=2) echo "checked"; ?>>Yes&nbsp;
+<input type="radio" value="2" name="iga" style="width: 22px; height: 20px;" <?php if (round($option['iga'])==2) echo "checked"; ?>>No</p>
     
 	
 	<p class="submit"><input type="submit" value="Save" style="width: 120px;"></p>
