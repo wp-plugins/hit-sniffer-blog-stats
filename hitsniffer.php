@@ -4,7 +4,7 @@ Plugin Name: Hit Sniffer Blog Stats
 Plugin URI: http://www.hitsniffer.com/
 Description: Hit Sniffer
 Author: hitsniffer.com
-Version: 1.9
+Version: 1.9.1
 Author URI: http://www.hitsniffer.com/
 */ 
 
@@ -20,7 +20,7 @@ $option=get_hs_conf();
 $option['code']=str_ireplace(" ","",html_entity_decode($option['code']));
 
 
-	if( round($option['iga'])!=2 && current_user_can("manage_options") ) {
+	if( round($option['iga'])==1 && current_user_can("manage_options") ) {
 		echo "\n<!-- ".__("Hit Sniffer tracking code not shown because you're an administrator and you've configured Hit Sniffer plugin to ignore administrators.", 'hitsniffer')." -->\n";
 		return;
 	}
