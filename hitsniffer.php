@@ -4,7 +4,7 @@ Plugin Name: Hit Sniffer Blog Stats
 Plugin URI: http://www.hitsniffer.com/
 Description: Hit Sniffer
 Author: hitsniffer.com
-Version: 1.9.1
+Version: 1.9.5
 Author URI: http://www.hitsniffer.com/
 */ 
 
@@ -14,7 +14,7 @@ add_action('wp_head', 'hitsniffer');
 
 
 function hitsniffer() {
-
+global $_SERVER,$_COOKIE;
 
 $option=get_hs_conf();
 $option['code']=str_ireplace(" ","",html_entity_decode($option['code']));
@@ -24,6 +24,19 @@ $option['code']=str_ireplace(" ","",html_entity_decode($option['code']));
 		echo "\n<!-- ".__("Hit Sniffer tracking code not shown because you're an administrator and you've configured Hit Sniffer plugin to ignore administrators.", 'hitsniffer')." -->\n";
 		return;
 	}
+
+$htmlpar='';
+
+?><!-- HITSNIFFER TRACKING CODE - DO NOT CHANGE --><?php
+
+if (is_search()){
+
+?><script>MySearch='<?php echo addslashes(get_search_query()); ?>';</script><?php
+
+$htmlpar.='&MySearch='.urlencode(addslashes(get_search_query()));
+
+} ?><?php
+
 
 	if( $option['tkn']!=2 ) { 
 ?>
@@ -50,11 +63,45 @@ global $current_user;
 		if (ipnames!='') ipname=ipnames;
   	</script>
 <?php
+
+$ipname=$_COOKIE['comment_author_'.md5( get_option("siteurl"))]; 
+
+if ($ipname=='') $ipname=$current_user->user_login;
+
+if ($ipname!=''){
+$htmlpar.='&ipname='.urlencode(addslashes($ipname));
+}
+	
 	}
 	
-?><!-- HITSNIFFER TRACKING CODE - DO NOT CHANGE -->
+$htmlpar.='&ref='.urlencode(addslashes($_SERVER["HTTP_REFERER"]));
+$htmlpar.='&title='.urlencode(addslashes(wp_title('',false)));
+
+
+
+$keyword[0]='Realtime Web Statistics';
+$keyword[1]='website statistics';
+$keyword[2]='website tracking software';
+$keyword[3]='website tracking';
+$keyword[4]='blog statistics';
+$keyword[5]='blog tracking';
+$keyword[6]='Realtime website statistics';
+$keyword[7]='Realtime website tracking software';
+$keyword[8]='Realtime website tracking';
+$keyword[9]='Realtime blog statistics';
+$keyword[10]='Realtime blog tracking';
+$keyword[11]='free website tracking';
+$keyword[12]='visitor activity tracker';
+$keyword[13]='visitor activity monitoring';
+$keyword[14]='visitor activity monitor';
+
+
+
+
+
+?>
 <script src="http://www.hitsniffer.com/track.php?code=<?php echo $option['code']; ?>" type="text/javascript" ></script>
-<noscript><a href="http://www.hitsniffer.com/"><img src="http://www.hitsniffer.com/track.php?mode=img&code=<?php echo $option['code']; ?>" alt="Realtime hit counter" />web stats</a></noscript>
+<noscript><a href="http://www.hitsniffer.com/"><img src="http://www.hitsniffer.com/track.php?mode=img&code=<?php echo $option['code']; ?><?php echo $htmlpar; ?>" alt="<?php echo $keyword[mt_rand(0,14)]; ?>" border='0' /><?php echo $keyword[mt_rand(0,14)]; ?></a></noscript>
 <!-- HITSNIFFER TRACKING CODE - DO NOT CHANGE --><?php     
 }
 
