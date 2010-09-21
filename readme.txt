@@ -22,9 +22,6 @@ It works on both Blogs and Websites.
 
 To use this plugin, you must have a hitsniffer.com account. Get your free account now!
 
-Installation Steps:
-http://www.hitsniffer.com/plugin/?type=wordpress
-
 View Hit Sniffer Features:
 http://www.hitsniffer.com/features.php
 
