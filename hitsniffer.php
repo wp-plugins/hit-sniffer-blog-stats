@@ -4,7 +4,7 @@ Plugin Name: Hit Sniffer Blog Stats
 Plugin URI: http://www.hitsniffer.com/
 Description: Hit Sniffer
 Author: hitsniffer.com
-Version: 1.9.6
+Version: 1.9.7
 Author URI: http://www.hitsniffer.com/
 */ 
 
@@ -17,7 +17,7 @@ function hitsniffer() {
 global $_SERVER,$_COOKIE;
 
 $option=get_hs_conf();
-$option['code']=str_ireplace(" ","",html_entity_decode($option['code']));
+$option['code']=str_replace(" ","",html_entity_decode($option['code']));
 
 
 	if( round($option['iga'])==1 && current_user_can("manage_options") ) {
@@ -128,7 +128,7 @@ $option['wgd']=html_entity_decode($option['wgd']);
 
 		if ($_POST['action']=='do'){
 			$option=$_POST;
-			$option['code']=htmlentities(str_ireplace(" ","",stripslashes($option['code'])));
+			$option['code']=htmlentities(str_replace(" ","",stripslashes($option['code'])));
             
             set_hs_conf($option);
 			$saved=1;
