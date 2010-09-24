@@ -1,9 +1,9 @@
 === Hit Sniffer Blog Stats ===
 Contributors: San Arena
-Tags: hit, stats, web stats , visitor, monitor, monitoring, blog, tracking, activity, pageview, seo,counter,visit,hit,analytics,website stats, counter, hit counter, hit counters, free hit counter, free web counter, web counter, tracker, web tracker, visitor tracker,page,links,analytic,analytics,dashboard,wordpress,statistics,graph,site,quality,link
+Tags: hit, stats, web stats, visitor, monitor, monitoring, blog, tracking, activity, pageview, seo,counter,visit,hit,analytics,website stats, counter, hit counter, hit counters, free hit counter, free web counter, web counter, tracker, web tracker, visitor tracker,page,links,analytic,analytics,dashboard,wordpress,statistics,graph,site,quality,link
 Requires at least: 1
 Tested up to: 3.0.1
-Stable tag: 1.9.7
+Stable tag: 1.9.8
 
 Hit Sniffer is a powerful real time visitors activity tracker. Monitor your visitors live. 
 
