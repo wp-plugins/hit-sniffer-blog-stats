@@ -4,7 +4,7 @@ Plugin Name: Hit Sniffer Blog Stats
 Plugin URI: http://www.hitsniffer.com/
 Description: Hit Sniffer
 Author: hitsniffer.com
-Version: 1.9.8.2
+Version: 1.9.8.3
 Author URI: http://www.hitsniffer.com/
 */ 
 
@@ -148,7 +148,7 @@ if ($saved==1){
 <center>
 <table width="90%" border="1" style="background-color: rgb(255, 251, 204);" id="message" class="updated fade">
   <tr>
-    <td>Hit Sniffer plugin Setting Saved<br>We have started tracking your visitors from now. <a href="http://www.hitsniffer.com/stats/dashboard.php?code=<?php echo $option['code']; ?>&tag=wordpress-to-dashboard-saved-setting">
+    <td>Hit Sniffer plugin Setting Saved<br>We have started tracking your visitors from now. <a href="http://www.hitsniffer.com/stats/dashboard.php?code=<?php echo substr($option['code'],0,32); ?>&tag=wordpress-to-dashboard-saved-setting">
 	Now, Monitor your visitors here, but hey! please wait until we track some visitors first!</a></td>
   </tr>
 </table>
@@ -162,7 +162,7 @@ if ($saved==1){
 	<tr>
 		<td>
 		<p align="center">
-		<a href="http://www.hitsniffer.com/stats/dashboard.php?code=<?php echo $option['code']; ?>&tag=wordpress-to-dashboard">
+		<a href="http://www.hitsniffer.com/stats/dashboard.php?code=<?php echo substr($option['code'],0,32); ?>&tag=wordpress-to-dashboard">
 		<span style="font-weight: 700">
 		<font face="Verdana" style="font-size: 13pt">Click here to view tracked visitors.</font></span></a></td>
 	</tr>
@@ -195,9 +195,9 @@ If you have a website too, Please put following code into your website pages,
 then hit sniffer can measure your visitors more accurate.</p>
 <p class="submit">Website Code:<br>
 <textarea rows="5" name="wcode" cols="100" readonly><!-- HITSNIFFER TRACKING CODE - DO NOT CHANGE -->
-<script src="http://www.hitsniffer.com/track.php?code=<?php echo $option['code']; ?>" type="text/javascript" ></script>
+<script src="http://www.hitsniffer.com/track.php?code=<?php echo substr($option['code'],0,32); ?>" type="text/javascript" ></script>
 <noscript><a href="http://www.hitsniffer.com/">
-<img src="http://www.hitsniffer.com/track.php?mode=img&code=<?php echo $option['code']; ?>" alt="Realtime website statistics" />Real time website tracking wordpress</a></noscript>
+<img src="http://www.hitsniffer.com/track.php?mode=img&code=<?php echo substr($option['code'],0,32); ?>" alt="Realtime website statistics" />Real time website tracking wordpress</a></noscript>
 <!-- HITSNIFFER TRACKING CODE - DO NOT CHANGE --></textarea></p><?php } ?>
 <input type="hidden" name="action" value="do">
 </form>
@@ -218,7 +218,7 @@ function hitsniffer_dashboard_widget_function() {
 	<iframe scrollable='no' name="hit-sniffer-stat" frameborder="0" border="0" width="100%" height="400" src="http://www.hitsniffer.com/stats/wp-new.php?code=<?php echo $option['code']; ?>">	
 		
 		<p align="center">
-		<a href="http://www.hitsniffer.com/stats/dashboard.php?code=<?php echo $option['code']; ?>&tag=wp-dash-to-hs-dash">
+		<a href="http://www.hitsniffer.com/stats/dashboard.php?code=<?php echo substr($option['code'],0,32); ?>&tag=wp-dash-to-hs-dash">
 		<span>
 		<font face="Verdana" style="font-size: 12pt">Open Hit Sniffer Dashboard</font></span></a></iframe></td>
 	</tr>
