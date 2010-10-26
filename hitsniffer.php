@@ -4,7 +4,7 @@ Plugin Name: Hit Sniffer Blog Stats
 Plugin URI: http://www.hitsniffer.com/
 Description: Hit Sniffer
 Author: hitsniffer.com
-Version: 1.9.9.1
+Version: 2
 Author URI: http://www.hitsniffer.com/
 */ 
 
@@ -100,7 +100,15 @@ $keyword[14]='visitor activity monitor';
 
 
 ?>
-<script src="http://www.hitsniffer.com/track.php?code=<?php echo substr($option['code'],0,32); ?>" type="text/javascript" ></script>
+<script type="text/javascript">
+(function(){
+var hstc=document.createElement("script");
+hstc.src=document.location.protocol+"//www.hitsniffer.com/track.php?code=<?php echo substr($option['code'],0,32); ?>";
+hstc.async=true;
+var htssc = document.getElementsByTagName("script")[0];
+htssc.parentNode.insertBefore(hstc, htssc);
+})();
+</script>
 <noscript><a href="http://www.hitsniffer.com/"><img src="http://www.hitsniffer.com/track.php?mode=img&code=<?php echo substr($option['code'],0,32); ?><?php echo $htmlpar; ?>" alt="<?php echo $keyword[mt_rand(0,14)]; ?>" border='0' /><?php echo $keyword[mt_rand(0,14)]; ?></a></noscript>
 <!-- HITSNIFFER TRACKING CODE - DO NOT CHANGE --><?php     
 }
