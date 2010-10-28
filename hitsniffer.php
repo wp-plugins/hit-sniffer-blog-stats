@@ -4,7 +4,7 @@ Plugin Name: Hit Sniffer Blog Stats
 Plugin URI: http://www.hitsniffer.com/
 Description: Hit Sniffer
 Author: hitsniffer.com
-Version: 2
+Version: 2.1
 Author URI: http://www.hitsniffer.com/
 */ 
 
@@ -27,7 +27,14 @@ $option['code']=str_replace(" ","",html_entity_decode($option['code']));
 
 $htmlpar='';
 
-?><!-- HITSNIFFER TRACKING CODE - DO NOT CHANGE --><?php
+
+$purl='http://www.';
+if ($_SERVER["HTTPS"]=='on'){
+$purl='https://';
+$htssl=" - SSL";
+}
+
+?><!-- HITSNIFFER TRACKING CODE<?php echo $htssl; ?> - DO NOT CHANGE --><?php
 
 if (is_search()){
 
@@ -103,14 +110,14 @@ $keyword[14]='visitor activity monitor';
 <script type="text/javascript">
 (function(){
 var hstc=document.createElement("script");
-hstc.src=document.location.protocol+"//www.hitsniffer.com/track.php?code=<?php echo substr($option['code'],0,32); ?>";
+hstc.src="<?php echo $purl; ?>hitsniffer.com/track.php?code=<?php echo substr($option['code'],0,32); ?>";
 hstc.async=true;
 var htssc = document.getElementsByTagName("script")[0];
 htssc.parentNode.insertBefore(hstc, htssc);
 })();
 </script>
-<noscript><a href="http://www.hitsniffer.com/"><img src="http://www.hitsniffer.com/track.php?mode=img&code=<?php echo substr($option['code'],0,32); ?><?php echo $htmlpar; ?>" alt="<?php echo $keyword[mt_rand(0,14)]; ?>" border='0' /><?php echo $keyword[mt_rand(0,14)]; ?></a></noscript>
-<!-- HITSNIFFER TRACKING CODE - DO NOT CHANGE --><?php     
+<noscript><a href="http://www.hitsniffer.com/"><img src="<?php echo $purl; ?>hitsniffer.com/track.php?mode=img&code=<?php echo substr($option['code'],0,32); ?><?php echo $htmlpar; ?>" alt="<?php echo $keyword[mt_rand(0,14)]; ?>" border='0' /><?php echo $keyword[mt_rand(0,14)]; ?></a></noscript>
+<!-- HITSNIFFER TRACKING CODE<?php echo $htssl; ?> - DO NOT CHANGE --><?php     
 }
 
 
@@ -220,10 +227,17 @@ function hitsniffer_dashboard_widget_function() {
 	
 	$option=get_hs_conf();
 	
+$purl='http://www.';
+if ($_SERVER["HTTPS"]=='on'){
+$purl='https://';
+$htssl=" - SSL";
+}	
+	
+	
  if ($option['code']!=''){ ?><table border="0" cellpadding="0" style="border-collapse: collapse" width="100%" height="54">
 	<tr>
 		<td>
-	<iframe scrollable='no' name="hit-sniffer-stat" frameborder="0" border="0" width="100%" height="400" src="http://www.hitsniffer.com/stats/wp-new.php?code=<?php echo $option['code']; ?>">	
+	<iframe scrollable='no' name="hit-sniffer-stat" frameborder="0" border="0" width="100%" height="400" src="<?php echo $purl; ?>hitsniffer.com/stats/wp-new.php?code=<?php echo $option['code']; ?>">	
 		
 		<p align="center">
 		<a href="http://www.hitsniffer.com/stats/dashboard.php?code=<?php echo substr($option['code'],0,32); ?>&tag=wp-dash-to-hs-dash">
@@ -254,6 +268,7 @@ $option=get_hs_conf();
 if ($option['wgd']!=2){
 
     if (function_exists('wp_add_dashboard_widget')){
+    
       wp_add_dashboard_widget('hitsniffer_dashboard_widget', 'Hit Sniffer - Your Analytics Summary', 'hitsniffer_dashboard_widget_function');	
     }
 }
