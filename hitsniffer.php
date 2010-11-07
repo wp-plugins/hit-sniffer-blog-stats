@@ -4,7 +4,7 @@ Plugin Name: Hit Sniffer Blog Stats
 Plugin URI: http://www.hitsniffer.com/
 Description: Hit Sniffer
 Author: hitsniffer.com
-Version: 2.1.2
+Version: 2.1.3
 Author URI: http://www.hitsniffer.com/
 */ 
 
