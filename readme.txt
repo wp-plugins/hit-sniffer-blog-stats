@@ -1,4 +1,4 @@
-=== Hit Sniffer Blog Stats ===
+=== Hit Sniffer Blog Analytics ===
 Contributors: San Arena
 Tags: thumbnail, hit, stat, web stats, visitor, monitor, log, blog, tracking, activity, pageview,ssl,https, seo,counter,visit,hit,analytics,website stats, counter, hit counter, hit counters, free hit counter, track, web counter, tracker, web tracker, visitor tracker,page,links,analytic,analytics,dashboard,wordpress,statistics,graph,site,quality,link
 Requires at least: 1

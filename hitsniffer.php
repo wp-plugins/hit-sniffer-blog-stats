@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: Hit Sniffer Blog Stats
+Plugin Name: Hit Sniffer Blog Analytics
 Plugin URI: http://www.hitsniffer.com/
 Description: Hit Sniffer
 Author: hitsniffer.com
