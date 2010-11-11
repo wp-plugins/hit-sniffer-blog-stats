@@ -4,12 +4,12 @@ Plugin Name: Hit Sniffer Blog Stats
 Plugin URI: http://www.hitsniffer.com/
 Description: Hit Sniffer
 Author: hitsniffer.com
-Version: 2.1.4
+Version: 2.1.5
 Author URI: http://www.hitsniffer.com/
 */ 
 
 add_action('admin_menu', 'hs_admin_menu');
-add_action('wp_head', 'hitsniffer');
+add_action('wp_footer', 'hitsniffer');
 
 
 
@@ -34,7 +34,7 @@ $purl='https://';
 $htssl=" - SSL";
 }
 
-?><!-- HITSNIFFER TRACKING CODE<?php echo $htssl; ?> - DO NOT CHANGE --><?php
+?><!-- HITSNIFFER TRACKING CODE<?php echo $htssl; ?> v2.1.5 - DO NOT CHANGE --><?php
 
 if (is_search()){
 
@@ -76,13 +76,13 @@ $ipname=$_COOKIE['comment_author_'.md5( get_option("siteurl"))];
 if ($ipname=='') $ipname=$current_user->user_login;
 
 if ($ipname!=''){
-$htmlpar.='&ipname='.urlencode(addslashes($ipname));
+$htmlpar.='&amp;ipname='.urlencode(addslashes($ipname));
 }
 	
 	}
 	
-$htmlpar.='&ref='.urlencode(addslashes($_SERVER["HTTP_REFERER"]));
-$htmlpar.='&title='.urlencode(addslashes(wp_title('',false)));
+$htmlpar.='&amp;ref='.urlencode(addslashes($_SERVER["HTTP_REFERER"]));
+$htmlpar.='&amp;title='.urlencode(addslashes(wp_title('',false)));
 
 
 
@@ -116,7 +116,7 @@ var htssc = document.getElementsByTagName("script")[0];
 htssc.parentNode.insertBefore(hstc, htssc);
 })();
 </script>
-<noscript><a href="http://www.hitsniffer.com/"><img src="<?php echo $purl; ?>hitsniffer.com/track.php?mode=img&code=<?php echo substr($option['code'],0,32); ?><?php echo $htmlpar; ?>" alt="<?php echo $keyword[mt_rand(0,14)]; ?>" border='0' /><?php echo $keyword[mt_rand(0,14)]; ?></a></noscript>
+<noscript><a href="http://www.hitsniffer.com/"><img src="<?php echo $purl; ?>hitsniffer.com/track.php?mode=img&amp;code=<?php echo substr($option['code'],0,32); ?><?php echo $htmlpar; ?>" alt="<?php echo $keyword[mt_rand(0,14)]; ?>" border='0' /><?php echo $keyword[mt_rand(0,14)]; ?></a></noscript>
 <!-- HITSNIFFER TRACKING CODE<?php echo $htssl; ?> - DO NOT CHANGE --><?php     
 }
 

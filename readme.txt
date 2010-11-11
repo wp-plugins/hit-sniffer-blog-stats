@@ -3,7 +3,7 @@ Contributors: San Arena
 Tags: thumbnail, hit, stat, web stats, visitor, monitor, log, blog, tracking, activity, pageview,ssl,https, seo,counter,visit,hit,analytics,website stats, counter, hit counter, hit counters, free hit counter, track, web counter, tracker, web tracker, visitor tracker,page,links,analytic,analytics,dashboard,wordpress,statistics,graph,site,quality,link
 Requires at least: 1
 Tested up to: 3.0.1
-Stable tag: 2.1.4
+Stable tag: 2.1.5
 
 Hit Sniffer is a powerful real time visitors activity tracker. Monitor your visitors live. 
 
@@ -26,6 +26,10 @@ View Hit Sniffer Features:
 http://www.hitsniffer.com/features.php
 
 == Changelog ==
+
+= 2.1.5 =
++ Fixed HTML Email reports.
++ Valid XHTML Code
 
 = 2.1 =
 + HTTPS SSL Support
