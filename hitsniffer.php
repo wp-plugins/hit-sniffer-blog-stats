@@ -4,7 +4,7 @@ Plugin Name: Hit Sniffer Blog Analytics
 Plugin URI: http://www.hitsniffer.com/
 Description: Hit Sniffer
 Author: hitsniffer.com
-Version: 2.1.7
+Version: 2.1.8
 Author URI: http://www.hitsniffer.com/
 */ 
 
@@ -16,11 +16,6 @@ add_action('wp_head', 'hitsniffer');
 
 function hitsniffer() {
 global $_SERVER,$_COOKIE,$hitsniffer_tracker;
-
-if ($hitsniffer_tracker){
-
-}else{
-$hitsniffer_tracker=1;
 
 $option=get_hs_conf();
 $option['code']=str_replace(" ","",html_entity_decode($option['code']));
@@ -40,11 +35,13 @@ $purl='https://';
 $htssl=" - SSL";
 }
 
-?><!-- HITSNIFFER TRACKING CODE<?php echo $htssl; ?> v2.1.5 - DO NOT CHANGE --><?php
+?><!-- HITSNIFFER TRACKING CODE<?php echo $htssl; ?> v2.1.8 - DO NOT CHANGE --><?php
 
 if (is_search()){
 
+if (round($hitsniffer_tracker)==0){
 ?><script>MySearch='<?php echo addslashes(get_search_query()); ?>';</script><?php
+}
 
 $htmlpar.='&MySearch='.urlencode(addslashes(get_search_query()));
 
@@ -52,7 +49,7 @@ $htmlpar.='&MySearch='.urlencode(addslashes(get_search_query()));
 
 
 	if( $option['tkn']!=2 ) { 
-?>
+?><?php if (round($hitsniffer_tracker)==0){ ?>
 	<script type='text/javascript'>
 	function hitsniffer_gc( name ) {
 		var ca = document.cookie.split(';');
@@ -74,7 +71,7 @@ global $current_user;
 
 		ipnames=hitsniffer_gc( 'comment_author_<?php echo md5( get_option("siteurl") ); ?>' );
 		if (ipnames!='') ipname=ipnames;
-  	</script>
+  	</script><?php } ?>
 <?php
 
 $ipname=$_COOKIE['comment_author_'.md5( get_option("siteurl"))]; 
@@ -112,7 +109,7 @@ $keyword[14]='visitor activity monitor';
 
 
 
-?>
+?><?php if (round($hitsniffer_tracker==0)){ ?>
 <script type="text/javascript">
 (function(){
 var hstc=document.createElement("script");
@@ -122,10 +119,16 @@ var htssc = document.getElementsByTagName("script")[0];
 htssc.parentNode.insertBefore(hstc, htssc);
 })();
 </script>
+<?php }else{ ?>
 <noscript><a href="http://www.hitsniffer.com/"><img src="<?php echo $purl; ?>hitsniffer.com/track.php?mode=img&amp;code=<?php echo substr($option['code'],0,32); ?><?php echo $htmlpar; ?>" alt="<?php echo $keyword[mt_rand(0,14)]; ?>" border='0' /><?php echo $keyword[mt_rand(0,14)]; ?></a></noscript>
-<!-- HITSNIFFER TRACKING CODE<?php echo $htssl; ?> - DO NOT CHANGE --><?php     
+<?php } ?>
+<!-- HITSNIFFER TRACKING CODE<?php echo $htssl; ?><?php if (round($hitsniffer_tracker==0)){ ?> - Header Code<?php }else{ ?> - Footer Code<?php } ?> - DO NOT CHANGE --><?php 
+    
+$hitsniffer_tracker=1;
+
 }
-}
+
+
 
 
 function get_hs_conf(){
