@@ -195,7 +195,7 @@ if ($saved==1){
 <?php if ($option['code']==''){ ?><p>Please enter your Hit Sniffer API Code to activate it, If you don't have an API Code, get 
 your free trial one at 
 <a href="http://www.hitsniffer.com/?tag=wordpress-to-ht">HitSniffer.com</a><br><?php } ?><br>Hit Sniffer API Code:<br>
-	<textarea rows="2" name="code" cols="117" ><?php echo $option['code']; ?></textarea></p>
+	<textarea rows="2" name="code" cols="117" ><?php echo $option['code']; ?></textarea><br>Each site has it's own API Code. Looks something like 3defb4a2e4426642ea... and can be found in <a href='http://www.hitsniffer.com' target='_blank'>Hit Sniffer Website</a> setting page.</p>
 <p>Show Hit Sniffer Quick Summary in Wordpress Dashboard?&nbsp;&nbsp;&nbsp;
 <input type="radio" value="1" name="wgd" style="width: 22px; height: 20px;" <?php if ($option['wgd']!=2) echo "checked"; ?>>Yes&nbsp;
 <input type="radio" value="2" name="wgd" style="width: 22px; height: 20px;" <?php if ($option['wgd']==2) echo "checked"; ?>>No</p>
