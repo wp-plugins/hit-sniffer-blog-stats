@@ -4,7 +4,7 @@ Plugin Name: Hit Sniffer Blog Analytics
 Plugin URI: http://www.hitsniffer.com/
 Description: Hit Sniffer
 Author: hitsniffer.com
-Version: 2.1.9
+Version: 2.2
 Author URI: http://www.hitsniffer.com/
 */ 
 
@@ -35,7 +35,7 @@ $purl='https://';
 $htssl=" - SSL";
 }
 
-?><!-- HITSNIFFER TRACKING CODE<?php echo $htssl; ?> v2.1.8 - DO NOT CHANGE --><?php
+?><!-- HITSNIFFER TRACKING CODE<?php echo $htssl; ?> v2.2 - DO NOT CHANGE --><?php
 
 if (is_search()){
 
@@ -286,6 +286,109 @@ if ($option['wgd']!=2){
 
 
 add_action('wp_dashboard_setup', 'hitsniffer_add_dashboard_widgets' );
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * HS_SUPPORT Class
+ */
+class HS_SUPPORT extends WP_Widget {
+    /** constructor */
+    function HS_SUPPORT() {
+        parent::WP_Widget(false, $name = 'Hit Sniffer Live Chat Support');	
+    }
+
+    /** @see WP_Widget::widget */
+    function widget($args, $instance) {
+    
+    
+$option=get_hs_conf();
+$option['code']=str_replace(" ","",html_entity_decode($option['code']));
+
+
+$purl='http://www.';
+if ($_SERVER["HTTPS"]=='on'){
+$purl='https://';
+$htssl=" - SSL";
+}
+    
+    
+    
+ if ($option['code']!=''){    
+    
+    
+        extract( $args );
+        $title = apply_filters('widget_title', $instance['widget_title']);
+        $widget_comments_title = apply_filters('widget_comments_title', $instance['widget_comments_title']);
+
+
+
+
+
+
+        ?>
+              <?php echo $before_widget; ?>
+                  <?php if ( $title )
+                        echo $before_title . $title . $after_title; ?>
+<div style="text-align: center;"><!-- HITSNIFFER ONLINE SUPPORT CODE v2.2 - DO NOT CHANGE -->
+<script src="<?php echo $purl; ?>hitsniffer.com/online.php?code=<?php echo $option['code']; ?>" type="text/javascript" ></script>
+<!-- HITSNIFFER ONLINE SUPPORT CODE - DO NOT CHANGE --></div>
+                  <?php echo $widget_comments_title; ?>
+              <?php echo $after_widget; ?>
+        <?php
+    }
+    }
+
+    /** @see WP_Widget::update */
+    function update($new_instance, $old_instance) {				
+	$instance = $old_instance;
+	$instance['widget_title'] = strip_tags($new_instance['title']);
+	$instance['widget_comments_title'] = strip_tags($new_instance['comment']);
+        return $instance;
+    }
+
+    /** @see WP_Widget::form */
+    function form($instance) {	
+    $option=get_hs_conf();		
+     if ($option['code']!=''){  	
+        $title = esc_attr($instance['widget_title']);
+        $widget_comments_title = esc_attr($instance['widget_comments_title']);
+        ?>
+            <p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?> <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" /></label></p>
+            <p><label for="<?php echo $this->get_field_id('comment'); ?>"><?php _e('Your Comment:'); ?> <input class="widefat" id="<?php echo $this->get_field_id('comment'); ?>" name="<?php echo $this->get_field_name('comment'); ?>" type="text" value="<?php echo $widget_comments_title; ?>" /></label></p>
+		<p>What is this widget?</p><span>Hit Sniffer offer live chat support with it's basic to up plans. This widget show an Online support icon whenever you are online at hit sniffer dashboard and show a Leave a message contact form icon when you are not online.</span>
+        <?php 
+    }else{
+            ?>
+            <p>Please configure hit sniffer API Code in your wordpress Setting -> Hit Sniffer before using Chat widget.</p>
+        <?php 
+    }
+    
+    }
+
+
+function get_hs_conf(){
+$config=get_option('hs_setting');
+if (round($option['wgd'])==0) $option['wgd']=1;
+if (round($option['tkn'])==0) $option['tkn']=1;
+if (round($option['iga'])==0) $option['iga']=2;
+return $config;
+}
+
+} // class HS_SUPPORT
+
+
+// register HS_SUPPORT widget
+add_action('widgets_init', create_function('', 'return register_widget("HS_SUPPORT");'));
 
 
 ?>
