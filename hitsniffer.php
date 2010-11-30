@@ -4,7 +4,7 @@ Plugin Name: Hit Sniffer Blog Analytics
 Plugin URI: http://www.hitsniffer.com/
 Description: Hit Sniffer
 Author: hitsniffer.com
-Version: 2.2.1
+Version: 2.2.2
 Author URI: http://www.hitsniffer.com/
 */ 
 
@@ -18,7 +18,7 @@ function hitsniffer() {
 global $_SERVER,$_COOKIE,$hitsniffer_tracker;
 
 $option=get_hs_conf();
-$option['code']=str_replace(" ","",html_entity_decode($option['code']));
+$option['code']=str_replace("\r",'',str_replace("\n",'',str_replace(" ","",trim(html_entity_decode($option['code'])))));
 
 
 	if( round($option['iga'])==1 && current_user_can("manage_options") ) {
@@ -110,14 +110,8 @@ $keyword[14]='visitor activity monitor';
 
 
 ?><?php if (round($hitsniffer_tracker==0)){ ?>
+<script type="text/javascript" src="<?php echo $purl; ?>hitsniffer.com/track.php?code=<?php echo substr($option['code'],0,32); ?>"></script>
 <script type="text/javascript">
-(function(){
-var hstc=document.createElement("script");
-hstc.src="<?php echo $purl; ?>hitsniffer.com/track.php?code=<?php echo substr($option['code'],0,32); ?>";
-hstc.async=true;
-var htssc = document.getElementsByTagName("script")[0];
-htssc.parentNode.insertBefore(hstc, htssc);
-})();
 <?php if (round($option['allowchat'])==2){ ?>var nochat=1;
 <?php }else{ ?>var nochat=0;<?php } ?>
 </script>
@@ -321,7 +315,7 @@ class HS_SUPPORT extends WP_Widget {
     
     
 $option=get_hs_conf();
-$option['code']=str_replace(" ","",html_entity_decode($option['code']));
+$option['code']=substr(str_replace("\r",'',str_replace("\n",'',str_replace(" ","",trim(html_entity_decode($option['code']))))),0,32);
 
 
 $purl='http://www.';
@@ -332,7 +326,7 @@ $htssl=" - SSL";
     
     
     
- if ($option['code']!=''){    
+ if ($option['code']!=''){
     
     
         extract( $args );
