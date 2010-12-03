@@ -1,6 +1,6 @@
-=== Hit Sniffer Blog Analytics ===
+=== Hit Sniffer Live Blog Analytics ===
 Contributors: San Arena
-Tags: thumbnail, hit, stat, web stats, visitor, monitor, log, blog, tracking, activity, pageview,ssl,https, seo,counter,visit,hit,analytics,website stats, counter, hit counter, hit counters, free hit counter, track, web counter, tracker, web tracker, visitor tracker,page,links,analytic,analytics,dashboard,wordpress,statistics,graph,site,quality,link
+Tags: hit, stats,statistics, web, visitor, monitor, visitors, monitoring, log, blog, tracking,track,tracker, activity, pageview,ssl,https,seo,counter,visit,analytics,website,free,,visitor tracker,page,links,analytic,dashboard,widget,gadget,wordpress,graph,site
 Requires at least: 1
 Tested up to: 3.1
 Stable tag: 2.2.3
@@ -13,7 +13,7 @@ Hit Sniffer is a powerful real time visitors activity tracker. Monitor your visi
 Hit Sniffer is a powerful real time visitors activity tracker.
 Monitor your visitors live and get useful stats data such as referrers, bounce rate,
 links quality, search keywords, technologies used, OS, Browser, Came from, Country
-Timely Graph and much more... All in Live Realtime Stream.
+Timely Graph and much more advanced features such as Goals and Campagins tracker for calculating Return On Investment and Ratio. All in Live Realtime Stream.
 just open live section and watch your visitors stream.
 It works on both Blogs and Websites.
 
