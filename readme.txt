@@ -27,19 +27,19 @@ http://www.hitsniffer.com/features.php
 
 == Changelog ==
 
-= 2.2.3
+= 2.2.3 =
 + Goal and Campaign Tracking Added
 
-= 2.2.1
+= 2.2.1 =
 + Control to disable Chat Service to decrease site load
 
-= 2.2
+= 2.2 =
 + Added Live Chat support widget.
 
-= 2.1.9
+= 2.1.9 =
 + Better Chat Support. Sound Notification.
 
-= 2.1.8
+= 2.1.8 =
 + Fixed code in templates without footer
 
 = 2.1.5 =
