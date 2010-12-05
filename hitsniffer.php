@@ -4,7 +4,7 @@ Plugin Name: Hit Sniffer Live Blog Analytics
 Plugin URI: http://www.hitsniffer.com/
 Description: Hit Sniffer
 Author: hitsniffer.com
-Version: 2.2.3
+Version: 2.2.4
 Author URI: http://www.hitsniffer.com/
 */ 
 
@@ -250,12 +250,12 @@ $htssl=" - SSL";
  if ($option['code']!=''){ ?><table border="0" cellpadding="0" style="border-collapse: collapse" width="100%" height="54">
 	<tr>
 		<td>
-	<iframe scrollable='no' name="hit-sniffer-stat" frameborder="0" border="0" width="100%" height="400" src="<?php echo $purl; ?>hitsniffer.com/stats/wp-new.php?code=<?php echo $option['code']; ?>">	
+	<iframe scrollable='no' name="hit-sniffer-stat" frameborder="0" border="0" width="100%" height="490" src="<?php echo $purl; ?>hitsniffer.com/stats/wp-new.php?code=<?php echo $option['code']; ?>">	
 		
 		<p align="center">
 		<a href="http://www.hitsniffer.com/stats/dashboard.php?code=<?php echo substr($option['code'],0,32); ?>&tag=wp-dash-to-hs-dash">
 		<span>
-		<font face="Verdana" style="font-size: 12pt">Open Hit Sniffer Dashboard</font></span></a></iframe></td>
+		<font face="Verdana" style="font-size: 12pt">Your Browser don't show our widget's iframe. Please Open Hit Sniffer Dashboard manually.</font></span></a></iframe></td>
 	</tr>
 </table>
 
@@ -264,7 +264,7 @@ $htssl=" - SSL";
 }else{ ?><table border="0" cellpadding="0" style="border-collapse: collapse" width="100%" height="54">
 	<tr>
 		<td>
-		<p align="left">Hit Sniffer API Code is not installed. Please open Wordpress Setting -> Hit Sniffer for instruction.</td>
+		<p align="left">Hit Sniffer API Code is not installed. Please open Wordpress Setting -> Hit Sniffer for instruction.<br>You need get your free hit sniffer account to get an API key.</td>
 	</tr>
 </table>
 
@@ -368,10 +368,15 @@ $htssl=" - SSL";
         ?>
             <p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?> <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" /></label></p>
             <p><label for="<?php echo $this->get_field_id('comment'); ?>"><?php _e('Your Comment:'); ?> <input class="widefat" id="<?php echo $this->get_field_id('comment'); ?>" name="<?php echo $this->get_field_name('comment'); ?>" type="text" value="<?php echo $widget_comments_title; ?>" /></label></p>
-		<p>What is this widget?</p><span>Hit Sniffer offer live chat support with it's basic to up plans. This widget show an Online support icon whenever you are online at hit sniffer dashboard and show a Leave a message contact form icon when you are not online.</span>
+		<p>What is this widget?</p><span>Hit Sniffer offer live chat support 
+starting from basic plan. This widget show an Online support icon whenever you are online at hit sniffer dashboard and show a Leave a message contact form icon when you are not online.</span>
         <?php 
     }else{
-            ?>
+            ?><p>You might be interested to download cross-platform Native OS 
+Chat Notifier widget of Hit Sniffer, to receive notification whenever somebody 
+requested a chat with you.
+<a target="_parent" href="http://www.hitsniffer.com/widget/">Click here to open 
+widgets page.</a></p>
             <p>Please configure hit sniffer API Code in your wordpress Setting -> Hit Sniffer before using Chat widget.</p>
         <?php 
     }
