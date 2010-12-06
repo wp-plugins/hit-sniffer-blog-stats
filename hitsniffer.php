@@ -110,8 +110,16 @@ $keyword[14]='visitor activity monitor';
 
 
 ?><?php if (round($hitsniffer_tracker==0)){ ?>
-<script type="text/javascript" src="<?php echo $purl; ?>hitsniffer.com/track.php?code=<?php echo substr($option['code'],0,32); ?>"></script>
-<script type="text/javascript">
+<script>
+(function(){
+var hstc=document.createElement('script');
+var hstcs='www.';
+hstc.src=document.location.protocol+'<?php echo $purl; ?>hitsniffer.com/track.php?code=<?php echo substr($option['code'],0,32); ?>';
+hstc.async=true;
+var htssc = document.getElementsByTagName('script')[0];
+htssc.parentNode.insertBefore(hstc, htssc);
+})();
+
 <?php if (round($option['allowchat'])==2){ ?>var nochat=1;
 <?php }else{ ?>var nochat=0;<?php } ?>
 </script>

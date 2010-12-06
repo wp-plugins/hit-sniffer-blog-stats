@@ -1,6 +1,6 @@
 === Hit Sniffer Live Blog Analytics ===
 Contributors: San Arena
-Tags: hit, stats,statistics, web, visitor, monitor, visitors, monitoring, log, blog, tracking,track,tracker, activity, pageview,ssl,https,seo,counter,visit,analytics,website,free,,visitor tracker,page,links,analytic,dashboard,widget,gadget,wordpress,graph,site
+Tags: hit,stats,statistics, web, visitor, monitor, visitors, monitoring, log, blog, tracking,track,tracker, activity, pageview,ssl,https,seo,counter,visit,analytics,website,free,,visitor tracker,page,links,analytic,dashboard,widget,gadget,wordpress,graph,site
 Requires at least: 1
 Tested up to: 3.1
 Stable tag: 2.2.4
