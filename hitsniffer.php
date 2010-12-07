@@ -4,7 +4,7 @@ Plugin Name: Hit Sniffer Live Blog Analytics
 Plugin URI: http://www.hitsniffer.com/
 Description: Hit Sniffer
 Author: hitsniffer.com
-Version: 2.2.5
+Version: 2.2.5.1
 Author URI: http://www.hitsniffer.com/
 */ 
 
@@ -114,7 +114,7 @@ $keyword[14]='visitor activity monitor';
 (function(){
 var hstc=document.createElement('script');
 var hstcs='www.';
-hstc.src=document.location.protocol+'<?php echo $purl; ?>hitsniffer.com/track.php?code=<?php echo substr($option['code'],0,32); ?>';
+hstc.src='<?php echo $purl; ?>hitsniffer.com/track.php?code=<?php echo substr($option['code'],0,32); ?>';
 hstc.async=true;
 var htssc = document.getElementsByTagName('script')[0];
 htssc.parentNode.insertBefore(hstc, htssc);
