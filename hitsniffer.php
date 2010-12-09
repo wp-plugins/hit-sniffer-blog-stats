@@ -4,7 +4,7 @@ Plugin Name: Hit Sniffer Live Blog Analytics
 Plugin URI: http://www.hitsniffer.com/
 Description: Hit Sniffer
 Author: hitsniffer.com
-Version: 2.2.5.1
+Version: 2.2.6
 Author URI: http://www.hitsniffer.com/
 */ 
 
@@ -35,7 +35,7 @@ $purl='https://';
 $htssl=" - SSL";
 }
 
-?><!-- HITSNIFFER TRACKING CODE<?php echo $htssl; ?> v2.2 - DO NOT CHANGE --><?php
+?><!-- HITSNIFFER TRACKING CODE<?php echo $htssl; ?> v2.2.6 - DO NOT CHANGE --><?php
 
 if (is_search()){
 
@@ -104,6 +104,10 @@ $keyword[11]='free website tracking';
 $keyword[12]='visitor activity tracker';
 $keyword[13]='visitor activity monitoring';
 $keyword[14]='visitor activity monitor';
+$keyword[15]='user activity tracking';
+$keyword[16]='website analytics';
+$keyword[17]='blog analytics';
+$keyword[18]='visitor analytics';
 
 
 
@@ -258,7 +262,7 @@ $htssl=" - SSL";
  if ($option['code']!=''){ ?><table border="0" cellpadding="0" style="border-collapse: collapse" width="100%" height="54">
 	<tr>
 		<td>
-	<iframe scrollable='no' name="hit-sniffer-stat" frameborder="0" border="0" width="100%" height="490" src="<?php echo $purl; ?>hitsniffer.com/stats/wp-new.php?code=<?php echo $option['code']; ?>">	
+	<iframe scrollable='no' name="hit-sniffer-stat" frameborder="0" border="0" width="100%" height="495" src="<?php echo $purl; ?>hitsniffer.com/stats/wp-new.php?code=<?php echo $option['code']; ?>">	
 		
 		<p align="center">
 		<a href="http://www.hitsniffer.com/stats/dashboard.php?code=<?php echo substr($option['code'],0,32); ?>&tag=wp-dash-to-hs-dash">
