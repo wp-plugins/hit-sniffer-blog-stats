@@ -4,14 +4,14 @@ Plugin Name: Hit Sniffer Live Blog Analytics
 Plugin URI: http://www.hitsniffer.com/
 Description: Hit Sniffer
 Author: hitsniffer.com
-Version: 2.2.6.9
+Version: 2.2.7
 Author URI: http://www.hitsniffer.com/
 */ 
 
 add_action('admin_menu', 'hs_admin_menu');
 add_action('wp_footer', 'hitsniffer');
 add_action('wp_head', 'hitsniffer');
-
+hitsniffer_admin_warnings();
 
 
 function hitsniffer() {
@@ -138,6 +138,21 @@ $hitsniffer_tracker=1;
 
 
 
+function hitsniffer_admin_warnings() {
+$option=get_hs_conf();
+
+	if ( $option['code']=='' && $_POST['action']!='do' ) {
+		function hitsniffer_warning() {
+			echo "
+			<div id='hitsniffer-warning' class='updated fade'><p><strong>".__('hitsniffer is almost ready.')."</strong> ".sprintf(__('You must <a href="%1$s">enter your hitsniffer API key</a> for it to work.'), "options-general.php?page=hit-sniffer-blog-stats/hitsniffer.php")."</p></div>
+			";
+		}
+		add_action('admin_notices', 'hitsniffer_warning');
+		return;
+	}
+}
+
+
 
 function get_hs_conf(){
 $config=get_option('hs_setting');
@@ -180,54 +195,52 @@ select{ width: 100%; }
 <?php
 if ($saved==1){
 ?>
-<center>
-<table width="90%" border="1" style="background-color: rgb(255, 251, 204);" id="message" class="updated fade">
-  <tr>
-    <td>Hit Sniffer plugin Setting Saved<br>We have started tracking your visitors from now. <a href="http://www.hitsniffer.com/stats/dashboard.php?code=<?php echo substr($option['code'],0,32); ?>&tag=wordpress-to-dashboard-saved-setting">
-	Now, Monitor your visitors here, but hey! please wait until we track some visitors first!</a></td>
-  </tr>
-</table>
-</center>
+
+<br>
+<div id='hitsniffer-saved' class='updated fade' ><p><strong>Hit Sniffer plugin Setting Saved</strong> We have started tracking your visitors from now. <a href="http://www.hitsniffer.com/stats/dashboard.php?code=<?php echo substr($option['code'],0,32); ?>&tag=wordpress-to-dashboard-saved-setting">
+	you can monitor your visitor activity in realtime here, but hey! please wait until we track some visitors first!</a></p></div>
+		<br>	
+
+
 <?php } ?>
 
 <h2>
 <a target="_blank" href="http://www.hitsniffer.com/?tag=wordpress-to-homepage">Hit Sniffer - an eye on your site</a></h2>
 <form method="POST" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
-<?php if ($option['code']!=''){ ?><table border="0" cellpadding="0" style="border-collapse: collapse" width="100%" height="54">
-	<tr>
-		<td>
-		<p align="center">
-		<a href="http://www.hitsniffer.com/stats/dashboard.php?code=<?php echo substr($option['code'],0,32); ?>&tag=wordpress-to-dashboard">
-		<span style="font-weight: 700">
-		<font face="Verdana" style="font-size: 13pt">Click here to view tracked visitors.</font></span></a></td>
-	</tr>
-</table><?php } ?>
-<?php if ($option['code']==''){ ?><p>Please enter your Hit Sniffer API Code to activate it, If you don't have an API Code, get 
+<?php if ($option['code']!=''){ ?>
+
+<div id='hitsniffer-saved' class='updated fade'><p><strong><a href="http://www.hitsniffer.com/stats/dashboard.php?code=<?php echo substr($option['code'],0,32); ?>&tag=wordpress-to-dashboard">monitor your visitor activity, open your realtime dashboard.</a></strong></p></div>
+
+<?php } 
+$x = WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__));
+
+?>
+<div style="margin: auto; width: 600px; ">
+<p><?php if ($option['code']!=''){ ?><a target="_blank" href="http://www.hitsniffer.com/stats/dashboard.php?code=<?php echo substr($option['code'],0,32); ?>&tag=wordpressimg-to-dashboard"><?php }else{ ?><a target="_blank" href="http://www.hitsniffer.com/images/features/dashboard.jpg"><?php } ?>
+<img border="0" src="<?php echo $x; ?>hitsniffer.jpg" width="169" height="100" align="right"></a>Hit Sniffer realtime visitor activity tracker and analytics, allows you to be aware what is going in your wordpress blog and sites right now and has detailed archive for tracked visitor data. If you don't have an API code yet, you can get 
 your free trial one at 
-<a href="http://www.hitsniffer.com/?tag=wordpress-to-ht">HitSniffer.com</a><br><?php } ?><br>Hit Sniffer API Code:<br>
-	<input type="text" name="code" size="20" value="<?php echo $option['code']; ?>"><br>Each site has it's own API Code. Looks something like 3defb4a2e4426642ea... and can be found in <a href='http://www.hitsniffer.com' target='_blank'>Hit Sniffer Website</a> setting page.</p>
-<p>Show Hit Sniffer Quick Summary in Wordpress Dashboard?&nbsp;&nbsp;&nbsp;
-<input type="radio" value="1" name="wgd" style="width: 22px; height: 20px;" <?php if ($option['wgd']!=2) echo "checked"; ?>>Yes&nbsp;
-<input type="radio" value="2" name="wgd" style="width: 22px; height: 20px;" <?php if ($option['wgd']==2) echo "checked"; ?>>No</p>
-<p>Track Visitors Name ( using name they enter when commenting )?&nbsp;&nbsp;&nbsp;
-<input type="radio" value="1" name="tkn" style="width: 22px; height: 20px;" <?php if ($option['tkn']!=2) echo "checked"; ?>>Yes&nbsp;
-<input type="radio" value="2" name="tkn" style="width: 22px; height: 20px;" <?php if ($option['tkn']==2) echo "checked"; ?>>No</p>
-<p>Ignore Admin Visits?&nbsp;&nbsp;&nbsp;
-<input type="radio" value="1" name="iga" style="width: 22px; height: 20px;" <?php if (round($option['iga'])!=2) echo "checked"; ?>>Yes&nbsp;
-<input type="radio" value="2" name="iga" style="width: 22px; height: 20px;" <?php if (round($option['iga'])==2) echo "checked"; ?>>No</p>
-<p>Allow me Start a chat with visitors using
-<a target="_blank" href="http://www.hitsniffer.com/stats/dashboard.php?code=<?php echo substr($option['code'],0,32); ?>&tag=wp-to-dash-chat">
-Hit Sniffer Dashboard</a>?&nbsp;&nbsp;&nbsp;
-<input type="radio" value="1" name="allowchat"  style="width: 22px; height: 20px;" <?php if ($option['allowchat']!=2) echo "checked"; ?> checked>Yes&nbsp;
-<input type="radio" value="2" name="allowchat"  style="width: 22px; height: 20px;" <?php if ($option['allowchat']==2) echo "checked"; ?>>No</p>
+<a href="http://www.hitsniffer.com/?tag=wordpress-to-ht">hitsniffer.com</a>.<br><br><strong>Hit Sniffer API Code:</strong> ( <a href="http://www.hitsniffer.com/register.php?tag=wp-getyourcode" target="_blank">Get your code</a> ) <br>
+	<input type="text" name="code" size="20" value="<?php echo $option['code']; ?>"><br>Each site has it's own API Code. It Looks like 3defb4a2e4426642ea... and can be found in setting page of hitsniffer.com</p>
+<p><input type="radio" value="1" name="wgd" style="width: 22px; height: 20px;" <?php if ($option['wgd']!=2) echo "checked"; ?>>Yes&nbsp;
+<input type="radio" value="2" name="wgd" style="width: 22px; height: 20px;" <?php if ($option['wgd']==2) echo "checked"; ?>>No&nbsp;&nbsp;&nbsp;Show Hit Sniffer Quick Summary in Wordpress Dashboard?
+</p>
+<p><input type="radio" value="1" name="tkn" style="width: 22px; height: 20px;" <?php if ($option['tkn']!=2) echo "checked"; ?>>Yes&nbsp;
+<input type="radio" value="2" name="tkn" style="width: 22px; height: 20px;" <?php if ($option['tkn']==2) echo "checked"; ?>>No&nbsp;&nbsp;&nbsp;Track Visitors Name ( using name they enter when commenting )?
+</p>
+<p><input type="radio" value="1" name="iga" style="width: 22px; height: 20px;" <?php if (round($option['iga'])!=2) echo "checked"; ?>>Yes&nbsp;
+<input type="radio" value="2" name="iga" style="width: 22px; height: 20px;" <?php if (round($option['iga'])==2) echo "checked"; ?>>No&nbsp;&nbsp;&nbsp;Ignore Admin Visits?
+</p>
+<p><input type="radio" value="1" name="allowchat"  style="width: 22px; height: 20px;" <?php if ($option['allowchat']!=2) echo "checked"; ?> checked>Yes&nbsp;
+<input type="radio" value="2" name="allowchat"  style="width: 22px; height: 20px;" <?php if ($option['allowchat']==2) echo "checked"; ?>>No&nbsp;&nbsp;&nbsp;Enable "Start chat with visitors feature" (Start from Basic plan)
+</p>
     
 	
 	<p class="submit"><input type="submit" value="Save" style="width: 120px;"></p>
-<?php if ($option['code']==''){ ?><p class="submit"><br><br><br><h2>How use Hit Sniffer at Wordpress?</h2>Just 
+<?php if ($option['code']==''){ ?><p class="submit"><br><h2>How configure Hit Sniffer at Wordpress?</h2>Just 
 <a href="http://www.hitsniffer.com/register.php?tag=wordpress-to-ht-reg">Sign up 
-at Hit Sniffer</a> and get your free account.<br>
-Login to your hit sniffer account and Add your website address in hit sniffer website list.<br>then in hitsniffer.com setting page, get your Wordpress API code.<br>
-Input that code here.<br>All Visitors information will be tracked in real-time and you can open and watch them in your hitsniffer.com dashboard, Real-time! it means you open dashboard and it will show your current visitors, once they change a page, it have more to offer!</p><?php } ?>
+for a hit sniffer account</a> and follow steps.<br>
+Login to your hit sniffer account, Add your website address to your hit sniffer account.<br>then in hitsniffer.com setting page, you will get your Hit Sniffer API code.<br>
+Paste that code in field above.<br>All your Visitors information will be tracked and logged in real-time and you can monitor them in your hitsniffer.com dashboard, Real-time! and it have more to offer!</p><?php } ?>
 	<p class="submit"><a href="http://www.hitsniffer.com/features.php" target="_blank">view hit sniffer features</a></p>
 <p class="submit">Hit Sniffer also support normal websites ( non wordpress pages 
 ).<?php if ($option['code']!=''){ ?><br>
@@ -240,8 +253,9 @@ then hit sniffer can measure your visitors more accurate.</p>
 <img src="http://www.hitsniffer.com/track.php?mode=img&code=<?php echo substr($option['code'],0,32); ?>" alt="Realtime website statistics" />Real time website tracking wordpress</a></noscript>
 <!-- HITSNIFFER TRACKING CODE - DO NOT CHANGE --></textarea></p><?php } ?>
 <input type="hidden" name="action" value="do">
+</div>
 </form>
-	
+
 </div>
 
 <?php
@@ -262,7 +276,7 @@ $htssl=" - SSL";
  if ($option['code']!=''){ ?><table border="0" cellpadding="0" style="border-collapse: collapse" width="100%" height="54">
 	<tr>
 		<td>
-	<iframe scrollable='no' name="hit-sniffer-stat" frameborder="0" border="0" width="100%" height="495" src="<?php echo $purl; ?>hitsniffer.com/stats/wp-new.php?code=<?php echo $option['code']; ?>">	
+	<iframe scrollable='no' name="hit-sniffer-stat" frameborder="0" border="0" width="100%" height="460" src="<?php echo $purl; ?>hitsniffer.com/stats/wp-new.php?code=<?php echo $option['code']; ?>">	
 		
 		<p align="center">
 		<a href="http://www.hitsniffer.com/stats/dashboard.php?code=<?php echo substr($option['code'],0,32); ?>&tag=wp-dash-to-hs-dash">
@@ -382,13 +396,13 @@ $htssl=" - SSL";
             <p><label for="<?php echo $this->get_field_id('comment'); ?>"><?php _e('Your Comment:'); ?> <input class="widefat" id="<?php echo $this->get_field_id('comment'); ?>" name="<?php echo $this->get_field_name('comment'); ?>" type="text" value="<?php echo $widget_comments_title; ?>" /></label></p>
 		<p>What is this widget?</p><span>Hit Sniffer offer live chat support 
 starting from basic plan. This widget show an Online support icon whenever you are online at hit sniffer dashboard and show a Leave a message contact form icon when you are not online.</span>
-        <?php 
-    }else{
-            ?><p>You might be interested to download cross-platform Native OS 
+        <p>You might be interested to download cross-platform Native OS 
 Chat Notifier widget of Hit Sniffer, to receive notification whenever somebody 
-requested a chat with you.
+requested a chat with you. Be sure to close widget with Escape key whenever you are away!
 <a target="_parent" href="http://www.hitsniffer.com/widget/">Click here to open 
-widgets page.</a></p>
+Hit Sniffer Widgets page.</a></p><?php 
+    }else{
+            ?>
             <p>Please configure hit sniffer API Code in your wordpress Setting -> Hit Sniffer before using Chat widget.</p>
         <?php 
     }
