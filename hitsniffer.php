@@ -216,7 +216,7 @@ $x = WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE
 
 ?>
 <div style="margin: auto; width: 600px; ">
-<p><?php if ($option['code']!=''){ ?><a target="_blank" href="http://www.hitsniffer.com/stats/dashboard.php?code=<?php echo substr($option['code'],0,32); ?>&tag=wordpressimg-to-dashboard"><?php }else{ ?><a target="_blank" href="http://www.hitsniffer.com/images/features/dashboard.jpg"><?php } ?>
+<p><?php if ($option['code']!=''){ ?><a target="_blank" href="http://www.hitsniffer.com/stats/dashboard.php?code=<?php echo substr($option['code'],0,32); ?>&tag=wordpressimg-to-dashboard"><?php }else{ ?><a target="_blank" href="http://www.hitsniffer.com/features.php"><?php } ?>
 <img border="0" src="<?php echo $x; ?>hitsniffer.jpg" width="169" height="100" align="right"></a>Hit Sniffer realtime visitor activity tracker and analytics, allows you to be aware what is going in your wordpress blog and sites right now and has detailed archive for tracked visitor data. If you don't have an API code yet, you can get 
 your free trial one at 
 <a href="http://www.hitsniffer.com/?tag=wordpress-to-ht">hitsniffer.com</a>.<br><br><strong>Hit Sniffer API Code:</strong> ( <a href="http://www.hitsniffer.com/register.php?tag=wp-getyourcode" target="_blank">Get your code</a> ) <br>
