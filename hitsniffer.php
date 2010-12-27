@@ -4,7 +4,7 @@ Plugin Name: Hit Sniffer Live Blog Analytics
 Plugin URI: http://www.hitsniffer.com/
 Description: Hit Sniffer
 Author: hitsniffer.com
-Version: 2.2.7
+Version: 2.2.7.1
 Author URI: http://www.hitsniffer.com/
 */ 
 
@@ -35,7 +35,7 @@ $purl='https://';
 $htssl=" - SSL";
 }
 
-?><!-- HITSNIFFER TRACKING CODE<?php echo $htssl; ?> v2.2.6.8 - DO NOT CHANGE --><?php
+?><!-- HITSNIFFER TRACKING CODE<?php echo $htssl; ?> v2.2.7.1 - DO NOT CHANGE --><?php
 
 if (is_search()){
 
@@ -158,7 +158,7 @@ function get_hs_conf(){
 $config=get_option('hs_setting');
 if (round($option['wgd'])==0) $option['wgd']=1;
 if (round($option['tkn'])==0) $option['tkn']=1;
-if (round($option['iga'])==0) $option['iga']=2;
+if (round($option['iga'])==0) $option['iga']=0;
 if (round($option['allowchat'])==0) $option['allowchat']=1;
 return $config;
 }
@@ -227,8 +227,8 @@ your free trial one at
 <p><input type="radio" value="1" name="tkn" style="width: 22px; height: 20px;" <?php if ($option['tkn']!=2) echo "checked"; ?>>Yes&nbsp;
 <input type="radio" value="2" name="tkn" style="width: 22px; height: 20px;" <?php if ($option['tkn']==2) echo "checked"; ?>>No&nbsp;&nbsp;&nbsp;Track Visitors Name ( using name they enter when commenting )?
 </p>
-<p><input type="radio" value="1" name="iga" style="width: 22px; height: 20px;" <?php if (round($option['iga'])!=2) echo "checked"; ?>>Yes&nbsp;
-<input type="radio" value="2" name="iga" style="width: 22px; height: 20px;" <?php if (round($option['iga'])==2) echo "checked"; ?>>No&nbsp;&nbsp;&nbsp;Ignore Admin Visits?
+<p><input type="radio" value="1" name="iga" style="width: 22px; height: 20px;" <?php if (round($option['iga'])==1) echo "checked"; ?>>Yes&nbsp;
+<input type="radio" value="2" name="iga" style="width: 22px; height: 20px;" <?php if (round($option['iga'])!=1) echo "checked"; ?>>No&nbsp;&nbsp;&nbsp;Ignore Admin Visits?
 </p>
 <p><input type="radio" value="1" name="allowchat"  style="width: 22px; height: 20px;" <?php if ($option['allowchat']!=2) echo "checked"; ?> checked>Yes&nbsp;
 <input type="radio" value="2" name="allowchat"  style="width: 22px; height: 20px;" <?php if ($option['allowchat']==2) echo "checked"; ?>>No&nbsp;&nbsp;&nbsp;Enable "Start chat with visitors feature" (Start from Basic plan)
