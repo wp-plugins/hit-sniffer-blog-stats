@@ -4,7 +4,7 @@ Plugin Name: Hit Sniffer Live Blog Analytics
 Plugin URI: http://www.hitsniffer.com/
 Description: Hit Sniffer
 Author: hitsniffer.com
-Version: 2.3.3
+Version: v2.3.4
 Author URI: http://www.hitsniffer.com/
 */ 
 
@@ -38,7 +38,7 @@ $htssl=" - SSL";
 }
 }
 
-?><!-- HITSNIFFER TRACKING CODE<?php echo $htssl; ?> v2.3 - DO NOT CHANGE --><?php
+?><!-- HITSNIFFER TRACKING CODE<?php echo $htssl; ?> v2.3.4 - DO NOT CHANGE --><?php
 
 if (is_search()){
 
@@ -279,7 +279,7 @@ $htssl=" - SSL";
  if ($option['code']!=''){ ?><table border="0" cellpadding="0" style="border-collapse: collapse" width="100%" height="54">
 	<tr>
 		<td>
-	<iframe scrollable='no' name="hit-sniffer-stat" frameborder="0" border="0" width="100%" height="460" src="<?php echo $purl; ?>hitsniffer.com/stats/wp-new.php?code=<?php echo $option['code']; ?>">	
+	<iframe scrollable='no' scrolling="no"  name="hit-sniffer-stat" frameborder="0" style="border: 1px solid #A4A2A3;" margin="0" padding="0" marginheight="0" marginwidth="0" width="100%" height="400" src="<?php echo $purl; ?>hitsniffer.com/stats/wp3.php?code=<?php echo $option['code']; ?>">	
 		
 		<p align="center">
 		<a href="http://www.hitsniffer.com/stats/dashboard.php?code=<?php echo substr($option['code'],0,32); ?>&tag=wp-dash-to-hs-dash">
@@ -371,7 +371,7 @@ $htssl=" - SSL";
               <?php echo $before_widget; ?>
                   <?php if ( $title )
                         echo $before_title . $title . $after_title; ?>
-<div style="text-align: center;"><!-- HITSNIFFER ONLINE SUPPORT CODE v2.3 - DO NOT CHANGE -->
+<div style="text-align: center;"><!-- HITSNIFFER ONLINE SUPPORT CODE v2.3.4 - DO NOT CHANGE -->
 <script src="<?php echo $purl; ?>hitsniffer.com/online.php?code=<?php echo $option['code']; ?>" type="text/javascript" ></script>
 <!-- HITSNIFFER ONLINE SUPPORT CODE - DO NOT CHANGE --></div>
                   <?php echo $widget_comments_title; ?>
