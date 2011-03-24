@@ -4,7 +4,7 @@ Plugin Name: Hit Sniffer Live Blog Analytics
 Plugin URI: http://www.hitsniffer.com/
 Description: Hit Sniffer
 Author: hitsniffer.com
-Version: v2.3.4
+Version: v2.3.5
 Author URI: http://www.hitsniffer.com/
 */ 
 
@@ -204,8 +204,16 @@ if ($saved==1){
 	you can monitor your visitor activity in realtime here, but hey! please wait until we track some visitors first!</a></p></div>
 		<br>	
 
+<?php
 
-<?php } ?>
+
+if(function_exists('wp_cache_clean_cache')){
+global $file_prefix;
+wp_cache_clean_cache($file_prefix);
+}
+
+
+} ?>
 
 <h2>
 <a target="_blank" href="http://www.hitsniffer.com/?tag=wordpress-to-homepage">Hit Sniffer - an eye on your site</a></h2>
