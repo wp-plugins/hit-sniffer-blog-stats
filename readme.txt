@@ -10,6 +10,8 @@ hitsniffer analytic offer unique features allowing you easily monitor visitors a
 
 == Description ==
 
+you need to measure what you manage. hitsniffer make it possible and easy to have an eye on your site. know what is happening.
+hitsniffer analytic offer unique features allowing you easily monitor visitors activity in real time, see their location, know who is idle, Start Chat with your online visitors and much more.
 
 hitsniffer analytics is a powerful and simple to use real time visitors activity tracker and monitoring tool.
 Monitor your visitors clicks live and get useful stats data such as referrers, bounce rate,
