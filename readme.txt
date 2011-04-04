@@ -6,7 +6,6 @@ Tested up to: 3.1
 Stable tag: v2.3.7.3
 
 you need to measure what you manage. hitsniffer make it possible and easy to have an eye on your site. know what is happening.
-hitsniffer analytic offer unique features allowing you easily monitor visitors activity in real time, see their location, know who is idle, Start Chat with your online visitors and much more.
 
 == Description ==
 
