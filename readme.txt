@@ -3,19 +3,18 @@ Contributors: San Arena
 Tags: live,stats,statistics,hits,hit, web, visitor, monitor, visitors, monitoring, log, blog, tracking,track,tracker, activity, pageview,ssl,https,seo,counter,visit,analytics,website,free,,visitor tracker,page,links,analytic,dashboard,widget,gadget,wordpress,graph,site,realtime,daily,label
 Requires at least: 1
 Tested up to: 3.1.1
-Stable tag: v2.3.8
+Stable tag: v2.3.8.1
 
 Hit Sniffer is a powerful real time visitors activity tracker. Monitor your visitors live. 
 
 == Description ==
 
-hitsniffer analytics offer unique powerful and simple to use  features allowing you easily monitor visitors activity in real time, see their location, know who is idle, Start Chat with your online visitors and much more.
+hitsniffer analytics is a powerful and simple to use real time visitors activity tracker and monitoring tool.
 Monitor your visitors clicks live and get useful stats data such as referrers, bounce rate,
 links quality, search keywords, technologies used, OS, Browser, Came from, Country
 Timely Graph and much more advanced features such as Goals and Campagins tracker for calculating Return On Investment and Ratio. All in Live Realtime Stream.
 just open live section and watch your visitors stream.
 It works on both Blogs and Websites.
-
 
 == Installation ==
 
