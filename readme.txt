@@ -15,7 +15,7 @@ Timely Graph and much more advanced features such as Goals and Campagins tracker
 just open live section and watch your visitors stream.
 It works on both Blogs and Websites.
 
-** hitsniffer features
+**hitsniffer features**
 
 * Unique Live Dashboard
 * Visitor's Name tracking
