@@ -4,7 +4,7 @@ Plugin Name: Hit Sniffer Live Blog Analytics
 Plugin URI: http://www.hitsniffer.com/
 Description: Hit Sniffer
 Author: hitsniffer.com
-Version: v2.3.8.3
+Version: v2.3.8.4
 Author URI: http://www.hitsniffer.com/
 */ 
 
