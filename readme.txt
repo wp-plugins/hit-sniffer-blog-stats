@@ -46,14 +46,6 @@ View Hit Sniffer Features:
 http://www.hitsniffer.com/features.php
 
 
-== Screenshots ==
-
-1. Unique realtime Dashboard
-2. In-Depth and Accurate visitors counter
-3. Spot recent referrals
-4. realtime popular page detector
-5. Start a chat with your visitors
-
 == Changelog ==
 
 = 2.3.8.9 =
