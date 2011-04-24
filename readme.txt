@@ -3,7 +3,7 @@ Contributors: San Arena
 Tags: live,stats,statistics,hits,hit, web, visitor, monitor, visitors, monitoring, log, blog, tracking,track,tracker, activity, pageview,ssl,https,seo,counter,visit,analytics,website,free,,visitor tracker,page,links,analytic,dashboard,widget,gadget,wordpress,graph,site,realtime,daily,label
 Requires at least: 1
 Tested up to: 3.1.1
-Stable tag: v2.3.8.9
+Stable tag: 2.4
 
 Hit Sniffer is a powerful real time visitors activity tracker. Monitor your visitors live. 
 
@@ -40,13 +40,17 @@ http://www.hitsniffer.com/features.php
 
 == Installation ==
 
-To use this plugin, you must have a hitsniffer.com account. Get your free account now!
+It is extremely easy to install and make it working.
+Click on "One Click Install" button plugin page and it will do it all ( it will automatically create an account on hitsniffer and add your blog in account )
 
 View Hit Sniffer Features:
 http://www.hitsniffer.com/features.php
 
 
 == Changelog ==
+
+= 2.4 =
++ One Click Install Feature
 
 = 2.3.8.9 =
 + Added new screenshots.
