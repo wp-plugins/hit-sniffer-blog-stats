@@ -1,16 +1,13 @@
 <?php
 
 /*
-
 Plugin Name: Hit Sniffer Live Blog Analytics
 Plugin URI: http://www.hitsniffer.com/
 Description: Hit Sniffer
 Author: hitsniffer.com
-Version: 2.4.1
+Version: 2.4.2
 Author URI: http://www.hitsniffer.com/
-
 */ 
-
 
 
 add_action('admin_menu', 'hs_admin_menu');
