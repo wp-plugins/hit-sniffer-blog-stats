@@ -65,8 +65,6 @@ http://www.hitsniffer.com/features.php
 + Added new screenshots.
 
 = 2.3.8 =
-
-= 2.3.8 =
 + Improved Stablity.
 + Improved Support.
 
