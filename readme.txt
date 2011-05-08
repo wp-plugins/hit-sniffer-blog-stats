@@ -1,9 +1,9 @@
 === Hit Sniffer Live Blog Analytics ===
 Contributors: San Arena
-Tags: live,stats,statistics,hits,hit, web, visitor, monitor, visitors, monitoring, log, blog, tracking,track,tracker, activity, pageview,ssl,https,seo,counter,visit,analytics,website,free,,visitor tracker,page,links,analytic,dashboard,widget,gadget,wordpress,graph,site,realtime,daily,label
+Tags: live,stats, statistics,hits,hit, web, visitor, monitor, visitors, monitoring, log, blog, tracking,track,tracker, activity, pageview,ssl,https,seo,counter,visit,analytics,website,free,,visitor tracker,page,links,analytic,dashboard,widget,gadget,wordpress,graph,site,realtime,daily,label
 Requires at least: 1
 Tested up to: 3.1.2
-Stable tag: v2.4.4.1
+Stable tag: v2.4.4.2
 
 Hit Sniffer is a powerful real time visitors activity tracker. Monitor your visitors live. 
 
@@ -40,23 +40,20 @@ http://www.hitsniffer.com/features.php
 
 == Installation ==
 
-To use this plugin, you must have a hitsniffer.com account. Get your free account now!
+It is extremely easy to install and make it working.
+Click on "One Click Install" button plugin page and it will do it all ( it will automatically create an account on hitsniffer and add your blog in account )
 
 View Hit Sniffer Features:
 http://www.hitsniffer.com/features.php
 
 
-
 == Changelog ==
 
-= 2.4.4 =
-+ Removed One Click Install Feature Temporary. Maybe it get added to our another branch of hitsniffer plugin.
+= 2.4.4.2 =
++ Warming Up to Build New Features, Stay Tuned! Updated Magic Sign up for now.
 
 = 2.4.2 =
 + Wordpress v3.1.2 Support
-
-= 2.4.1 =
-+ Fixed a major bug with v2.4
 
 = 2.4 =
 + One Click Install Feature
