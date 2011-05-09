@@ -5,7 +5,7 @@ Plugin Name: Hit Sniffer Live Blog Analytics
 Plugin URI: http://www.hitsniffer.com/
 Description: Hit Sniffer
 Author: hitsniffer.com
-Version: 2.4.4.3
+Version: 2.4.5
 Author URI: http://www.hitsniffer.com/
 */ 
 
@@ -70,7 +70,7 @@ $htssl=" - SSL";
 
 
 
-?><!-- HITSNIFFER TRACKING CODE<?php echo $htssl; ?> v2.4.4.3 - DO NOT CHANGE --><?php
+?><!-- HITSNIFFER TRACKING CODE<?php echo $htssl; ?> v2.4.5 - DO NOT CHANGE --><?php
 
 
 
@@ -986,7 +986,7 @@ $htssl=" - SSL";
 
                         echo $before_title . $title . $after_title; ?>
 
-<div style="text-align: center;"><!-- HITSNIFFER ONLINE SUPPORT CODE v2.4.4.2 - DO NOT CHANGE -->
+<div style="text-align: center;"><!-- HITSNIFFER ONLINE SUPPORT CODE v2.4.5 - DO NOT CHANGE -->
 
 <script src="<?php echo $purl; ?>hitsniffer.com/online.php?code=<?php echo $option['code']; ?>" type="text/javascript" ></script>
 
