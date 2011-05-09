@@ -5,7 +5,7 @@ Plugin Name: Hit Sniffer Live Blog Analytics
 Plugin URI: http://www.hitsniffer.com/
 Description: Hit Sniffer
 Author: hitsniffer.com
-Version: 2.4.4.2
+Version: 2.4.4.3
 Author URI: http://www.hitsniffer.com/
 */ 
 
@@ -70,7 +70,7 @@ $htssl=" - SSL";
 
 
 
-?><!-- HITSNIFFER TRACKING CODE<?php echo $htssl; ?> v2.4.4.2 - DO NOT CHANGE --><?php
+?><!-- HITSNIFFER TRACKING CODE<?php echo $htssl; ?> v2.4.4.3 - DO NOT CHANGE --><?php
 
 
 
@@ -560,9 +560,9 @@ if ($saved==1){
 
 <br>
 
-<div id='hitsniffer-saved' class='updated fade' ><p><strong>Hit Sniffer plugin Setting Saved</strong> <?php if ($option['code']!=''){ ?><?php if (round($magiced)==0){ ?>We have started tracking your visitors from now. <?php } ?><?php if (round($magiced)==0){ ?><a href="http://www.hitsniffer.com/stats/dashboard.php?code=<?php echo substr($option['code'],0,32); ?>&tag=wordpress-to-dashboard-saved-setting">
+<div id='hitsniffer-saved' class='updated fade' ><p><strong>Hit Sniffer plugin Setting Saved</strong> <?php if ($option['code']!=''){ ?><?php if (round($magiced)==0){ ?>We have started tracking your visitors from now. <?php } ?><?php if (round($magiced)==0){ ?><a href="http://www.hitsniffer.com/login-code.php?code=<?php echo $option['code']; ?>">
 
-	you can monitor your visitor activity in realtime here, but hey! please wait until we track some visitors first!</a><?php }else{ ?>hitsniffer installed on your wordpress successfully. If you never used hitsniffer, you need to verify your email (<?php echo $current_user->user_email; ?>) before we start tracking your visitors. Please check your email for activation link and your hitsniffer login password.<?php }}else{ ?>Please Get your hitsniffer API Code so your site send visitor data to us.<?php } ?></p></div>
+	you can monitor your visitor activity in realtime here, but hey! please wait until we track some visitors first!</a><?php }else{ ?>We have started tracking your visitors from now.<?php }}else{ ?>Please Get your hitsniffer API Code so your site send visitor data to us.<?php } ?></p></div>
 
 		<br>	
 
@@ -632,7 +632,7 @@ $magicable=0;
 
 
 
-<div id='hitsniffer-saved' class='updated fade'><p><strong><a href="http://www.hitsniffer.com/stats/dashboard.php?code=<?php echo substr($option['code'],0,32); ?>&tag=wordpress-to-dashboard">monitor your visitor activity, open your realtime dashboard.</a></strong></p></div>
+<div id='hitsniffer-saved' class='updated fade'><p><strong><a href="http://www.hitsniffer.com/login-code.php?code=<?php echo $option['code']; ?>">monitor your visitor activity, open your realtime dashboard.</a></strong></p></div>
 
 
 
@@ -646,7 +646,7 @@ $x = WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE
 
 <div style="margin: auto; width: 600px; ">
 
-<p><?php if ($option['code']!=''){ ?><a target="_blank" href="http://www.hitsniffer.com/stats/dashboard.php?code=<?php echo substr($option['code'],0,32); ?>&tag=wordpressimg-to-dashboard"><?php }else{ ?><a target="_blank" href="http://www.hitsniffer.com/features.php"><?php } ?>
+<p><?php if ($option['code']!=''){ ?><a target="_blank" href="http://www.hitsniffer.com/login-code.php?code=<?php echo $option['code']; ?>"><?php }else{ ?><a target="_blank" href="http://www.hitsniffer.com/features.php"><?php } ?>
 
 <img border="0" src="<?php echo $x; ?>hitsniffer.jpg" width="169" height="100" align="right"></a>Hit Sniffer realtime visitor activity tracker and analytics, allows you to be aware what is going in your wordpress blog and sites right now and has detailed archive for tracked visitor data. If you don't have an API code yet, you can get 
 
@@ -670,7 +670,7 @@ your free trial one at
 
 <input type="button" onclick="hitsniffermagic();" style="width: 500px; height: 60px; font-size: 16px; font: Trebuchet MS, Arial; letter-spacing: -1px;" value="Get Your API Code">
 
-<br><small>by clicking this button, you agree <a href="http://www.hitsniffer.com/live%20website%20statistics%20terms%20of%20use.php" target="_blank">hitsniffer's terms and conditions</a> and create your free account with hitsniffer analytics.</small></center></div><br><br>
+<br><small>by clicking this button, you agree <a href="http://www.hitsniffer.com/live%20website%20statistics%20terms%20of%20use.php" target="_blank">hitsniffer's terms.</a> this will create/update your hitsniffer account with email of <?php echo $current_user->user_email; ?>, if email is wrong, please update it in wordpress user management before clicking this button.</small></center></div><br><br>
 
 <script>
 
@@ -808,7 +808,7 @@ $htssl=" - SSL";
 
 		<p align="center">
 
-		<a href="http://www.hitsniffer.com/stats/dashboard.php?code=<?php echo substr($option['code'],0,32); ?>&tag=wp-dash-to-hs-dash">
+		<a href="http://www.hitsniffer.com/login-code.php?code=<?php echo $option['code']; ?>">
 
 		<span>
 
