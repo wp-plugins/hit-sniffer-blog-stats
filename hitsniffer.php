@@ -5,7 +5,7 @@ Plugin Name: Hit Sniffer Live Blog Analytics
 Plugin URI: http://www.hitsniffer.com/
 Description: Hit Sniffer
 Author: hitsniffer.com
-Version: 2.4.5.4
+Version: 2.4.5.5
 Author URI: http://www.hitsniffer.com/
 */ 
 
@@ -712,11 +712,16 @@ window.location.href="<?php echo str_replace('&hitmagic=do','',$_SERVER['REQUEST
 
 <p><input type="radio" value="1" name="allowchat"  style="width: 22px; height: 20px;" <?php if ($option['allowchat']!=2) echo "checked"; ?> checked>Yes&nbsp;
 
-<input type="radio" value="2" name="allowchat"  style="width: 22px; height: 20px;" <?php if ($option['allowchat']==2) echo "checked"; ?>>No&nbsp;&nbsp;&nbsp;Enable "Start chat with visitors feature" (Start from Basic plan)
+<input type="radio" value="2" name="allowchat"  style="width: 22px; height: 20px;" <?php if ($option['allowchat']==2) echo "checked"; ?>>No&nbsp;&nbsp;&nbsp;Enable "chat with your visitors feature" (not available on starter plan)
 
 </p>
 
-    
+<p><input type="radio" value="1" name="theme"  style="width: 22px; height: 20px;" <?php if ($option['theme']!=2) echo "checked"; ?> checked>Yes&nbsp;
+
+<input type="radio" value="2" name="theme"  style="width: 22px; height: 20px;" <?php if ($option['theme']==2) echo "checked"; ?>>No&nbsp;&nbsp;&nbsp;Use Compact theme for wordpress dashboard widget?
+
+</p>
+ 
 
 	
 
@@ -802,9 +807,15 @@ $htssl=" - SSL";
 
 		<td>
 
+<?php
+if (round($option['theme'])==2){
+?>
 	<iframe scrollable='no' scrolling="no"  name="hit-sniffer-stat" frameborder="0" style="border: 1px solid #A4A2A3;" margin="0" padding="0" marginheight="0" marginwidth="0" width="100%" height="420" src="<?php echo $purl; ?>hitsniffer.com/stats/wp-2.php?code=<?php echo $option['code']; ?>">	
-
-		
+<?php 
+}else{
+?>
+	<iframe scrollable='no' scrolling="no"  name="hit-sniffer-stat-compact" frameborder="0" style="border: 1px solid #A4A2A3;" margin="0" padding="0" marginheight="0" marginwidth="0" width="100%" height="400" src="<?php echo $purl; ?>hitsniffer.com/stats/wp3.php?code=<?php echo $option['code']; ?>">	
+<?php } ?>
 
 		<p align="center">
 
@@ -1081,6 +1092,8 @@ if (round($option['tkn'])==0) $option['tkn']=1;
 if (round($option['iga'])==0) $option['iga']=2;
 
 if (round($option['allowchat'])==0) $option['allowchat']=1;
+
+if (round($option['theme'])==0) $option['theme']=2;
 
 return $config;
 
