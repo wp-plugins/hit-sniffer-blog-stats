@@ -352,7 +352,7 @@ $option['allowchat']=html_entity_decode($option['allowchat']);
 
 
 
-$magicable=1;
+$magicable=0; //temporary disable magic feature
 
 global $current_user;
 
