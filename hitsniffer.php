@@ -1113,6 +1113,19 @@ add_action('widgets_init', create_function('', 'return register_widget("HS_SUPPO
 
 
 
+	# add "Settings" link to plugin on plugins page
+	add_filter('plugin_action_links', 'hitsniffer_settingsLink', 0, 2);
+	function hitsniffer_settingsLink($actionLinks, $file) {
+ 		if (($file == 'hit-sniffer-blog-stats/hitsniffer.php') && function_exists('admin_url')) {
+			$settingsLink = '<a href="' . admin_url('options-general.php?page=hit-sniffer-blog-stats/hitsniffer.php') . '">' . __('Settings') . '</a>';
+
+			# Add 'Settings' link to plugin's action links
+			array_unshift($actionLinks, $settingsLink);
+		}
+
+		return $actionLinks;
+	}
+
 
 
 ?>
