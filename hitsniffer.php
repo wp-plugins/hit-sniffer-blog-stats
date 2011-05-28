@@ -905,7 +905,8 @@ if ($option['wgd']!=2){
 
 add_action('wp_dashboard_setup', 'hitsniffer_add_dashboard_widgets' );
 
-
+if (function_exists('class_exists')){
+if (class_exists('WP_Widget')){
 
 /**
 
@@ -1369,6 +1370,7 @@ return $option;
 add_action('widgets_init', create_function('', 'return register_widget("HS_STATS");'));
 
 
+}}
 
 	# add "Settings" link to plugin on plugins page
 	add_filter('plugin_action_links', 'hitsniffer_settingsLink', 0, 2);
