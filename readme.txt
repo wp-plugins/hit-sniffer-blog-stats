@@ -3,7 +3,7 @@ Contributors: San Arena
 Tags: live,stats, statistics,hits,hit, web, visitor, monitor, visitors, monitoring, log, blog, tracking,track,tracker, activity, pageview,ssl,https,seo,counter,visit,analytics,website,free,,visitor tracker,page,links,analytic,dashboard,widget,gadget,wordpress,graph,site,realtime,daily,label
 Requires at least: 1
 Tested up to: 3.1.3
-Stable tag: 2.4.5.6
+Stable tag: 2.5
 
 Hit Sniffer is a powerful real time visitors activity tracker. Monitor your visitors live. 
 
@@ -31,6 +31,7 @@ It works on both Blogs and Websites.
 * Goals and Campagins
 * View visitors in Map
 * iPhone, iPad and Android Support
+* Statistics Widget to put in your sidebar
 * Invisible Tracking
 * Multiple Users and Multiple Sites support
 
@@ -50,11 +51,19 @@ http://www.hitsniffer.com/features.php
 == Screenshots ==
 
 1. hitsniffer dashboard.
+2. hit sniffer statistics widget, show your website statistics to your visitors.
+3. hit sniffer dashboard widget, allow you see your visitors easily.
 
 == Changelog ==
 
+= 2.5 =
++ New Widget Added, Hit Sniffer Statistics allow show your site statistics in your website.
++ New Screenshots added.
++ few bugs with previous versions has been fixed
+
 = 2.4.5.6 =
 + Wordpress 3.1.3 compatibility.
++ Temporary disabled One Click Install Feature.
 
 = 2.4.5.5 =
 + Ability to customize widget theme.

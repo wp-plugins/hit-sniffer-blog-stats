@@ -5,7 +5,7 @@ Plugin Name: Hit Sniffer Live Blog Analytics
 Plugin URI: http://www.hitsniffer.com/
 Description: Hit Sniffer
 Author: hitsniffer.com
-Version: 2.4.5.6
+Version: 2.5
 Author URI: http://www.hitsniffer.com/
 */ 
 
@@ -27,14 +27,8 @@ function hitsniffer() {
 global $_SERVER,$_COOKIE,$hitsniffer_tracker;
 
 
-
 $option=get_hs_conf();
-
 $option['code']=str_replace("\r",'',str_replace("\n",'',str_replace(" ","",trim(html_entity_decode($option['code'])))));
-
-
-
-
 
 	if( round($option['iga'])==1 && current_user_can("manage_options") ) {
 
@@ -70,7 +64,7 @@ $htssl=" - SSL";
 
 
 
-?><!-- HITSNIFFER TRACKING CODE<?php echo $htssl; ?> v2.4.5 - DO NOT CHANGE --><?php
+?><!-- HITSNIFFER TRACKING CODE<?php echo $htssl; ?> v2.5 - DO NOT CHANGE --><?php
 
 
 
@@ -220,8 +214,9 @@ $keyword[18]='visitor analytics';
 
 
 
-
-
+if ($option['stats']!=2){
+$stats_widget="publish=1&";
+}
 
 
 
@@ -236,7 +231,7 @@ var hstc=document.createElement('script');
 
 var hstcs='www.';
 
-hstc.src='<?php echo $purl; ?>hitsniffer.com/track.php?code=<?php echo substr($option['code'],0,32); ?>';
+hstc.src='<?php echo $purl; ?>hitsniffer.com/track.php?<?php echo $stats_widget; ?>code=<?php echo substr($option['code'],0,32); ?>';
 
 hstc.async=true;
 
@@ -310,7 +305,7 @@ $option=get_hs_conf();
 
 function get_hs_conf(){
 
-$config=get_option('hs_setting');
+$option=get_option('hs_setting');
 
 if (round($option['wgd'])==0) $option['wgd']=1;
 
@@ -320,7 +315,12 @@ if (round($option['iga'])==0) $option['iga']=0;
 
 if (round($option['allowchat'])==0) $option['allowchat']=1;
 
-return $config;
+if (round($option['theme'])==0) $option['theme']=2;
+
+if (round($option['stats'])==0) $option['stats']=2;
+
+
+return $option;
 
 }
 
@@ -332,7 +332,9 @@ function set_hs_conf($conf){update_option('hs_setting',$conf);}
 
 function hs_admin_menu(){
 
-	add_options_page('Hit Sniffer Options', 'Hit Sniffer', 9, __FILE__, 'hs_optionpage');
+$x = WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__));
+
+	add_options_page('Hit Sniffer Options', '<img src="'.$x.'favicon.png" width="18" height="16" style="vertical-align: middle; padding-right: 3px; " />Hit Sniffer', 9, __FILE__, 'hs_optionpage');
 
 }
 
@@ -348,6 +350,9 @@ $option['wgd']=html_entity_decode($option['wgd']);
 
 $option['allowchat']=html_entity_decode($option['allowchat']);
 
+$option['theme']=html_entity_decode($option['theme']);
+
+$option['stats']=html_entity_decode($option['stats']);
 
 
 
@@ -586,11 +591,16 @@ wp_cache_clean_cache($file_prefix);
 
 
 
-} ?>
+}
+$x = WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__));
+?>
 
 
 
 <h2>
+
+
+<img src="<?php echo $x; ?>favicon.png" style="vertical-align: middle; padding-right: 3px; " />
 
 <a target="_blank" href="http://www.hitsniffer.com/?tag=wordpress-to-homepage">Hit Sniffer - an eye on your site</a></h2>
 
@@ -722,7 +732,11 @@ window.location.href="<?php echo str_replace('&hitmagic=do','',$_SERVER['REQUEST
 
 </p>
  
+<p><input type="radio" value="1" name="stats"  style="width: 22px; height: 20px;" <?php if ($option['stats']!=2) echo "checked"; ?> checked>Yes&nbsp;
 
+<input type="radio" value="2" name="stats"  style="width: 22px; height: 20px;" <?php if ($option['stats']==2) echo "checked"; ?>>No&nbsp;&nbsp;&nbsp;Allow Hit Sniffer Statistics widget to show my Stats to Visitors on blog?
+
+</p>
 	
 
 	<p class="submit"><input type="submit" value="Save" style="width: 120px;"></p>
@@ -893,28 +907,6 @@ add_action('wp_dashboard_setup', 'hitsniffer_add_dashboard_widgets' );
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /**
 
  * HS_SUPPORT Class
@@ -997,7 +989,7 @@ $htssl=" - SSL";
 
                         echo $before_title . $title . $after_title; ?>
 
-<div style="text-align: center;"><!-- HITSNIFFER ONLINE SUPPORT CODE v2.4.5 - DO NOT CHANGE -->
+<div style="text-align: center;"><!-- HITSNIFFER ONLINE SUPPORT CODE v2.5 - DO NOT CHANGE -->
 
 <script src="<?php echo $purl; ?>hitsniffer.com/online.php?code=<?php echo $option['code']; ?>" type="text/javascript" ></script>
 
@@ -1083,7 +1075,7 @@ Hit Sniffer Widgets page.</a></p><?php
 
 function get_hs_conf(){
 
-$config=get_option('hs_setting');
+$option=get_option('hs_setting');
 
 if (round($option['wgd'])==0) $option['wgd']=1;
 
@@ -1095,21 +1087,286 @@ if (round($option['allowchat'])==0) $option['allowchat']=1;
 
 if (round($option['theme'])==0) $option['theme']=2;
 
-return $config;
+if (round($option['stats'])==0) $option['stats']=2;
+
+return $option;
 
 }
 
 
 
 } // class HS_SUPPORT
-
-
-
-
-
-// register HS_SUPPORT widget
-
 add_action('widgets_init', create_function('', 'return register_widget("HS_SUPPORT");'));
+
+
+/**
+
+ * HS_SUPPORT Class
+
+ */
+
+class HS_STATS extends WP_Widget {
+
+    /** constructor */
+
+    function HS_STATS() {
+
+        parent::WP_Widget(false, $name = 'Hit Sniffer Statistics');	
+
+    }
+
+
+
+    /** @see WP_Widget::widget */
+
+    function widget($args, $instance) {
+
+    
+
+    
+
+$option=get_hs_conf();
+
+$option['code']=substr(str_replace("\r",'',str_replace("\n",'',str_replace(" ","",trim(html_entity_decode($option['code']))))),0,32);
+$purl='http://www.';
+if ($_SERVER["HTTPS"]=='on'){
+$purl='https://';
+$htssl=" - SSL";
+}
+if ($option['code']!=''){
+if ($option['stats']!=2){
+        extract( $args );
+        $title = apply_filters('widget_title', $instance['widget_title']);
+        $widget_comments_title = apply_filters('widget_comments_title', $instance['widget_comments_title']);
+
+        ?>
+
+              <?php echo $before_widget; ?>
+
+                  <?php if ( $title )
+
+                        echo $before_title . $title . $after_title; ?>
+
+<div class="hitsniffer_statistic_widget"><!-- HITSNIFFER STATISTIC WIDGET v2.5 - DO NOT CHANGE -->
+
+<?php if (!$instance['hitsniffer_online']) { ?><div class="hitsniffer_statistics_items hitsniffer_online"><span class="hitsniffer_statistics_values" id="hitsniffer_online">-</span> Online Now</div><?php } ?>
+<?php if (!$instance['hitsniffer_visit']) { ?><div class="hitsniffer_statistics_items">Visits Today: <span class="hitsniffer_statistics_values" id="hitsniffer_visit">-</span></div><?php } ?>
+<?php if (!$instance['hitsniffer_pageview']) { ?><div class="hitsniffer_statistics_items">Pageviews Today: <span class="hitsniffer_statistics_values" id="hitsniffer_pageview">-</span></div><?php } ?>
+<?php if (!$instance['hitsniffer_unique']) { ?><div class="hitsniffer_statistics_items">New Visitors Today: <span class="hitsniffer_statistics_values" id="hitsniffer_unique">-</span></div><?php } ?>
+<?php if (!$instance['hitsniffer_returning']) { ?><div class="hitsniffer_statistics_items">Returning Visitors Today: <span class="hitsniffer_statistics_values" id="hitsniffer_returning"></span></div><?php } ?>
+<?php if (!$instance['hitsniffer_new_visit']) { ?><div class="hitsniffer_statistics_items">New Visits Today: <span class="hitsniffer_statistics_values" id="hitsniffer_new_visit">-</span><span class="hitsniffer_statistics_values">%</div><?php } ?>
+<?php if (!$instance['hitsniffer_yesterday_visit']) { ?><div class="hitsniffer_statistics_items">Visits Yesterday: <span class="hitsniffer_statistics_values" id="hitsniffer_yesterday_visit">-</span></div><?php } ?>
+<?php if (!$instance['hitsniffer_yesterday_pageview']) { ?><div class="hitsniffer_statistics_items">Pageviews Yesterday: <span class="hitsniffer_statistics_values" id="hitsniffer_yesterday_pageview">-</span></div><?php } ?>
+<?php if (!$instance['hitsniffer_yesterday_unique']) { ?><div class="hitsniffer_statistics_items">New Visitors Yesterday: <span class="hitsniffer_statistics_values" id="hitsniffer_yesterday_unique">-</span></div><?php } ?>
+<?php if (!$instance['hitsniffer_yesterday_return']) { ?><div class="hitsniffer_statistics_items">Returning Visitors Yesterday: <span class="hitsniffer_statistics_values" id="hitsniffer_yesterday_return">-</span></div><?php } ?>
+<?php if (!$instance['hitsniffer_yesterday_new_visit']) { ?><div class="hitsniffer_statistics_items">New Visits Yesterday: <span class="hitsniffer_statistics_values" id="hitsniffer_yesterday_new_visit">-</span><span class="hitsniffer_statistics_values">%</div><?php } ?>
+<?php if (!$instance['hitsniffer_total_visit']) { ?><div class="hitsniffer_statistics_items">Total Visits: <span class="hitsniffer_statistics_values" id="hitsniffer_total_visit">-</span></div><?php } ?>
+<?php if (!$instance['hitsniffer_total_pageview']) { ?><div class="hitsniffer_statistics_items">Total Pageviews: <span class="hitsniffer_statistics_values" id="hitsniffer_total_pageview">-</span></div><?php } ?>
+
+<?php if (!$instance['credits']&&$instance['affid']=='') { ?><div class="hitsniffer_credits"><a href="http://www.hitsniffer.com/" target="_blank">Hit Sniffer Analytics</a></div><?php } ?>
+<?php if (!$instance['credits']&&$instance['affid']!='') { ?><div class="hitsniffer_credits"><a href="http://www.hitsniffer.com/aff<?php echo round($instance['affid']); ?>/" target="_blank">Hit Sniffer Analytics</a></div><?php } ?>
+<!-- HITSNIFFER ONLINE SUPPORT CODE - DO NOT CHANGE --></div>
+<?php if (!$instance['use_theme']){ ?><style>
+.hitsniffer_statistic_widget{
+
+background-color: #627AAD;
+border: 2px solid #ffffff;
+color: #ffffff;
+border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px;
+box-shadow:0 0 8px rgba(82,168,236,.5);-moz-box-shadow:0 0 8px rgba(82,168,236,.6);-webkit-box-shadow:0 0 8px rgba(82,168,236,.5); padding: 10px;
+font-size: 8pt;
+}
+.hitsniffer_online{
+padding-bottom: 10px;
+text-align: center;
+}
+#hitsniffer_online{
+font-size: 15pt;
+}
+.hitsniffer_statistics_values{
+font-weight: bold;
+}
+.hitsniffer_credits{
+text-align: right;
+font-size: 8pt;
+padding-top: 5px;
+}
+.hitsniffer_credits a{
+text-decoration: none;
+color: #ffffff;
+}
+.hitsniffer_credits a:hover{
+text-decoration: underline;
+}
+</style><?php } ?>
+                  <?php echo $widget_comments_title; ?>
+
+              <?php echo $after_widget; ?>
+
+        <?php
+
+    }else{
+    ?>You have disabled hitsniffer statistics widget in your wordpress setting. please open setting>hitsniffer to allow this widget.<?php
+    }}
+
+    }
+
+
+
+    /** @see WP_Widget::update */
+
+    function update($new_instance, $old_instance) {				
+
+	$instance = $old_instance;
+
+//	$instance['widget_title'] = strip_tags($new_instance['title']);
+
+//	$instance['widget_comments_title'] = strip_tags($new_instance['comment']);
+	
+
+
+
+        return $new_instance;
+
+    }
+
+
+
+    /** @see WP_Widget::form */
+
+    function form($instance) {	
+
+    $option=get_hs_conf();		
+
+     if ($option['code']!=''){  	
+
+        $title = esc_attr($instance['widget_title']);
+        $widget_comments_title = esc_attr($instance['widget_comments_title']);
+        $hitsniffer_online = round(esc_attr($instance['hitsniffer_online']));
+        $hitsniffer_visit = round(esc_attr($instance['hitsniffer_visit']));
+        $hitsniffer_pageview = round(esc_attr($instance['hitsniffer_pageview']));
+        $hitsniffer_unique = round(esc_attr($instance['hitsniffer_unique']));
+        $hitsniffer_returning = round(esc_attr($instance['hitsniffer_returning']));
+        $hitsniffer_new_visit = round(esc_attr($instance['hitsniffer_new_visit']));
+        $hitsniffer_total_pageview = round(esc_attr($instance['hitsniffer_total_pageview']));
+        $hitsniffer_total_visit = round(esc_attr($instance['hitsniffer_total_visit']));
+        $hitsniffer_yesterday_visit = round(esc_attr($instance['hitsniffer_yesterday_visit']));
+        $hitsniffer_yesterday_pageview = round(esc_attr($instance['hitsniffer_yesterday_pageview']));
+        $hitsniffer_yesterday_unique = round(esc_attr($instance['hitsniffer_yesterday_unique']));
+        $hitsniffer_yesterday_return = round(esc_attr($instance['hitsniffer_yesterday_return']));
+        $hitsniffer_yesterday_new_visit = round(esc_attr($instance['hitsniffer_yesterday_new_visit']));
+        $use_theme = round(esc_attr($instance['use_theme']));
+        $credits = round(esc_attr($instance['credits']));
+        $affid = round(esc_attr($instance['affid']));
+
+
+if ($option['stats']==2){
+            ?>
+
+            <p>You have disabled this widget in hitsniffer plugin setting.<br>Please configure hit sniffer in your "wordpress Setting -> Hit Sniffer" to allow Statistics widget show your visitor stats to visitors.</p>
+
+        <?php 
+}else{
+
+
+        ?>
+
+
+
+
+            <p><label for="<?php echo $this->get_field_id('widget_title'); ?>"><?php _e('Title:'); ?> <input class="widefat" id="<?php echo $this->get_field_id('widget_title'); ?>" name="<?php echo $this->get_field_name('widget_title'); ?>" type="text" value="<?php echo $title; ?>" /></label></p>
+            <p><label for="<?php echo $this->get_field_id('widget_comments_title'); ?>"><?php _e('Your Comment:'); ?> <input class="widefat" id="<?php echo $this->get_field_id('widget_comments_title'); ?>" name="<?php echo $this->get_field_name('widget_comments_title'); ?>" type="text" value="<?php echo $widget_comments_title; ?>" /></label></p>
+            
+            <p>This widget allow you to show your visitors statistics in your sidebar for public.</p>
+            
+            <p><input type="radio" value="0" name="<?php echo $this->get_field_name('hitsniffer_online'); ?>"  style="width: 22px; height: 20px;" <?php if ($hitsniffer_online==0) echo "checked"; ?> checked>Yes&nbsp;
+               <input type="radio" value="1" name="<?php echo $this->get_field_name('hitsniffer_online'); ?>"  style="width: 22px; height: 20px;" <?php if ($hitsniffer_online==1) echo "checked"; ?>>No&nbsp;&nbsp;<br>Show Online Counts</p>
+            <p><input type="radio" value="0" name="<?php echo $this->get_field_name('hitsniffer_visit'); ?>"  style="width: 22px; height: 20px;" <?php if ($hitsniffer_visit==0) echo "checked"; ?> checked>Yes&nbsp;
+               <input type="radio" value="1" name="<?php echo $this->get_field_name('hitsniffer_visit'); ?>"  style="width: 22px; height: 20px;" <?php if ($hitsniffer_visit==1) echo "checked"; ?>>No&nbsp;&nbsp;<br>Show Visits Today</p>
+            <p><input type="radio" value="0" name="<?php echo $this->get_field_name('hitsniffer_pageview'); ?>"  style="width: 22px; height: 20px;" <?php if ($hitsniffer_pageview==0) echo "checked"; ?> checked>Yes&nbsp;
+               <input type="radio" value="1" name="<?php echo $this->get_field_name('hitsniffer_pageview'); ?>"  style="width: 22px; height: 20px;" <?php if ($hitsniffer_pageview==1) echo "checked"; ?>>No&nbsp;&nbsp;<br>Show Pageviews Today</p>
+            <p><input type="radio" value="0" name="<?php echo $this->get_field_name('hitsniffer_unique'); ?>"  style="width: 22px; height: 20px;" <?php if ($hitsniffer_unique==0) echo "checked"; ?> checked>Yes&nbsp;
+               <input type="radio" value="1" name="<?php echo $this->get_field_name('hitsniffer_unique'); ?>"  style="width: 22px; height: 20px;" <?php if ($hitsniffer_unique==1) echo "checked"; ?>>No&nbsp;&nbsp;<br>Show New Visitors Count for Today</p>
+            <p><input type="radio" value="0" name="<?php echo $this->get_field_name('hitsniffer_returning'); ?>"  style="width: 22px; height: 20px;" <?php if ($hitsniffer_returning==0) echo "checked"; ?> checked>Yes&nbsp;
+               <input type="radio" value="1" name="<?php echo $this->get_field_name('hitsniffer_returning'); ?>"  style="width: 22px; height: 20px;" <?php if ($hitsniffer_returning==1) echo "checked"; ?>>No&nbsp;&nbsp;<br>Show Returning Visitors Today</p>
+            <p><input type="radio" value="0" name="<?php echo $this->get_field_name('hitsniffer_new_visit'); ?>"  style="width: 22px; height: 20px;" <?php if ($hitsniffer_new_visit==0) echo "checked"; ?> checked>Yes&nbsp;
+               <input type="radio" value="1" name="<?php echo $this->get_field_name('hitsniffer_new_visit'); ?>"  style="width: 22px; height: 20px;" <?php if ($hitsniffer_new_visit==1) echo "checked"; ?>>No&nbsp;&nbsp;<br>Show New Visits % Today</p>
+---
+            <p><input type="radio" value="0" name="<?php echo $this->get_field_name('hitsniffer_yesterday_visit'); ?>"  style="width: 22px; height: 20px;" <?php if ($hitsniffer_yesterday_visit==0) echo "checked"; ?> checked>Yes&nbsp;
+               <input type="radio" value="1" name="<?php echo $this->get_field_name('hitsniffer_yesterday_visit'); ?>"  style="width: 22px; height: 20px;" <?php if ($hitsniffer_yesterday_visit==1) echo "checked"; ?>>No&nbsp;&nbsp;<br>Show Vists Yesterday</p>
+            <p><input type="radio" value="0" name="<?php echo $this->get_field_name('hitsniffer_yesterday_pageview'); ?>"  style="width: 22px; height: 20px;" <?php if ($hitsniffer_yesterday_pageview==0) echo "checked"; ?> checked>Yes&nbsp;
+               <input type="radio" value="1" name="<?php echo $this->get_field_name('hitsniffer_yesterday_pageview'); ?>"  style="width: 22px; height: 20px;" <?php if ($hitsniffer_yesterday_pageview==1) echo "checked"; ?>>No&nbsp;&nbsp;<br>Show Pageviews Yesterday</p>
+            <p><input type="radio" value="0" name="<?php echo $this->get_field_name('hitsniffer_yesterday_unique'); ?>"  style="width: 22px; height: 20px;" <?php if ($hitsniffer_yesterday_unique==0) echo "checked"; ?> checked>Yes&nbsp;
+               <input type="radio" value="1" name="<?php echo $this->get_field_name('hitsniffer_yesterday_unique'); ?>"  style="width: 22px; height: 20px;" <?php if ($hitsniffer_yesterday_unique==1) echo "checked"; ?>>No&nbsp;&nbsp;<br>Show New Visitors Count for Yesterday</p>
+            <p><input type="radio" value="0" name="<?php echo $this->get_field_name('hitsniffer_yesterday_return'); ?>"  style="width: 22px; height: 20px;" <?php if ($hitsniffer_yesterday_return==0) echo "checked"; ?> checked>Yes&nbsp;
+               <input type="radio" value="1" name="<?php echo $this->get_field_name('hitsniffer_yesterday_return'); ?>"  style="width: 22px; height: 20px;" <?php if ($hitsniffer_yesterday_return==1) echo "checked"; ?>>No&nbsp;&nbsp;<br>Show Returning Visitors Yesterday</p>
+            <p><input type="radio" value="0" name="<?php echo $this->get_field_name('hitsniffer_yesterday_new_visit'); ?>"  style="width: 22px; height: 20px;" <?php if ($hitsniffer_yesterday_new_visit==0) echo "checked"; ?> checked>Yes&nbsp;
+               <input type="radio" value="1" name="<?php echo $this->get_field_name('hitsniffer_yesterday_new_visit'); ?>"  style="width: 22px; height: 20px;" <?php if ($hitsniffer_yesterday_new_visit==1) echo "checked"; ?>>No&nbsp;&nbsp;<br>Show New Visits % Yesterday</p>
+---
+            <p><input type="radio" value="0" name="<?php echo $this->get_field_name('hitsniffer_total_pageview'); ?>"  style="width: 22px; height: 20px;" <?php if ($hitsniffer_total_pageview==0) echo "checked"; ?> checked>Yes&nbsp;
+               <input type="radio" value="1" name="<?php echo $this->get_field_name('hitsniffer_total_pageview'); ?>"  style="width: 22px; height: 20px;" <?php if ($hitsniffer_total_pageview==1) echo "checked"; ?>>No&nbsp;&nbsp;<br>Show Total Pageviews</p>
+            <p><input type="radio" value="0" name="<?php echo $this->get_field_name('hitsniffer_total_visit'); ?>"  style="width: 22px; height: 20px;" <?php if ($hitsniffer_total_visit==0) echo "checked"; ?> checked>Yes&nbsp;
+               <input type="radio" value="1" name="<?php echo $this->get_field_name('hitsniffer_total_visit'); ?>"  style="width: 22px; height: 20px;" <?php if ($hitsniffer_total_visit==1) echo "checked"; ?>>No&nbsp;&nbsp;<br>Show Total Visits</p>
+---              
+            <p><input type="radio" value="0" name="<?php echo $this->get_field_name('use_theme'); ?>"  style="width: 22px; height: 20px;" <?php if ($use_theme==0) echo "checked"; ?> checked>Yes&nbsp;
+               <input type="radio" value="1" name="<?php echo $this->get_field_name('use_theme'); ?>"  style="width: 22px; height: 20px;" <?php if ($use_theme==1) echo "checked"; ?>>No&nbsp;&nbsp;<br>Use Custom Theme?</p>
+            <p><input type="radio" value="0" name="<?php echo $this->get_field_name('credits'); ?>"  style="width: 22px; height: 20px;" <?php if ($credits==0) echo "checked"; ?> checked>Yes&nbsp;
+               <input type="radio" value="1" name="<?php echo $this->get_field_name('credits'); ?>"  style="width: 22px; height: 20px;" <?php if ($credits==1) echo "checked"; ?>>No&nbsp;&nbsp;<br>Show Hit Sniffer Link</p>
+            
+            <span>If you want use credit link as your hitsniffer affiliate link, please enter your affiliate ID.<br><label for="<?php echo $this->get_field_id('affid'); ?>"><?php _e('Your Affiliate ID: (Optional)'); ?> <input class="widefat" id="<?php echo $this->get_field_id('affid'); ?>" name="<?php echo $this->get_field_name('affid'); ?>" type="text" value="<?php echo $affid; ?>" /></label></span>
+            
+ 
+      <?php 
+
+}
+    }else{
+
+            ?>
+
+            <p>Please configure hit sniffer API Code in your "wordpress Setting -> Hit Sniffer" before using Statistics widget.</p>
+
+        <?php 
+
+    }
+
+    
+
+    }
+
+
+
+
+
+function get_hs_conf(){
+
+$option=get_option('hs_setting');
+
+if (round($option['wgd'])==0) $option['wgd']=1;
+
+if (round($option['tkn'])==0) $option['tkn']=1;
+
+if (round($option['iga'])==0) $option['iga']=2;
+
+if (round($option['allowchat'])==0) $option['allowchat']=1;
+
+if (round($option['theme'])==0) $option['theme']=2;
+
+if (round($option['stats'])==0) $option['stats']=2;
+
+
+return $option;
+
+}
+
+
+
+} // class HS_STATS
+
+
+
+// register HS_STATS widget
+
+add_action('widgets_init', create_function('', 'return register_widget("HS_STATS");'));
 
 
 
