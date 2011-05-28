@@ -334,7 +334,7 @@ function hs_admin_menu(){
 
 $x = WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__));
 
-	add_options_page('Hit Sniffer Options', '<img src="'.$x.'favicon.png" width="18" height="16" style="vertical-align: middle; padding-right: 3px; " />Hit Sniffer', 9, __FILE__, 'hs_optionpage');
+	add_options_page('Hit Sniffer Options', 'Hit Sniffer', 9, __FILE__, 'hs_optionpage');
 
 }
 
@@ -824,11 +824,11 @@ $htssl=" - SSL";
 <?php
 if (round($option['theme'])==2){
 ?>
-	<iframe scrollable='no' scrolling="no"  name="hit-sniffer-stat" frameborder="0" style="border: 1px solid #A4A2A3;" margin="0" padding="0" marginheight="0" marginwidth="0" width="100%" height="420" src="<?php echo $purl; ?>hitsniffer.com/stats/wp-2.php?code=<?php echo $option['code']; ?>">	
+	<iframe scrollable='no' scrolling="no"  name="hit-sniffer-stat" frameborder="0" style="background-color: #fff; border: 1px solid #A4A2A3;" margin="0" padding="0" marginheight="0" marginwidth="0" width="100%" height="420" src="<?php echo $purl; ?>hitsniffer.com/stats/wp-2.php?code=<?php echo $option['code']; ?>">	
 <?php 
 }else{
 ?>
-	<iframe scrollable='no' scrolling="no"  name="hit-sniffer-stat-compact" frameborder="0" style="border: 1px solid #A4A2A3;" margin="0" padding="0" marginheight="0" marginwidth="0" width="100%" height="400" src="<?php echo $purl; ?>hitsniffer.com/stats/wp3.php?code=<?php echo $option['code']; ?>">	
+	<iframe scrollable='no' scrolling="no"  name="hit-sniffer-stat-compact" frameborder="0" style="background-color: #fff; border: 1px solid #A4A2A3;" margin="0" padding="0" marginheight="0" marginwidth="0" width="100%" height="400" src="<?php echo $purl; ?>hitsniffer.com/stats/wp3.php?code=<?php echo $option['code']; ?>">	
 <?php } ?>
 
 		<p align="center">
