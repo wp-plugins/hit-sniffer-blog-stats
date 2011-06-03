@@ -12,7 +12,7 @@ Hit Sniffer is a powerful real time website visitor activity tracker. It will mo
 Hitsniffer analytics is a powerful, yet simple, real time website visitor activity tracker and monitoring tool.
 Monitor your visitors clicks live and get useful stats and data such as referrers, bounce rate, link quality, search keywords, technologies used, OS, browser, came from and geo location city and country
 A time graph and much more advanced features are available such as goals and campaigns tracker for calculating return on investment and ratio. All in a live stream.
-All that you have to do is open the “dashboard” section and watch your visitor stream.
+All that you have to do is open the dashboard section and watch your visitor stream.
 It works on both Blogs and Websites.
 
 **Hitsniffer Features**
