@@ -3,37 +3,38 @@ Contributors: San Arena
 Tags: live,stats, statistics,hits,hit, web, visitor, monitor, visitors, monitoring, log, blog, tracking,track,tracker, activity, pageview,ssl,https,seo,counter,visit,analytics,website,free,,visitor tracker,page,links,analytic,dashboard,widget,gadget,wordpress,graph,site,realtime,daily,label
 Requires at least: 1.5
 Tested up to: 3.2
-Stable tag: 2.5.1
+Stable tag: 2.5.2
 
-Hit Sniffer is a powerful real time visitors activity tracker. Monitor your visitors live. 
+Hit Sniffer is a powerful real time website visitor activity tracker. It will monitor your website visitors actions live and in real time. 
 
 == Description ==
 
-hitsniffer analytics is a powerful and simple to use real time visitors activity tracker and monitoring tool.
-Monitor your visitors clicks live and get useful stats data such as referrers, bounce rate, links quality, search keywords, technologies used, OS, Browser, Came from and Geo Location city and country
-Timely Graph and much more advanced features such as Goals and Campagins tracker for calculating Return On Investment and Ratio. All in Live Realtime Stream.
-just open live section and watch your visitors stream.
+Hitsniffer analytics is a powerful, yet simple, real time website visitor activity tracker and monitoring tool.
+Monitor your visitors clicks live and get useful stats and data such as referrers, bounce rate, link quality, search keywords, technologies used, OS, browser, came from and geo location city and country
+A time graph and much more advanced features are available such as goals and campaigns tracker for calculating return on investment and ratio. All in a live stream.
+All that you have to do is open the “dashboard” section and watch your visitor stream.
 It works on both Blogs and Websites.
 
-**hitsniffer features**
+**Hitsniffer Features**
 
-* Unique Live Dashboard
-* Visitor's Name tracking
-* Visitors List and their visited pages
-* Top Referrals and Top Keywords
-* Top Exit and Entry Page Reporting
-* Receive Daily Reports of your Statistics overview
-* Start a chat with your visitors, be an live support agent
-* Geo-Location tracking
-* Go back in Time with Archive feature
+* Unique live dashboard
+* Visitor's name tracking
+* Visitors list and pages they visited
+* Top referrals and top keywords
+* Top exit and entry page reporting
+* Daily email reports on site performance
+* Live chat feature, free of charge.
+* Geo-location tracking
+* Go back in time with the archive feature
 * Secure HTTPS tracking
-* Downloads & External Links tracking
-* Goals and Campagins
+* Downloads & external Links tracking
+* Goals and campaigns
 * View visitors in Map
-* iPhone, iPad and Android Support
-* Statistics Widget to put in your sidebar
-* Invisible Tracking
-* Multiple Users and Multiple Sites support
+* iPhone, iPad and Android supported
+* Statistics widget to put in your sidebar
+* Invisible tracking
+* Multiple users and multiple sites support
+* Add On for Firefox, Opera, Chrome and Windows Sidebar
 
 Read More:
 http://www.hitsniffer.com/features.php
@@ -41,20 +42,22 @@ http://www.hitsniffer.com/features.php
 
 == Installation ==
 
-It is extremely easy to install and make it working.
-Please open an account on hitsniffer website, add your site to account and get your API Code to use in plugin.
-
-View Hit Sniffer Features:
+It is extremely easy to install.
+All that you have to do is: open an account via the Hitsniffer website, add your site to your account and get your API Code to use the plugin.
+ 
+View The Features That Hitsniffer Offers:
 http://www.hitsniffer.com/features.php
-
 
 == Screenshots ==
 
-1. hitsniffer dashboard.
+1. Hitsniffer dashboard.
 2. hit sniffer statistics widget, show your website statistics to your visitors.
-3. hit sniffer dashboard widget, allow you see your visitors easily.
+3. hit sniffer dashboard widget, allow you to easily see your visitors.
 
 == Changelog ==
+
+= 2.5.2 =
++ Fixed Languages errors in plugin.
 
 = 2.5 =
 + New Widget Added, Hit Sniffer Statistics allow show your site statistics in your website.
