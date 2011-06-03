@@ -5,7 +5,7 @@ Plugin Name: Hit Sniffer Live Blog Analytics
 Plugin URI: http://www.hitsniffer.com/
 Description: Hit Sniffer is a powerful real time visitors activity tracker. Monitor your visitors live. 
 Author: hitsniffer.com
-Version: 2.5
+Version: 2.5.1
 Author URI: http://www.hitsniffer.com/
 */ 
 
@@ -698,7 +698,7 @@ window.location.href="<?php echo str_replace('&hitmagic=do','',$_SERVER['REQUEST
 
 <?php } ?>
 
-<strong>Hit Sniffer API Code:</strong> ( <a href="http://www.hitsniffer.com/register.php?tag=wp-getyourcode" target="_blank">Get your code<?php if ($magicable){ ?> Manually<?php } ?></a> ) <br>
+<strong>Hit Sniffer API Code:</strong> ( <a href="http://www.hitsniffer.com/register.php?tag=wp-getyourcode" target="_blank">Get your code<?php if ($magicable){ ?><?php } ?></a> ) <br>
 
 	<input type="text" name="code" size="20" value="<?php echo $option['code']; ?>"><br>Each site has it's own API Code. It Looks like 3defb4a2e4426642ea... and can be found in setting page of hitsniffer.com</p>
 
@@ -741,9 +741,7 @@ window.location.href="<?php echo str_replace('&hitmagic=do','',$_SERVER['REQUEST
 
 	<p class="submit"><input type="submit" value="Save" style="width: 120px;"></p>
 
-<?php if ($option['code']==''){ ?><p class="submit"><br><h2>How configure Hit Sniffer at Wordpress<?php if ($magicable){ ?> Manually<?php } ?>?</h2>Just 
-
-<a href="http://www.hitsniffer.com/register.php?tag=wordpress-to-ht-reg">Sign up 
+<?php if ($option['code']==''){ ?><p class="submit"><br><h2>How configure Hit Sniffer at Wordpress<?php if ($magicable){ ?><?php } ?>?</h2>Just <a href="http://www.hitsniffer.com/register.php?tag=wordpress-to-ht-reg">Sign up 
 
 for a hit sniffer account</a> and follow steps.<br>
 
@@ -1046,15 +1044,13 @@ $htssl=" - SSL";
 
 starting from basic plan. This widget show an Online support icon whenever you are online at hit sniffer dashboard and show a Leave a message contact form icon when you are not online.</span>
 
-        <p>You might be interested to download cross-platform Native OS 
+        <p>You might be interested to download cross-platform Hit Sniffer Firefox Extention 
 
-Chat Notifier widget of Hit Sniffer, to receive notification whenever somebody 
+Chat Notifier, to receive notification whenever somebody 
 
-requested a chat with you. Be sure to close widget with Escape key whenever you are away!
+requested a chat with you.
 
-<a target="_parent" href="http://www.hitsniffer.com/widget/">Click here to open 
-
-Hit Sniffer Widgets page.</a></p><?php 
+<a target="_parent" href="http://www.hitsniffer.com/widget/">Click here to open Hit Sniffer Widgets page.</a></p><?php 
 
     }else{
 
