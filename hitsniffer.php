@@ -1150,7 +1150,7 @@ text-decoration: underline;
         <?php
 
     }else{
-    ?>You have disabled the Hitsniffer statistics widget in your wordpress settings. pPlease open settings>Hitsniffer to enable this widget.<?php
+    ?>You have disabled the Hitsniffer statistics widget in your wordpress settings. Please open settings>Hitsniffer to enable this widget.<?php
     }}
 
     }
