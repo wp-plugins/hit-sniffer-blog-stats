@@ -4,7 +4,7 @@ Plugin Name: Hit Sniffer Live Blog Analytics
 Plugin URI: http://www.hitsniffer.com/
 Description: Hit Sniffer is a powerful real time website visitor activity tracker. It will monitor your website visitors actions live and in real time.
 Author: hitsniffer.com
-Version: 2.5.2.6
+Version: 2.5.6
 Author URI: http://www.hitsniffer.com/
 */ 
 
@@ -46,7 +46,7 @@ $htssl='';
         $htssl=" - SSL";
       }
   }
-?><!-- HITSNIFFER TRACKING CODE<?php echo $htssl; ?> v2.5.2.3 - DO NOT CHANGE --><?php
+?><!-- HITSNIFFER TRACKING CODE<?php echo $htssl; ?> v2.5.6 - DO NOT CHANGE --><?php
 
 
 
@@ -293,7 +293,7 @@ if (round($option['iga'])==0) $option['iga']=0;
 
 if (round($option['allowchat'])==0) $option['allowchat']=1;
 
-if (round($option['theme'])==0) $option['theme']=2;
+if (round($option['xtheme'])==0) $option['xtheme']=2;
 
 if (round($option['stats'])==0) $option['stats']=2;
 
@@ -328,7 +328,7 @@ $option['wgd']=html_entity_decode($option['wgd']);
 
 $option['allowchat']=html_entity_decode($option['allowchat']);
 
-$option['theme']=html_entity_decode($option['theme']);
+$option['xtheme']=html_entity_decode($option['xtheme']);
 
 $option['stats']=html_entity_decode($option['stats']);
 
@@ -679,13 +679,13 @@ window.location.href="<?php echo str_replace('&hitmagic=do','',$_SERVER['REQUEST
 
 <p><input type="radio" value="1" name="allowchat"  style="width: 22px; height: 20px;" <?php if ($option['allowchat']!=2) echo "checked"; ?> checked>Yes&nbsp;
 
-<input type="radio" value="2" name="allowchat"  style="width: 22px; height: 20px;" <?php if ($option['allowchat']==2) echo "checked"; ?>>No&nbsp;&nbsp;&nbsp;Enable "chat with your visitors feature" (not available on starter plan)
+<input type="radio" value="2" name="allowchat"  style="width: 22px; height: 20px;" <?php if ($option['allowchat']==2) echo "checked"; ?>>No&nbsp;&nbsp;&nbsp;Enable "chat with your visitors feature"
 
 </p>
 
-<p><input type="radio" value="1" name="theme"  style="width: 22px; height: 20px;" <?php if ($option['theme']!=2) echo "checked"; ?> checked>Yes&nbsp;
+<p><input type="radio" value="2" name="xtheme"  style="width: 22px; height: 20px;" <?php if ($option['xtheme']==2) echo "checked"; ?> checked>Yes&nbsp;
 
-<input type="radio" value="2" name="theme"  style="width: 22px; height: 20px;" <?php if ($option['theme']==2) echo "checked"; ?>>No&nbsp;&nbsp;&nbsp;Use the compact theme for wordpress dashboard widget?
+<input type="radio" value="1" name="xtheme"  style="width: 22px; height: 20px;" <?php if ($option['xtheme']!=2) echo "checked"; ?>>No&nbsp;&nbsp;&nbsp;Use the compact Theme for wordpress dashboard widget?
 
 </p>
  
@@ -771,13 +771,13 @@ $htssl=" - SSL";
 		<td>
 
 <?php
-if (round($option['theme'])==2){
+if (round($option['xtheme'])==2){
 ?>
-	<iframe scrollable='no' scrolling="no"  name="hit-sniffer-stat" frameborder="0" style="background-color: #fff; border: 1px solid #A4A2A3;" margin="0" padding="0" marginheight="0" marginwidth="0" width="100%" height="420" src="<?php echo $purl; ?>hitsniffer.com/stats/wp-2.php?code=<?php echo $option['code']; ?>">	
+	<iframe scrollable='no' scrolling="no"  name="hit-sniffer-stat" frameborder="0" style="background-color: #fff; border: 1px solid #A4A2A3;" margin="0" padding="0" marginheight="0" marginwidth="0" width="100%" height="400" src="<?php echo $purl; ?>hitsniffer.com/stats/wp3.2.php?code=<?php echo $option['code']; ?>">	
 <?php 
 }else{
 ?>
-	<iframe scrollable='no' scrolling="no"  name="hit-sniffer-stat-compact" frameborder="0" style="background-color: #fff; border: 1px solid #A4A2A3;" margin="0" padding="0" marginheight="0" marginwidth="0" width="100%" height="400" src="<?php echo $purl; ?>hitsniffer.com/stats/wp3.php?code=<?php echo $option['code']; ?>">	
+	<iframe scrollable='no' scrolling="no"  name="hit-sniffer-stat-compact" frameborder="0" style="background-color: #fff; border: 1px solid #A4A2A3;" margin="0" padding="0" marginheight="0" marginwidth="0" width="100%" height="420" src="<?php echo $purl; ?>hitsniffer.com/stats/wp-2.php?code=<?php echo $option['code']; ?>">	
 <?php } ?>
 
 		<p align="center">
@@ -841,7 +841,7 @@ if ($option['wgd']!=2){
 
     
 
-      wp_add_dashboard_widget('hitsniffer_dashboard_widget', 'Hit Sniffer - Your analytics summary', 'hitsniffer_dashboard_widget_function');	
+      wp_add_dashboard_widget('hitsniffer_dashboard_widget', 'Hit Sniffer - Your Analytics Summary', 'hitsniffer_dashboard_widget_function');	
 
     }
 
@@ -940,7 +940,7 @@ $htssl=" - SSL";
 
                         echo $before_title . $title . $after_title; ?>
 
-<div style="text-align: center;"><!-- HITSNIFFER ONLINE SUPPORT CODE v2.5.2 - DO NOT CHANGE -->
+<div style="text-align: center;"><!-- HITSNIFFER ONLINE SUPPORT CODE v2.5.6 - DO NOT CHANGE -->
 
 <script src="<?php echo $purl; ?>hitsniffer.com/online.php?code=<?php echo $option['code']; ?>" type="text/javascript" ></script>
 
@@ -992,7 +992,7 @@ $htssl=" - SSL";
 
             <p><label for="<?php echo $this->get_field_id('comment'); ?>"><?php _e('Your Comment:'); ?> <input class="widefat" id="<?php echo $this->get_field_id('comment'); ?>" name="<?php echo $this->get_field_name('comment'); ?>" type="text" value="<?php echo $widget_comments_title; ?>" /></label></p>
 
-		<p>What is this widget?</p><span> Sniffer offers a live chat option available from the basic plan upwards. The widget shows an online support icon whenever you are online in your hit sniffer dashboard and shows a leave a message contact form icon when you are not online.</span>
+		<p>What is this widget?</p><span>Hit Sniffer offers a built-in live chat feature. The widget shows an online support icon whenever you are online and shows a leave a message contact form icon when you are not online.</span>
 
       <br><a target="_parent" href="http://www.hitsniffer.com/widget/">Click here to open Hit Sniffer Widgets page.</a>
       <p>With our Firefox addon, you can chat to your visitors direct from a firefox pop up window.
@@ -1029,7 +1029,7 @@ if (round($option['iga'])==0) $option['iga']=2;
 
 if (round($option['allowchat'])==0) $option['allowchat']=1;
 
-if (round($option['theme'])==0) $option['theme']=2;
+if (round($option['xtheme'])==0) $option['xtheme']=2;
 
 if (round($option['stats'])==0) $option['stats']=2;
 
@@ -1091,7 +1091,7 @@ if ($option['stats']!=2){
 
                         echo $before_title . $title . $after_title; ?>
 
-<div class="hitsniffer_statistic_widget"><!-- HITSNIFFER STATISTIC WIDGET v2.5.2 - DO NOT CHANGE -->
+<div class="hitsniffer_statistic_widget"><!-- HITSNIFFER STATISTIC WIDGET v2.5.6 - DO NOT CHANGE -->
 
 <?php if (!$instance['hitsniffer_online']) { ?><div class="hitsniffer_statistics_items hitsniffer_online"><span class="hitsniffer_statistics_values" id="hitsniffer_online">-</span> Online Now</div><?php } ?>
 <?php if (!$instance['hitsniffer_visit']) { ?><div class="hitsniffer_statistics_items">Visits Today: <span class="hitsniffer_statistics_values" id="hitsniffer_visit">-</span></div><?php } ?>
@@ -1293,7 +1293,7 @@ if (round($option['iga'])==0) $option['iga']=2;
 
 if (round($option['allowchat'])==0) $option['allowchat']=1;
 
-if (round($option['theme'])==0) $option['theme']=2;
+if (round($option['xtheme'])==0) $option['xtheme']=2;
 
 if (round($option['stats'])==0) $option['stats']=2;
 
