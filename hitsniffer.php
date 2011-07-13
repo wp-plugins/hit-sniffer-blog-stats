@@ -4,7 +4,7 @@ Plugin Name: Hit Sniffer Live Blog Analytics
 Plugin URI: http://www.hitsniffer.com/
 Description: Hit Sniffer is a powerful real time website visitor activity tracker. It will monitor your website visitors actions live and in real time.
 Author: hitsniffer.com
-Version: 2.5.6
+Version: 2.5.7
 Author URI: http://www.hitsniffer.com/
 */ 
 
@@ -46,7 +46,7 @@ $htssl='';
         $htssl=" - SSL";
       }
   }
-?><!-- HITSNIFFER TRACKING CODE<?php echo $htssl; ?> v2.5.6 - DO NOT CHANGE --><?php
+?><!-- HITSNIFFER TRACKING CODE<?php echo $htssl; ?> v2.5.7 - DO NOT CHANGE --><?php
 
 
 
@@ -910,26 +910,10 @@ $htssl=" - SSL";
 
  if ($option['code']!=''){
 
-    
-
-    
-
         extract( $args );
 
         $title = apply_filters('widget_title', $instance['widget_title']);
-
         $widget_comments_title = apply_filters('widget_comments_title', $instance['widget_comments_title']);
-
-
-
-
-
-
-
-
-
-
-
 
 
         ?>
@@ -940,9 +924,9 @@ $htssl=" - SSL";
 
                         echo $before_title . $title . $after_title; ?>
 
-<div style="text-align: center;"><!-- HITSNIFFER ONLINE SUPPORT CODE v2.5.6 - DO NOT CHANGE -->
+<div style="text-align: center;"><!-- HITSNIFFER ONLINE SUPPORT CODE v2.5.7 - DO NOT CHANGE -->
 
-<script src="<?php echo $purl; ?>hitsniffer.com/online.php?code=<?php echo $option['code']; ?>" type="text/javascript" ></script>
+<script src="<?php echo $purl; ?>hitsniffer.com/online.php?code=<?php echo $option['code']; ?>&img=<?php echo urlencode($instance['wd_img']); ?>&off=<?php echo urlencode($instance['wd_off']); ?>" type="text/javascript" ></script>
 
 <!-- HITSNIFFER ONLINE SUPPORT CODE - DO NOT CHANGE --></div>
 
@@ -960,13 +944,14 @@ $htssl=" - SSL";
 
     /** @see WP_Widget::update */
 
-    function update($new_instance, $old_instance) {				
+    function update($new_instance, $old_instance) {		
 
 	$instance = $old_instance;
 
 	$instance['widget_title'] = strip_tags($new_instance['title']);
-
 	$instance['widget_comments_title'] = strip_tags($new_instance['comment']);
+	$instance['wd_img'] = strip_tags($new_instance['img']);
+	$instance['wd_off'] = strip_tags($new_instance['off']);
 
         return $instance;
 
@@ -976,15 +961,16 @@ $htssl=" - SSL";
 
     /** @see WP_Widget::form */
 
-    function form($instance) {	
+    function form($instance) {
 
     $option=get_hs_conf();		
 
-     if ($option['code']!=''){  	
+     if ($option['code']!=''){
 
         $title = esc_attr($instance['widget_title']);
-
         $widget_comments_title = esc_attr($instance['widget_comments_title']);
+        $img = esc_attr($instance['wd_img']);
+        $off = esc_attr($instance['wd_off']);
 
         ?>
 
@@ -992,9 +978,13 @@ $htssl=" - SSL";
 
             <p><label for="<?php echo $this->get_field_id('comment'); ?>"><?php _e('Your Comment:'); ?> <input class="widefat" id="<?php echo $this->get_field_id('comment'); ?>" name="<?php echo $this->get_field_name('comment'); ?>" type="text" value="<?php echo $widget_comments_title; ?>" /></label></p>
 
+            <p><label for="<?php echo $this->get_field_id('img'); ?>"><?php _e('Custom Online Icon: (optional)'); ?> <input class="widefat" id="<?php echo $this->get_field_id('img'); ?>" name="<?php echo $this->get_field_name('img'); ?>" type="text" value="<?php echo $img; ?>" /></label></p>
+
+            <p><label for="<?php echo $this->get_field_id('off'); ?>"><?php _e('Custom Offline Icon: (optional)'); ?> <input class="widefat" id="<?php echo $this->get_field_id('off'); ?>" name="<?php echo $this->get_field_name('off'); ?>" type="text" value="<?php echo $off; ?>" /></label></p>
+
 		<p>What is this widget?</p><span>Hit Sniffer offers a built-in live chat feature. The widget shows an online support icon whenever you are online and shows a leave a message contact form icon when you are not online.</span>
 
-      <br><a target="_parent" href="http://www.hitsniffer.com/widget/">Click here to open Hit Sniffer Widgets page.</a>
+      <br><a target="_parent" href="http://www.hitsniffer.com/widget/" target="_blank">Click here to open Hit Sniffer Widgets page.</a>
       <p>With our Firefox addon, you can chat to your visitors direct from a firefox pop up window.
 
 </p><?php 
@@ -1091,7 +1081,7 @@ if ($option['stats']!=2){
 
                         echo $before_title . $title . $after_title; ?>
 
-<div class="hitsniffer_statistic_widget"><!-- HITSNIFFER STATISTIC WIDGET v2.5.6 - DO NOT CHANGE -->
+<div class="hitsniffer_statistic_widget"><!-- HITSNIFFER STATISTIC WIDGET v2.5.7 - DO NOT CHANGE -->
 
 <?php if (!$instance['hitsniffer_online']) { ?><div class="hitsniffer_statistics_items hitsniffer_online"><span class="hitsniffer_statistics_values" id="hitsniffer_online">-</span> Online Now</div><?php } ?>
 <?php if (!$instance['hitsniffer_visit']) { ?><div class="hitsniffer_statistics_items">Visits Today: <span class="hitsniffer_statistics_values" id="hitsniffer_visit">-</span></div><?php } ?>
