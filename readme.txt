@@ -51,8 +51,8 @@ http://www.hitsniffer.com/features.php
 == Screenshots ==
 
 1. Hitsniffer dashboard.
-2. hit sniffer statistics widget, show your website statistics to your visitors.
-3. hit sniffer dashboard widget, allow you to easily see your visitors.
+2. Hitsniffer statistics widget, show your website statistics to your visitors.
+3. Hitsniffer dashboard widget, allow you to easily see your visitors.
 
 == Changelog ==
 
