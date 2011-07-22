@@ -55,6 +55,7 @@ http://www.hitsniffer.com/features.php
 2. Hitsniffer statistics widget, show your website statistics to your visitors.
 3. Hitsniffer dashboard widget, allow you to easily see your visitors.
 4. Live Support, Chat directly with your online visitors.
+4. Visitors Detailed Information and Analysis.
 
 == Changelog ==
 
