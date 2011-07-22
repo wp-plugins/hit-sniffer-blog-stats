@@ -3,7 +3,7 @@ Contributors: San Arena
 Tags: live,stats, statistics,hits,hit, web, visitor, monitor, visitors, monitoring, log, blog, tracking,track,tracker, activity, pageview,ssl,https,seo,counter,visit,analytics,website,free,,visitor tracker,page,links,analytic,dashboard,widget,gadget,wordpress,graph,site,realtime,daily,label
 Requires at least: 1.5
 Tested up to: 3.2.1
-Stable tag: 2.5.7.2
+Stable tag: 2.5.8
 
 Hit Sniffer is a powerful real time website visitor activity tracker. It will monitor your website visitors actions live and in real time. 
 
@@ -21,11 +21,12 @@ It works on both Blogs and Websites.
 * Visitor's name tracking
 * Live chat with visitors feature and Live support button
 * Realtime visitors list and pages they visited
+* Audible New Visitor Notification
 * Top referrals and top keywords
 * Top exit and entry page reporting
 * Daily email reports on site performance
 * Geo-location tracking
-* Go back in time with the archive feature
+* Go back in time with recent visitor's search feature
 * Secure HTTPS tracking
 * Downloads & external Links tracking
 * Goals and campaigns
@@ -34,7 +35,7 @@ It works on both Blogs and Websites.
 * Statistics widget to put in your sidebar
 * Invisible tracking
 * Multiple users and multiple sites support
-* Add On for Firefox, Opera, Chrome and Windows Sidebar
+* Addon for Firefox, Opera, Chrome and Windows Sidebar
 
 Read More:
 http://www.hitsniffer.com/features.php
@@ -56,6 +57,13 @@ http://www.hitsniffer.com/features.php
 4. Live Support, Chat directly with your online visitors.
 
 == Changelog ==
+
+= 2.5.8 =
++ New Layout for Visitor's Detailed page, counting returning visits too.
++ Map Clustering in hitsniffer dashboard.
++ New Visitor sound and message notification in hitsniffer dashboard.
++ Optimized and refreshed "Pages" and "Visitors" section in hitsniffer's dashboard.
++ Visitor's Search, Improved Chat Quality.
 
 = 2.5.7.1 =
 + Live Chat Invitation have Decline button now
