@@ -3,7 +3,7 @@ Contributors: San Arena
 Tags: live,stats, statistics,hits,hit, web, visitor, monitor, visitors, monitoring, log, blog, tracking,track,tracker, activity, pageview,ssl,https,seo,counter,visit,analytics,website,free,,visitor tracker,page,links,analytic,dashboard,widget,gadget,wordpress,graph,site,realtime,daily,label
 Requires at least: 1.5
 Tested up to: 3.2.1
-Stable tag: 2.5.8
+Stable tag: 2.5.8.1
 
 Hit Sniffer is a powerful real time website visitor activity tracker. It will monitor your website visitors actions live and in real time. 
 
@@ -55,7 +55,7 @@ http://www.hitsniffer.com/features.php
 2. Hitsniffer statistics widget, show your website statistics to your visitors.
 3. Hitsniffer dashboard widget, allow you to easily see your visitors.
 4. Live Support, Chat directly with your online visitors.
-4. Visitors Detailed Information and Analysis.
+4. Detailed Visitors Information and Analysis.
 
 == Changelog ==
 
