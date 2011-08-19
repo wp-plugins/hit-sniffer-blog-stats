@@ -180,7 +180,16 @@ $keyword[22]='web stats';
 $keyword[23]='web stats';
 $keyword[24]='web stats';
 $keyword[25]='web stats';
-
+$keyword[26]='web statistics';
+$keyword[27]='web statistics';
+$keyword[28]='web statistics';
+$keyword[29]='web statistics';
+$keyword[30]='web statistics';
+$keyword[31]='web statistics';
+$keyword[32]='web statistics';
+$keyword[33]='web stats';
+$keyword[34]='web stats';
+$keyword[35]='web stats';
 
 
 if ($option['stats']!=2){
