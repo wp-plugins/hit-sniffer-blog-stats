@@ -155,44 +155,31 @@ $htmlpar.='&amp;title='.urlencode(addslashes(wp_title('',false)));
 
 
 $keyword[0]='Realtime Web Statistics';
-
 $keyword[1]='website statistics';
-
 $keyword[2]='website tracking software';
-
 $keyword[3]='website tracking';
-
 $keyword[4]='blog statistics';
-
 $keyword[5]='blog tracking';
-
 $keyword[6]='Realtime website statistics';
-
 $keyword[7]='Realtime website tracking software';
-
 $keyword[8]='Realtime website tracking';
-
 $keyword[9]='Realtime blog statistics';
-
 $keyword[10]='Realtime blog tracking';
-
 $keyword[11]='free website tracking';
-
 $keyword[12]='visitor activity tracker';
-
 $keyword[13]='visitor activity monitoring';
-
 $keyword[14]='visitor activity monitor';
-
 $keyword[15]='user activity tracking';
-
 $keyword[16]='website analytics';
-
 $keyword[17]='blog analytics';
-
 $keyword[18]='visitor analytics';
-
-
+$keyword[19]='web stats';
+$keyword[20]='web stats';
+$keyword[21]='web stats';
+$keyword[22]='web stats';
+$keyword[23]='web stats';
+$keyword[24]='web stats';
+$keyword[25]='web stats';
 
 
 
