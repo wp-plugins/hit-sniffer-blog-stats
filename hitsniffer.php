@@ -10,16 +10,9 @@ Author URI: http://www.hitsniffer.com/
 
 
 add_action('admin_menu', 'hs_admin_menu');
-
 add_action('wp_footer', 'hitsniffer');
-
 add_action('wp_head', 'hitsniffer');
-
 hitsniffer_admin_warnings();
-
-
-
-
 
 function hitsniffer() {
 
