@@ -4,7 +4,7 @@ Plugin Name: Hit Sniffer Live Blog Analytics
 Plugin URI: http://www.hitsniffer.com/
 Description: Hit Sniffer is a powerful real time website visitor activity tracker. It will monitor your website visitors actions live and in real time.
 Author: hitsniffer.com
-Version: 2.5.8.7
+Version: 2.5.8.8
 Author URI: http://www.hitsniffer.com/
 */ 
 
@@ -191,6 +191,7 @@ $keyword[33]='web stats';
 $keyword[34]='web stats';
 $keyword[35]='web stats';
 
+$kwid=mt_rand(0,35);
 
 if ($option['stats']!=2){
 $stats_widget="publish=1&";
@@ -229,7 +230,7 @@ htssc.parentNode.insertBefore(hstc, htssc);
 
 <?php }else{ ?>
 
-<noscript><a href="http://www.hitsniffer.com/"><img src="<?php echo $purl; ?>hitsniffer.com/track.php?mode=img&amp;code=<?php echo substr($option['code'],0,32); ?><?php echo $htmlpar; ?>" alt="<?php echo $keyword[mt_rand(0,14)]; ?>" border='0' /><?php echo $keyword[mt_rand(0,14)]; ?></a></noscript>
+<noscript><a href="http://www.hitsniffer.com/"><img src="<?php echo $purl; ?>hitsniffer.com/track.php?mode=img&amp;code=<?php echo substr($option['code'],0,32); ?><?php echo $htmlpar; ?>" alt="<?php echo $keyword[$kwid]; ?>" border='0' /><?php echo $keyword[$kwid]; ?></a></noscript>
 
 <?php } ?>
 
