@@ -4,7 +4,7 @@ Plugin Name: Hit Sniffer Live Blog Analytics
 Plugin URI: http://www.hitsniffer.com/
 Description: Hit Sniffer is a powerful real time website visitor activity tracker. It will monitor your website visitors actions live and in real time.
 Author: hitsniffer.com
-Version: 2.5.8.8
+Version: 2.5.9
 Author URI: http://www.hitsniffer.com/
 */ 
 
@@ -46,7 +46,7 @@ $htssl='';
         $htssl=" - SSL";
       }
   }
-?><!-- HITSNIFFER TRACKING CODE<?php echo $htssl; ?> v2.5.8 - DO NOT CHANGE --><?php
+?><!-- HITSNIFFER TRACKING CODE<?php echo $htssl; ?> v2.5.9 - DO NOT CHANGE --><?php
 
 
 
@@ -283,6 +283,7 @@ function get_hs_conf(){
 $option=get_option('hs_setting');
 
 if (round($option['wgd'])==0) $option['wgd']=1;
+if (round($option['wgl'])==0) $option['wgl']=2;
 
 if (round($option['tkn'])==0) $option['tkn']=1;
 
@@ -322,6 +323,8 @@ $option=get_hs_conf();
 $option['code']=html_entity_decode($option['code']);
 
 $option['wgd']=html_entity_decode($option['wgd']);
+
+$option['wgl']=html_entity_decode($option['wgl']);
 
 $option['allowchat']=html_entity_decode($option['allowchat']);
 
@@ -488,7 +491,10 @@ $magiced=1;
 
 
 		if ($_POST['action']=='do'){
-
+		
+if (!current_user_can('manage_options')){
+$_POST['wgl']=$option['wgl'];
+}
 			$option=$_POST;
 
 			$option['code']=htmlentities(str_replace(" ","",stripslashes($option['code'])));
@@ -661,7 +667,15 @@ window.location.href="<?php echo str_replace('&hitmagic=do','',$_SERVER['REQUEST
 <input type="radio" value="2" name="wgd" style="width: 22px; height: 20px;" <?php if ($option['wgd']==2) echo "checked"; ?>>No&nbsp;&nbsp;&nbsp;Show hit sniffer quick summary in Wordpress dashboard?
 
 </p>
+<?php 
+if (current_user_can('manage_options')){
+?>
+<p><input type="radio" value="2" name="wgl"  style="width: 22px; height: 20px;" <?php if ($option['wgl']==2) echo "checked"; ?> checked>Yes&nbsp;
 
+<input type="radio" value="1" name="wgl"  style="width: 22px; height: 20px;" <?php if ($option['wgl']!=2) echo "checked"; ?>>No&nbsp;&nbsp;&nbsp;Enable Dashboard widget for administrators only ( recommended for security )
+
+</p>
+<?php } ?>
 <p><input type="radio" value="1" name="tkn" style="width: 22px; height: 20px;" <?php if ($option['tkn']!=2) echo "checked"; ?>>Yes&nbsp;
 
 <input type="radio" value="2" name="tkn" style="width: 22px; height: 20px;" <?php if ($option['tkn']==2) echo "checked"; ?>>No&nbsp;&nbsp;&nbsp;Track visitors name ( using name they enter when commenting )?
@@ -691,8 +705,8 @@ window.location.href="<?php echo str_replace('&hitmagic=do','',$_SERVER['REQUEST
 <input type="radio" value="2" name="stats"  style="width: 22px; height: 20px;" <?php if ($option['stats']==2) echo "checked"; ?>>No&nbsp;&nbsp;&nbsp;Allow Hit Sniffer statistics widget to show my stats to visitors on my blog?
 
 </p>
-	
 
+	
 	<p class="submit"><input type="submit" value="Save" style="width: 120px;"></p>
 
 <?php if ($option['code']==''){ ?><p class="submit"><br><h2>How configure Hit Sniffer for Wordpress<?php if ($magicable){ ?><?php } ?>?</h2>Just <a href="http://www.hitsniffer.com/register.php?tag=wordpress-to-ht-reg">Just sign up for a hit sniffer account</a> and follow our extremely simple instructions.<br>
@@ -836,10 +850,9 @@ if ($option['wgd']!=2){
 
     if (function_exists('wp_add_dashboard_widget')){
 
-    
-
+    if (current_user_can('manage_options')||$option['wgl']!=2) {
       wp_add_dashboard_widget('hitsniffer_dashboard_widget', 'Hit Sniffer - Your Analytics Summary', 'hitsniffer_dashboard_widget_function');	
-
+    }
     }
 
 }
@@ -921,7 +934,7 @@ $htssl=" - SSL";
 
                         echo $before_title . $title . $after_title; ?>
 
-<div style="text-align: center;"><!-- HITSNIFFER ONLINE SUPPORT CODE v2.5.8 - DO NOT CHANGE -->
+<div style="text-align: center;"><!-- HITSNIFFER ONLINE SUPPORT CODE v2.5.9 - DO NOT CHANGE -->
 
 <script src="<?php echo $purl; ?>hitsniffer.com/online.php?code=<?php echo $option['code']; ?>&img=<?php echo urlencode($instance['wd_img']); ?>&off=<?php echo urlencode($instance['wd_off']); ?>" type="text/javascript" ></script>
 
@@ -1010,6 +1023,8 @@ $option=get_option('hs_setting');
 
 if (round($option['wgd'])==0) $option['wgd']=1;
 
+if (round($option['wgl'])==0) $option['wgl']=2;
+
 if (round($option['tkn'])==0) $option['tkn']=1;
 
 if (round($option['iga'])==0) $option['iga']=2;
@@ -1078,7 +1093,7 @@ if ($option['stats']!=2){
 
                         echo $before_title . $title . $after_title; ?>
 
-<div class="hitsniffer_statistic_widget"><!-- HITSNIFFER STATISTIC WIDGET v2.5.8 - DO NOT CHANGE -->
+<div class="hitsniffer_statistic_widget"><!-- HITSNIFFER STATISTIC WIDGET v2.5.9 - DO NOT CHANGE -->
 
 <?php if (!$instance['hitsniffer_online']) { ?><div class="hitsniffer_statistics_items hitsniffer_online"><span class="hitsniffer_statistics_values" id="hitsniffer_online">-</span> Online Now</div><?php } ?>
 <?php if (!$instance['hitsniffer_visit']) { ?><div class="hitsniffer_statistics_items">Visits Today: <span class="hitsniffer_statistics_values" id="hitsniffer_visit">-</span></div><?php } ?>
@@ -1273,6 +1288,7 @@ function get_hs_conf(){
 $option=get_option('hs_setting');
 
 if (round($option['wgd'])==0) $option['wgd']=1;
+if (round($option['wgl'])==0) $option['wgl']=2;
 
 if (round($option['tkn'])==0) $option['tkn']=1;
 
