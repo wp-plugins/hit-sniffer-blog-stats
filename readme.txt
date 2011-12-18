@@ -3,7 +3,7 @@ Contributors: San Arena
 Tags: live,stats, statistics,hits,hit, web, visitor, monitor, visitors, monitoring, log, blog, tracking,track,tracker, activity, pageview,ssl,https,seo,counter,visit,analytics,website,free,,visitor tracker,page,links,analytic,dashboard,widget,gadget,wordpress,graph,site,realtime,daily,label
 Requires at least: 1.5
 Tested up to: 3.3
-Stable tag: 2.5.9.7
+Stable tag: 2.6
 
 Hit Sniffer is a powerful real time website visitor activity tracker. It will monitor your website visitors actions live and in real time. 
 
@@ -19,6 +19,7 @@ It works on both Blogs and Websites.
 
 * Unique live dashboard
 * Visitor's name tracking
+* View visitors in Map
 * Live chat with visitors feature and Live support button
 * Realtime visitors list and pages they visited
 * Audible New Visitor Notification
@@ -30,7 +31,6 @@ It works on both Blogs and Websites.
 * Secure HTTPS tracking
 * Downloads & external Links tracking
 * Goals and campaigns
-* View visitors in Map
 * iPhone, iPad and Android supported
 * Statistics widget to put in your sidebar
 * Invisible tracking
@@ -55,47 +55,53 @@ http://www.hitsniffer.com/features.php
 2. Hitsniffer statistics widget, show your website statistics to your visitors.
 3. Hitsniffer dashboard widget, allow you to easily see your visitors.
 4. Live Support, Chat directly with your online visitors.
-4. Detailed Visitors Information and Analysis.
+5. Detailed Visitors Information and Analysis.
+6. Visitors on the world map.
 
 == Changelog ==
 
+= 2.6 =
++ World Map admin widget added
++ Added World Map feature screenshot to plugin
+* Updated Configuration page theme
+
 = 2.5.9.7 =
-+ Wordpress 3.3 Compatibility
+* Wordpress 3.3 Compatibility
 
 = 2.5.9 =
-+ Security Fix: Option to enable hitsniffer dashboard widget for administrators only. ( Thanks to R. Ramos )
+* Security Fix: Option to enable hitsniffer dashboard widget for administrators only. ( Thanks to R. Ramos )
 
 = 2.5.8 =
 + New Layout for Visitor's Detailed page, counting returning visits too.
 + Map Clustering in hitsniffer dashboard.
 + New Visitor sound and message notification in hitsniffer dashboard.
-+ Optimized and refreshed "Pages" and "Visitors" section in hitsniffer's dashboard.
+* Optimized and refreshed "Pages" and "Visitors" section in hitsniffer's dashboard.
 + Visitor's Search, Improved Chat Quality.
 
 = 2.5.7.1 =
-+ Live Chat Invitation have Decline button now
+* Live Chat Invitation have Decline button now
 
 = 2.5.7 =
-+ Custom Online/Offline Icon for Live Support Button
+* Ability to use Custom Online/Offline Icon for Live Support Button
 
 = 2.5.6 =
 + New Theme for Wordpress Dashboard Widget
-+ Wordpress 3.2.1 Compatibility
-+ Widget Screenshot updated.
+* Wordpress 3.2.1 Compatibility
+* Widget Screenshot updated.
 
 = 2.5.2 =
-+ Fixed Languages errors in plugin.
+* Fixed Language errors in plugin.
 
 = 2.5 =
 + New Widget Added, Hit Sniffer Statistics allow show your site statistics in your website.
 + New Screenshots added.
-+ few bugs with previous versions has been fixed
-+ added compatibility for wordpress 3.2
-+ fixed broken compatibility for wordpress 1.5
+* few bugs with previous versions has been fixed
+* added compatibility for wordpress 3.2
+* fixed broken compatibility for wordpress 1.5
 
 = 2.4.5.6 =
-+ Wordpress 3.1.3 compatibility.
-+ Temporary disabled One Click Install Feature.
+* Wordpress 3.1.3 compatibility.
+- Temporary disabled One Click Install Feature.
 
 = 2.4.5.5 =
 + Ability to customize widget theme.

@@ -2,9 +2,9 @@
 /*
 Plugin Name: Hit Sniffer Live Blog Analytics
 Plugin URI: http://www.hitsniffer.com/
-Description: Hit Sniffer is a powerful real time website visitor activity tracker. It will monitor your website visitors actions live and in real time.
+Description: Hit Sniffer is a powerful real time website visitor activity tracker. It will  website visitors actions live and in real time.
 Author: hitsniffer.com
-Version: 2.5.9.7
+Version: 2.6
 Author URI: http://www.hitsniffer.com/
 */ 
 
@@ -301,6 +301,8 @@ if (round($option['xtheme'])==0) $option['xtheme']=2;
 
 if (round($option['stats'])==0) $option['stats']=2;
 
+if (round($option['wpmap'])==0) $option['wpmap']=1;
+
 
 return $option;
 
@@ -338,7 +340,7 @@ $option['xtheme']=html_entity_decode($option['xtheme']);
 
 $option['stats']=html_entity_decode($option['stats']);
 
-
+$option['wpmap']=html_entity_decode($option['wpmap']);
 
 
 $magicable=0; //temporary disable magic feature
@@ -604,31 +606,361 @@ $magicable=0;
 
 
 
-?><?php if ($option['code']!=''){
+?>
+
+<div>
+
+
+<?php if ($option['code']!=''){
 
 $magicable=0;
 
  ?>
-
-
-
-<div id='hitsniffer-saved' class='updated fade'><p><strong><a href="http://www.hitsniffer.com/login-code.php?code=<?php echo $option['code']; ?>">Monitor your visitor activity, click to open your real time dashboard.</a></strong></p></div>
-
-
-
+ 
+ 
+ 
+<center>
+<a class='btn' style="margin-bottom: 15px;padding: 10px;" href="http://www.hitsniffer.com/login-code.php?code=<?php echo $option['code']; ?>" target="_blank">Monitor your visitor activity, Click to open your real time dashboard.</a>
+</center>
 <?php } 
-
 $x = WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__));
-
-
-
 ?>
 
-<div style="margin: auto; width: 600px; ">
+<div class="tdhdr">
+<div class="tdhdrw">
 
-<p><?php if ($option['code']!=''){ ?><a target="_blank" href="http://www.hitsniffer.com/login-code.php?code=<?php echo $option['code']; ?>"><?php }else{ ?><a target="_blank" href="http://www.hitsniffer.com/features.php"><?php } ?>
 
-<img border="0" src="<?php echo $x; ?>hitsniffer.jpg" width="169" height="100" align="right"></a>Hit Sniffer real time visitor activity tracker and analytics, allows you to be aware what is going in your wordpress blog and sites right now and has detailed archive for tracked visitor data. If you don't have an API code yet, you can get your free trial one at <a href="http://www.hitsniffer.com/?tag=wordpress-to-ht">hitsniffer.com</a>.<br><br>
+
+<style>
+.lcd{
+
+background-color: #496b9a;
+background-image: 	-webkit-gradient(linear, left top, left bottom, 
+					from(#889ab4), 
+					color-stop(0.5, #6380a9), 
+					color-stop(0.5, #486a98), 
+					to(#496b9a));
+					
+background-image:  -moz-linear-gradient(top,
+					#889ab4, 
+					#6380a9 50%, 
+					#486a98 50%, 
+					#496b9a); 
+
+background-image: -o-linear-gradient(
+    center bottom,
+    rgb(48, 69, 96) 60%,
+    rgb(96, 122, 149) 65%
+);
+
+background-image: linear-gradient(
+    center bottom,
+    rgb(48, 69, 96) 60%,
+    rgb(96, 122, 149) 65%
+);
+
+
+box-shadow: 0px 0px 1px #2E445C, 0px 2px 3px #2E445C;
+border-radius: 3px;
+-moz-border-radius: 3px;
+-webkit-border-radius: 3px;
+
+width: 106px;
+height: 95px;
+color: #fff;
+text-align: center;
+float: left;
+margin-right: 12px;
+font-family: Trebuchet MS;
+text-shadow: 0px -1px 1px #fff, 0px 1px 1px #000;
+cursor: default;
+
+
+/* For Internet Explorer 5.5 - 7 */
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FF889ab4, endColorstr=#FF496b9a);
+/* For Internet Explorer 8 */
+-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#FF889ab4, endColorstr=#FF496b9a)";
+
+}
+
+.lcdcolor{
+margin-top: 1px;
+padding: 5px;
+background-color: #2E445C;
+background-image: 	-webkit-gradient(linear, left top, left bottom, 
+					from(#889ab4), 
+					color-stop(0.5, #6380a9), 
+					color-stop(0.5, #486a98), 
+					to(#496b9a));
+					
+background-image:  -moz-linear-gradient(top,
+					#889ab4, 
+					#6380a9 50%, 
+					#486a98 50%, 
+					#496b9a); 
+
+background-image: -o-linear-gradient(
+    center bottom,
+    rgb(48, 69, 96) 60%,
+    rgb(96, 122, 149) 65%
+);
+/* For Internet Explorer 5.5 - 7 */
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FF889ab4, endColorstr=#FF496b9a);
+/* For Internet Explorer 8 */
+-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#FF889ab4, endColorstr=#FF496b9a)";
+
+
+box-shadow: 0px 0px 1px #2E445C, 0px 2px 3px #2E445C;
+border-radius: 2px;
+height: 15px;
+overflow: hidden;
+color: #fff;
+text-align: left;
+font-family: Trebuchet MS;
+text-shadow: 0px -1px 1px #fff, 0px 1px 1px #000;
+
+}
+.lcdcolor a{
+color: #fff;
+text-decoration: none;
+}
+.lcdcolor a:hover{
+text-decoration: underline;
+}
+
+.lcdd{
+margin: 5px;
+font-size: 10pt;
+}
+.lcdx{
+margin: 5px;
+font-size: 36pt;
+font-weight: 700;
+}
+
+
+.tipmsg{
+border-radius: 4px;
+-moz-border-radius: 4px;
+-webkit-border-radius: 4px;
+outline:none;
+
+
+border: 5px solid #A4C1DF;
+box-shadow:0 0 8px #A4C1DF;
+-moz-box-shadow:0 0 8px #A4C1DF;
+-webkit-box-shadow:0 0 8px #A4C1DF;
+padding: 10px;
+
+background-color: rgb(245,245,245); 
+background-image: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(0, rgb(241,241,241)),
+    color-stop(1, rgb(250,250,250))
+);
+background-image: -moz-linear-gradient(
+    center bottom,
+    rgb(241,241,241) 0%,
+    rgb(250,250,250) 100%
+);
+
+background-image: -o-linear-gradient(
+       top,
+       rgb(250,250,250) 48%,
+       rgb(241,241,241) 52%
+);
+
+text-shadow: rgba(255,255, 255, 1) 0px 1px;
+/* For Internet Explorer 5.5 - 7 */
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFFFFFFF, endColorstr=#FFF1F1F1);
+/* For Internet Explorer 8 */
+-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFFFFFFF, endColorstr=#FFF1F1F1)";
+
+}
+
+.tdhdr{
+	-moz-border-radius: 5px;-webkit-border-radius: 5px;border-radius: 5px; border: 1px solid #bbb;background-color: #ffffff;padding: 10px;
+	background-image: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(0, rgb(241,241,241)),
+    color-stop(1, rgb(250,250,250))
+);
+background-image: -moz-linear-gradient(
+    center bottom,
+    rgb(241,241,241) 0%,
+    rgb(250,250,250) 100%
+);
+
+background-image: -o-linear-gradient(
+       top,
+       rgb(250,250,250) 48%,
+       rgb(241,241,241) 52%
+);
+
+
+/* For Internet Explorer 5.5 - 7 */
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFFDFDFD, endColorstr=#FFF1F1F1);
+/* For Internet Explorer 8 */
+-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFFDFDFD, endColorstr=#FFF1F1F1)";
+
+
+
+}
+.tdhdrw{
+	-moz-border-radius: 5px;-webkit-border-radius: 5px;border-radius: 5px; border: 1px solid #bbb;background-color: #ffffff;padding: 10px;
+	background-image: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(0, rgb(248,248,248)),
+    color-stop(1, rgb(255,255,255))
+);
+background-image: -moz-linear-gradient(
+    center bottom,
+    rgb(248,248,248) 0%,
+    rgb(255,255,255) 100%
+);
+background-image: -o-linear-gradient(
+       top,
+       rgb(255,255,255) 48%,
+       rgb(248,248,248) 52%
+);
+
+
+
+/* For Internet Explorer 5.5 - 7 */
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFFFFFFF, endColorstr=#FFF8F8F8);
+/* For Internet Explorer 8 */
+-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFFFFFFF, endColorstr=#FFF8F8F8)";
+}
+.btn,button,.button{
+transition:border linear .3s,box-shadow linear .3s;-moz-transition:border linear .3s,-moz-box-shadow linear .3s;-webkit-transition:border linear .3s,-webkit-box-shadow linear .3s;
+
+display: inline-block;
+width: auto;
+background-color: #f5f5f5; 
+background-image: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(0.48, rgb(241,241,241)),
+    color-stop(0.52, rgb(250,250,250))
+);
+background-image: -moz-linear-gradient(
+    center bottom,
+    rgb(241,241,241) 48%,
+    rgb(250,250,250) 52%
+);
+background-image: -o-linear-gradient(
+       top,
+       rgb(250,250,250) 48%,
+       rgb(241,241,241) 52%
+);
+
+
+/* For Internet Explorer 5.5 - 7 */
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFFDFDFD, endColorstr=#FFF1F1F1);
+/* For Internet Explorer 8 */
+-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFFDFDFD, endColorstr=#FFF1F1F1)";
+
+
+color: #777777;
+font-weight: bold;
+text-decoration: none;
+padding: 6px;
+padding-left: 10px;
+padding-right: 10px;
+border: 1px solid #dddddd;
+-moz-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;
+text-shadow: rgba(255, 255, 255, 1) 0px 1px;
+font-size: 9pt;
+white-space: nowrap;
+cursor: pointer;
+}
+
+.btn:hover,button:hover,.button:hover{
+color: #000;
+text-decoration: none;
+border: 1px solid #939393;
+background-image: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(0.48, rgb(241,241,241)),
+    color-stop(0.52, rgb(255,255,255))
+);
+background-image: -moz-linear-gradient(
+    center bottom,
+    rgb(241,241,241) 48%,
+    rgb(255,255,255) 52%
+);
+background-image: -o-linear-gradient(
+       top,
+       rgb(255,255,255) 48%,
+       rgb(241,241,241) 52%
+);
+
+
+
+outline: 0;
+/* For Internet Explorer 5.5 - 7 */
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFFFFFFF, endColorstr=#FFF1F1F1);
+/* For Internet Explorer 8 */
+-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFFFFFFF, endColorstr=#FFF1F1F1)";
+}
+.btn:active,button:active,.button:active{
+
+
+box-shadow: inset 1px 1px 1px rgba(0,0,0,0.2);
+outline: 0;
+background-image: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(0.48, rgb(255,255,255)),
+    color-stop(0.52, rgb(241,241,241))
+);
+background-image: -moz-linear-gradient(
+    center bottom,
+    rgb(255,255,255) 48%,
+    rgb(241,241,241) 52%
+);
+background-image: -moz-linear-gradient(
+    center bottom,
+    rgb(255,255,255) 48%,
+    rgb(241,241,241) 52%
+);
+/* For Internet Explorer 5.5 - 7 */
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFF1F1F1, endColorstr=#FFFFFFFF);
+/* For Internet Explorer 8 */
+-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFF1F1F1, endColorstr=#FFFFFFFF)";
+
+}
+
+.clear{
+clear: both;
+}
+</style>
+
+
+
+
+
+
+<?php if ($option['code']!=''){ ?><a target="_blank" href="http://www.hitsniffer.com/login-code.php?code=<?php echo $option['code']; ?>"><?php }else{ ?><a target="_blank" href="http://www.hitsniffer.com/features.php"><?php } ?>
+<img border="0" src="<?php echo $x; ?>screenshot-1.png" style="margin:5px;margin-left: 30px;" width="169" height="100" align="right"></a>
+
+
+<p style="margin: 0; padding: 0px;">Hit Sniffer real time visitor activity tracker and analytics, allows you to be aware what is going in your wordpress blog and sites right now and has detailed archive for tracked visitor data. If you don't have an API code yet, you can get your free trial one at <a href="http://www.hitsniffer.com/register.php?tag=wordpress-to-ht">hitsniffer.com</a>.
+
+<div class="clear"></div>
+</div>
+
+
 
 <?php if ($magicable==1){ ?>
 
@@ -660,13 +992,22 @@ window.location.href="<?php echo str_replace('&hitmagic=do','',$_SERVER['REQUEST
 
 
 
-<h2>Advanced Settings:</h2><br>
+
 
 <?php } ?>
+
+<div class="tdhdr" style="margin-top: 10px;">
+
 
 <strong>Hit Sniffer API Code:</strong> ( <a href="http://www.hitsniffer.com/register.php?tag=wp-getyourcode" target="_blank">Get your code<?php if ($magicable){ ?><?php } ?></a> ) <br>
 
 	<input type="text" name="code" size="20" value="<?php echo $option['code']; ?>"><br>Each site has its own API Code. It looks something like this 3defb4a2e4426642ea... and can be found in your settings page on hitsniffer.com</p>
+
+
+
+<div class="tdhdrw">
+<b>Advanced Settings:</b><br>
+
 
 <p><input type="radio" value="1" name="wgd" style="width: 22px; height: 20px;" <?php if ($option['wgd']!=2) echo "checked"; ?>>Yes&nbsp;
 
@@ -712,31 +1053,50 @@ if (current_user_can('manage_options')){
 
 </p>
 
-	
-	<p class="submit"><input type="submit" value="Save" style="width: 120px;"></p>
 
-<?php if ($option['code']==''){ ?><p class="submit"><br><h2>How configure Hit Sniffer for Wordpress<?php if ($magicable){ ?><?php } ?>?</h2>Just <a href="http://www.hitsniffer.com/register.php?tag=wordpress-to-ht-reg">Just sign up for a hit sniffer account</a> and follow our extremely simple instructions.<br>
+<p>
+Show Visitor Map in wordpress admin dashboard?
+<br>
+<input type="radio" value="1" name="wpmap"  style="width: 22px; height: 20px;" <?php if ($option['wpmap']==1) echo "checked"; ?> checked>Online Visitors&nbsp;&nbsp;
+<input type="radio" value="2" name="wpmap"  style="width: 22px; height: 20px;" <?php if ($option['wpmap']==2) echo "checked"; ?>>Today&nbsp;&nbsp;
+<input type="radio" value="3" name="wpmap"  style="width: 22px; height: 20px;" <?php if ($option['wpmap']==3) echo "checked"; ?>>Disable Map Widget in admin dashboard&nbsp;&nbsp;
+</p>
+
+
+	
+
+</div>
+	<input type="submit" value="Save Changes" style="width: 170px; padding: 10px; margin-top: 10px;" class="btn">
+</div>
+</div>
+
+
+
+<?php if ($option['code']==''){ ?>
+
+<div style="margin-top: 15px;" class="tipmsg">
+<p style="margin: 0px; padding:0px;"><h2 style="margin: 0px; padding:0px;">How configure Hit Sniffer for Wordpress<?php if ($magicable){ ?><?php } ?>?</h2><br>Just <a href="http://www.hitsniffer.com/register.php?tag=wordpress-to-ht-reg">Just sign up for a hit sniffer account</a> and follow our extremely simple instructions.<br><br>
 
 Login to your hit sniffer account, add your website address to your hit sniffer account.<br>Then in the Hitsniffer.com settings page, you will find your Hit Sniffer API code.<br>
 
-Copy and paste the API code into the field above.<br>All your visitor information will be tracked and logged in real-time and you can monitor the data live in your Hitsniffer.com dashboard.</p><?php } ?>
+Copy and paste the API code into the specified field above and click save changes. That is all!<br>All your visitor information will be tracked and logged in real-time and you can monitor the data live in your Hitsniffer.com dashboard.</p>
 
-	<p class="submit"><a href="http://www.hitsniffer.com/features.php" target="_blank">View the features of Hitsniffer</a></p>
+</div>
 
-<p class="submit">Hitsniffer also supports normal websites ( non wordpress pages ).<?php if ($option['code']!=''){ ?><br>
+<?php } ?>
+
+	<br><p  style="margin: 0px; padding:0px;"><a href="http://www.hitsniffer.com/features.php" target="_blank">View the features of Hitsniffer</a></p>
+<br>
+<p  style="margin: 0px; padding:0px;">Hitsniffer also supports normal websites ( non wordpress pages ).<?php if ($option['code']!=''){ ?><br>
 
 If you have a normal website then all you have to do is input the tracking code on each page of your website, a header of footer page is ideal for this.</p>
 
 <p class="submit">Website Code:<br>
 
-<textarea rows="5" name="wcode" cols="100" readonly><!-- HITSNIFFER TRACKING CODE - DO NOT CHANGE -->
-
+<textarea rows="6" name="wcode" cols="100" readonly><!-- HITSNIFFER TRACKING CODE - DO NOT CHANGE -->
 <script src="http://www.hitsniffer.com/track.php?code=<?php echo substr($option['code'],0,32); ?>" type="text/javascript" ></script>
-
 <noscript><a href="http://www.hitsniffer.com/">
-
 <img src="http://www.hitsniffer.com/track.php?mode=img&code=<?php echo substr($option['code'],0,32); ?>" alt="Realtime website statistics" />realtime web visitor analytics chat support</a></noscript>
-
 <!-- HITSNIFFER TRACKING CODE - DO NOT CHANGE --></textarea></p><?php } ?>
 
 <input type="hidden" name="action" value="do">
@@ -749,7 +1109,7 @@ If you have a normal website then all you have to do is input the tracking code 
 
 </div>
 
-
+<br>
 
 <?php
 
@@ -758,52 +1118,32 @@ If you have a normal website then all you have to do is input the tracking code 
 
 
 
+function hitsniffer_dashboard_map_widget_function() {
 
-function hitsniffer_dashboard_widget_function() {
-
-	
-
-	$option=get_hs_conf();
-
-	
-
+$option=get_hs_conf();
 $purl='http://www.';
 
 if ($_SERVER["HTTPS"]=='on'){
-
 $purl='https://';
-
 $htssl=" - SSL";
+}
 
-}	
+$mapmode=$option['wpmap'];
+if ($mapmode==2) $mapmode="&archive=1";
+if ($mapmode==1) $mapmode="";
 
-	
-
-	
-
- if ($option['code']!=''){ ?><table border="0" cellpadding="0" style="border-collapse: collapse" width="100%" height="54">
+ if ($option['code']!=''){ ?><table border="0" cellpadding="0" style="border-collapse: collapse" width="100%">
 
 	<tr>
 
 		<td>
 
-<?php
-if (round($option['xtheme'])==2){
-?>
-	<iframe scrollable='no' scrolling="no"  name="hit-sniffer-stat" frameborder="0" style="background-color: #fff; border: 1px solid #A4A2A3;" margin="0" padding="0" marginheight="0" marginwidth="0" width="100%" height="400" src="<?php echo $purl; ?>hitsniffer.com/stats/wp3.2.php?code=<?php echo $option['code']; ?>">	
-<?php 
-}else{
-?>
-	<iframe scrollable='no' scrolling="no"  name="hit-sniffer-stat-compact" frameborder="0" style="background-color: #fff; border: 1px solid #A4A2A3;" margin="0" padding="0" marginheight="0" marginwidth="0" width="100%" height="420" src="<?php echo $purl; ?>hitsniffer.com/stats/wp-2.php?code=<?php echo $option['code']; ?>">	
-<?php } ?>
+
+	<iframe scrollable='no' scrolling="no"  name="hit-sniffer-stat-map" frameborder="0" style="background-color: #fff; border: 1px solid #A4A2A3;" margin="0" padding="0" marginheight="0" marginwidth="0" width="100%" height="320" src="<?php echo $purl; ?>hitsniffer.com/stats/wp-map.php?code=<?php echo $option['code']; echo $mapmode; ?>">	
 
 		<p align="center">
-
 		<a href="http://www.hitsniffer.com/login-code.php?code=<?php echo $option['code']; ?>">
-
-		<span>
-
-		<font face="Verdana" style="font-size: 12pt">Your Browser don't show our widget's iframe. Please Open Hit Sniffer Dashboard manually.</font></span></a></iframe></td>
+		<span><font face="Verdana" style="font-size: 12pt">Your Browser don't show our widget's iframe. Please Open Hit Sniffer Dashboard manually.</font></span></a></iframe></td>
 
 	</tr>
 
@@ -840,27 +1180,86 @@ You need get your free hit sniffer account to get an API key.</td>
 
 
 
+function hitsniffer_dashboard_widget_function() {
+	$option=get_hs_conf();
+
+$purl='http://www.';
+if ($_SERVER["HTTPS"]=='on'){
+$purl='https://';
+$htssl=" - SSL";
+}	
+
+ if ($option['code']!=''){ ?><table border="0" cellpadding="0" style="border-collapse: collapse" width="100%">
+	<tr>
+		<td>
+<?php
+if (round($option['xtheme'])==2){
+?>
+	<iframe scrollable='no' scrolling="no"  name="hit-sniffer-stat" frameborder="0" style="background-color: #fff; border: 1px solid #A4A2A3;" margin="0" padding="0" marginheight="0" marginwidth="0" width="100%" height="400" src="<?php echo $purl; ?>hitsniffer.com/stats/wp3.2.php?code=<?php echo $option['code']; ?>">	
+<?php 
+}else{
+?>
+	<iframe scrollable='no' scrolling="no"  name="hit-sniffer-stat-compact" frameborder="0" style="background-color: #fff; border: 1px solid #A4A2A3;" margin="0" padding="0" marginheight="0" marginwidth="0" width="100%" height="420" src="<?php echo $purl; ?>hitsniffer.com/stats/wp-2.php?code=<?php echo $option['code']; ?>">	
+<?php } ?>
+
+		<p align="center">
+		<a href="http://www.hitsniffer.com/login-code.php?code=<?php echo $option['code']; ?>">
+		<span>
+		<font face="Verdana" style="font-size: 12pt">Your Browser don't show our widget's iframe. Please Open Hit Sniffer Dashboard manually.</font></span></a></iframe></td>
+	</tr>
+</table>
+<?php
+
+
+
+}else{ ?><table border="0" cellpadding="0" style="border-collapse: collapse" width="100%" height="54">
+
+	<tr>
+
+		<td>
+
+		<p align="left">Hitsniffer API Code is not installed. Please open Wordpress settings -> Hitsniffer for instructions.<br>
+You need get your free hit sniffer account to get an API key.</td>
+
+	</tr>
+
+</table>
+
+
+
+<?php
+
+
+
+}
+
+}
+
+
+
 
 
 function hitsniffer_add_dashboard_widgets() {
 
-
-
 $option=get_hs_conf();
 
 
-
 if ($option['wgd']!=2){
-
-
-
     if (function_exists('wp_add_dashboard_widget')){
-
     if (current_user_can('manage_options')||$option['wgl']!=2) {
       wp_add_dashboard_widget('hitsniffer_dashboard_widget', 'Hit Sniffer - Your Analytics Summary', 'hitsniffer_dashboard_widget_function');	
     }
     }
+}
 
+if ($option['wpmap']!=3){
+    if (function_exists('wp_add_dashboard_widget')){
+    if (current_user_can('manage_options')||$option['wgl']!=2) {
+    $mapmode='Online';
+    if ($option['wpmap']=='2') $mapmode='Today';
+      wp_add_dashboard_widget('hitsniffer_dashboard_map_widget', 'Hit Sniffer - Your '.$mapmode.' Visitors Map', 'hitsniffer_dashboard_map_widget_function');	
+    }
+    }
 }
 
 }
@@ -1040,6 +1439,9 @@ if (round($option['allowchat'])==0) $option['allowchat']=1;
 if (round($option['xtheme'])==0) $option['xtheme']=2;
 
 if (round($option['stats'])==0) $option['stats']=2;
+
+if (round($option['wpmap'])==0) $option['wpmap']=1;
+
 
 return $option;
 
@@ -1306,6 +1708,7 @@ if (round($option['xtheme'])==0) $option['xtheme']=2;
 
 if (round($option['stats'])==0) $option['stats']=2;
 
+if (round($option['wpmap'])==0) $option['wpmap']=1;
 
 return $option;
 
