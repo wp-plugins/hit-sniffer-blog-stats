@@ -4,7 +4,7 @@ Plugin Name: Hit Sniffer Live Blog Analytics
 Plugin URI: http://www.hitsniffer.com/
 Description: Hit Sniffer is a powerful real time website visitor activity tracker. It will  website visitors actions live and in real time.
 Author: hitsniffer.com
-Version: 2.6
+Version: 2.6.1
 Author URI: http://www.hitsniffer.com/
 */ 
 
@@ -301,7 +301,7 @@ if (round($option['xtheme'])==0) $option['xtheme']=2;
 
 if (round($option['stats'])==0) $option['stats']=2;
 
-if (round($option['wpmap'])==0) $option['wpmap']=1;
+if (round($option['wpmap'])==0) $option['wpmap']=2;
 
 
 return $option;
@@ -1057,7 +1057,7 @@ if (current_user_can('manage_options')){
 <p>
 Show Visitor Map in wordpress admin dashboard?
 <br>
-<input type="radio" value="1" name="wpmap"  style="width: 22px; height: 20px;" <?php if ($option['wpmap']==1) echo "checked"; ?> checked>Online Visitors&nbsp;&nbsp;
+<input type="radio" value="1" name="wpmap"  style="width: 22px; height: 20px;" <?php if ($option['wpmap']==1) echo "checked"; ?>>Online Visitors&nbsp;&nbsp;
 <input type="radio" value="2" name="wpmap"  style="width: 22px; height: 20px;" <?php if ($option['wpmap']==2) echo "checked"; ?>>Today&nbsp;&nbsp;
 <input type="radio" value="3" name="wpmap"  style="width: 22px; height: 20px;" <?php if ($option['wpmap']==3) echo "checked"; ?>>Disable Map Widget in admin dashboard&nbsp;&nbsp;
 </p>
@@ -1440,7 +1440,7 @@ if (round($option['xtheme'])==0) $option['xtheme']=2;
 
 if (round($option['stats'])==0) $option['stats']=2;
 
-if (round($option['wpmap'])==0) $option['wpmap']=1;
+if (round($option['wpmap'])==0) $option['wpmap']=2;
 
 
 return $option;
@@ -1708,7 +1708,7 @@ if (round($option['xtheme'])==0) $option['xtheme']=2;
 
 if (round($option['stats'])==0) $option['stats']=2;
 
-if (round($option['wpmap'])==0) $option['wpmap']=1;
+if (round($option['wpmap'])==0) $option['wpmap']=2;
 
 return $option;
 
