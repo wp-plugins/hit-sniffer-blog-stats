@@ -2,8 +2,8 @@
 Contributors: San Arena
 Tags: live,stats, statistics,hits,hit, web, visitor, monitor, visitors, monitoring, log, blog, tracking,track,tracker, activity, pageview,ssl,https,seo,counter,visit,analytics,website,free,,visitor tracker,page,links,analytic,dashboard,widget,gadget,wordpress,graph,site,realtime,daily,label
 Requires at least: 1.5
-Tested up to: 3.3.3
-Stable tag: 2.7
+Tested up to: 3.4
+Stable tag: 2.7.1
 
 Hit Sniffer is a powerful real time website visitor activity tracker. It will monitor your website visitors actions live and in real time. 
 
@@ -62,6 +62,7 @@ http://www.hitsniffer.com/features.php
 
 = 2.7 =
 * Better support for statistics widget
++ Compatibility with Wordpress 3.4
 
 = 2.6.1 =
 * World Map admin widget configured to show today visitors instead of online visitors.
@@ -70,9 +71,6 @@ http://www.hitsniffer.com/features.php
 + World Map admin widget added
 + Added World Map feature screenshot to plugin
 * Updated Configuration page theme
-
-= 2.5.9.7 =
-* Wordpress 3.3 Compatibility
 
 = 2.5.9 =
 * Security Fix: Option to enable hitsniffer dashboard widget for administrators only. ( Thanks to R. Ramos )
@@ -92,7 +90,6 @@ http://www.hitsniffer.com/features.php
 
 = 2.5.6 =
 + New Theme for Wordpress Dashboard Widget
-* Wordpress 3.2.1 Compatibility
 * Widget Screenshot updated.
 
 = 2.5.2 =
@@ -106,7 +103,6 @@ http://www.hitsniffer.com/features.php
 * fixed broken compatibility for wordpress 1.5
 
 = 2.4.5.6 =
-* Wordpress 3.1.3 compatibility.
 - Temporary disabled One Click Install Feature.
 
 = 2.4.5.5 =
@@ -146,8 +142,8 @@ http://www.hitsniffer.com/features.php
 
 
 = 2.2.7 =
-+ Full v3.1 compatibility
-+ Better New user guide.
++ Full WP v3.1 compatibility
++ New user guide.
 
 = 2.2.6.7 =
 + Core update. Real time visitor detail page ( you will see each new hit in their detail page )
