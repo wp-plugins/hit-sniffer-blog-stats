@@ -60,6 +60,9 @@ http://www.hitsniffer.com/features.php
 
 == Changelog ==
 
+= 2.8 =
+* Hitsniffer mini dashboard included in Wordpress dashboard.
+
 = 2.7.2 =
 * server stability update.
 
