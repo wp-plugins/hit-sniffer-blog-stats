@@ -4,7 +4,7 @@ Plugin Name: Hit Sniffer Live Blog Analytics
 Plugin URI: http://www.hitsniffer.com/
 Description: Hit Sniffer is a powerful real time website visitor activity tracker. It will  website visitors actions live and in real time.
 Author: hitsniffer.com
-Version: 2.7.2.7
+Version: 2.8
 Author URI: http://www.hitsniffer.com/
 */ 
 
@@ -46,7 +46,7 @@ $htssl='';
       }
   }
 
-?><!-- HITSNIFFER TRACKING CODE<?php echo $htssl; ?> v2.7.2 - DO NOT CHANGE --><?php
+?><!-- HITSNIFFER TRACKING CODE<?php echo $htssl; ?> v2.8 - DO NOT CHANGE --><?php
 
 
 
@@ -1202,7 +1202,9 @@ if (round($option['xtheme'])==2){
 		<a href="http://www.hitsniffer.com/login-code.php?code=<?php echo $option['code']; ?>">
 		<span>
 		<font face="Verdana" style="font-size: 12pt">Your Browser don't show our widget's iframe. Please Open Hit Sniffer Dashboard manually.</font></span></a></iframe></td>
+
 	</tr>
+
 </table>
 <?php
 
@@ -1235,6 +1237,57 @@ You need get your free hit sniffer account to get an API key.</td>
 
 
 
+function hitsniffer_minidashboard_widget_function() {
+	$option=get_hs_conf();
+
+$purl='http://www.';
+if ($_SERVER["HTTPS"]=='on'){
+$purl='https://';
+$htssl=" - SSL";
+}	
+
+ if ($option['code']!=''){
+?>
+	<iframe name="hit-sniffer-stat-mini" frameborder="0" style="background-color: #fff; border: 1px solid #A4A2A3;" margin="0" padding="0" marginheight="0" marginwidth="0" width="100%" height="420" src="<?php echo $purl; ?>hitsniffer.com/stats/wp-dashboard.php?code=<?php echo $option['code']; ?>">
+
+		<p align="center">
+		<a href="http://www.hitsniffer.com/login-code.php?code=<?php echo $option['code']; ?>">
+		<span>
+		<font face="Verdana" style="font-size: 12pt">Your Browser don't show our widget's iframe. Please Open Hit Sniffer Dashboard manually by clicking here.</font></span></a></iframe></td>
+
+	</tr>
+
+</table>
+<?php
+
+
+
+}else{ ?><table border="0" cellpadding="0" style="border-collapse: collapse" width="100%" height="54">
+
+	<tr>
+
+		<td>
+
+		<p align="left">Hitsniffer API Code is not installed. Please open Wordpress settings -> Hitsniffer for instructions.<br>
+You need get your free hit sniffer account to get an API key.</td>
+
+	</tr>
+
+</table>
+
+
+
+<?php
+
+
+
+}
+
+}
+
+
+
+
 function hitsniffer_add_dashboard_widgets() {
 
 $option=get_hs_conf();
@@ -1244,6 +1297,7 @@ if ($option['wgd']!=2){
     if (function_exists('wp_add_dashboard_widget')){
     if (current_user_can('manage_options')||$option['wgl']!=2) {
       wp_add_dashboard_widget('hitsniffer_dashboard_widget', 'Hit Sniffer - Your Analytics Summary', 'hitsniffer_dashboard_widget_function');	
+      wp_add_dashboard_widget('hitsniffer_minidashboard_widget', 'Hit Sniffer - Recent visitors', 'hitsniffer_minidashboard_widget_function');	
     }
     }
 }
@@ -1335,7 +1389,7 @@ $htssl=" - SSL";
 
                         echo $before_title . $title . $after_title; ?>
 
-<div style="text-align: center;"><!-- HITSNIFFER ONLINE SUPPORT CODE v2.7.2 - DO NOT CHANGE -->
+<div style="text-align: center;"><!-- HITSNIFFER ONLINE SUPPORT CODE v2.8 - DO NOT CHANGE -->
 
 <script src="<?php echo $purl; ?>hitsniffer.com/online.php?code=<?php echo $option['code']; ?>&img=<?php echo urlencode($instance['wd_img']); ?>&off=<?php echo urlencode($instance['wd_off']); ?>" type="text/javascript" ></script>
 
