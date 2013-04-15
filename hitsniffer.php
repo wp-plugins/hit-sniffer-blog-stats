@@ -4,7 +4,7 @@ Plugin Name: Hit Sniffer Live Blog Analytics
 Plugin URI: http://www.hitsniffer.com/
 Description: Hit Sniffer is a powerful real time website visitor activity tracker. It will  website visitors actions live and in real time.
 Author: hitsniffer.com
-Version: 2.8
+Version: 2.8.1
 Author URI: http://www.hitsniffer.com/
 */ 
 
@@ -1071,7 +1071,7 @@ Show Visitor Map in wordpress admin dashboard?
 <?php if ($option['code']==''){ ?>
 
 <div style="margin-top: 15px;" class="tipmsg">
-<p style="margin: 0px; padding:0px;"><h2 style="margin: 0px; padding:0px;">How configure Hit Sniffer for Wordpress<?php if ($magicable){ ?><?php } ?>?</h2><br>Just <a href="http://www.hitsniffer.com/register.php?tag=wordpress-to-ht-reg">Just sign up for a hit sniffer account</a> and follow our extremely simple instructions.<br><br>
+<p style="margin: 0px; padding:0px;"><h2 style="margin: 0px; padding:0px;">How to setup Hit Sniffer on Wordpress<?php if ($magicable){ ?><?php } ?>?</h2><br>Just <a href="http://www.hitsniffer.com/register.php?tag=wordpress-to-ht-reg">Just sign up for a hit sniffer account</a> and follow our extremely simple instructions.<br><br>
 
 Login to your hit sniffer account, add your website address to your hit sniffer account.<br>Then in the Hitsniffer.com settings page, you will find your Hit Sniffer API code.<br>
 
