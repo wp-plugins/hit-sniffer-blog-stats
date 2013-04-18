@@ -3,7 +3,7 @@ Contributors: San Arena
 Tags: live,stats, statistics,hits,hit, web, visitor, monitor, visitors, monitoring, log, blog, tracking,track,tracker, activity, pageview,ssl,https,seo,counter,visit,analytics,website,free,,visitor tracker,page,links,analytic,dashboard,widget,gadget,wordpress,graph,site,realtime,daily,label
 Requires at least: 1.5
 Tested up to: 3.5.1
-Stable tag: 2.8.1
+Stable tag: 2.8.2
 
 Hit Sniffer is a powerful real time website visitor activity tracker. It will monitor your website visitors actions live and in real time. 
 
@@ -59,6 +59,11 @@ http://www.hitsniffer.com/features.php
 6. Visitors on the world map.
 
 == Changelog ==
+
+= 2.8.2 =
+* Updated chat script to async mode ( it decrease up your website load time and your website will load faster )
+* Fixed a bug in chat module causing customer name be "Visitor" instead of identifable IP address or Name.
+* Minor fixes to chat module widget of wordpress have been applied.
 
 = 2.8 =
 * Hitsniffer mini dashboard included in Wordpress dashboard.

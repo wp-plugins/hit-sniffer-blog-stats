@@ -4,7 +4,7 @@ Plugin Name: Hit Sniffer Live Blog Analytics
 Plugin URI: http://www.hitsniffer.com/
 Description: Hit Sniffer is a powerful real time website visitor activity tracker. It will  website visitors actions live and in real time.
 Author: hitsniffer.com
-Version: 2.8.1
+Version: 2.8.2
 Author URI: http://www.hitsniffer.com/
 */ 
 
@@ -46,7 +46,7 @@ $htssl='';
       }
   }
 
-?><!-- HITSNIFFER TRACKING CODE<?php echo $htssl; ?> v2.8 - DO NOT CHANGE --><?php
+?><!-- HITSNIFFER TRACKING CODE<?php echo $htssl; ?> v2.8.2 - DO NOT CHANGE --><?php
 
 
 
@@ -1389,11 +1389,11 @@ $htssl=" - SSL";
 
                         echo $before_title . $title . $after_title; ?>
 
-<div style="text-align: center;"><!-- HITSNIFFER ONLINE SUPPORT CODE v2.8 - DO NOT CHANGE -->
-
-<script src="<?php echo $purl; ?>hitsniffer.com/online.php?code=<?php echo $option['code']; ?>&img=<?php echo urlencode($instance['wd_img']); ?>&off=<?php echo urlencode($instance['wd_off']); ?>" type="text/javascript" ></script>
-
-<!-- HITSNIFFER ONLINE SUPPORT CODE - DO NOT CHANGE --></div>
+<div style="text-align: center;" class="hs-wordpress-chat-placeholder">
+<!-- HITSNIFFER ONLINE SUPPORT CODE v2.8.2 - DO NOT CHANGE --><script type="text/javascript">
+document.write('<div id="hs-live-chat-pos"></div>');(function(){var hschatc=document.createElement('script');var hschatcs='www.';if (document.location.protocol=='https:') hschatcs='';hschatc.src=document.location.protocol+'//'+hschatcs+'hitsniffer.com/online2.php?code=<?php echo $option['code']; ?>&img=<?php echo urlencode($instance['wd_img']); ?>&off=<?php echo urlencode($instance['wd_off']); ?>';hschatc.async=true;var htsscc = document.getElementById('hs-live-chat-pos');htsscc.appendChild(hschatc);})();
+</script><!-- HITSNIFFER ONLINE SUPPORT CODE - DO NOT CHANGE -->
+</div>
 
                   <?php echo $widget_comments_title; ?>
 
