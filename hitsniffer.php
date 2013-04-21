@@ -4,7 +4,7 @@ Plugin Name: Hit Sniffer Live Blog Analytics
 Plugin URI: http://www.hitsniffer.com/
 Description: Hit Sniffer is a powerful real time website visitor activity tracker. It will  website visitors actions live and in real time.
 Author: hitsniffer.com
-Version: 2.8.2
+Version: 2.8.3
 Author URI: http://www.hitsniffer.com/
 */ 
 
@@ -306,6 +306,8 @@ if (round($option['xtheme'])==0) $option['xtheme']=2;
 if (round($option['stats'])==0) $option['stats']=2;
 
 if (round($option['wpmap'])==0) $option['wpmap']=2;
+if (round($option['wpdash'])==0) $option['wpdash']=1;
+
 
 
 return $option;
@@ -345,6 +347,7 @@ $option['xtheme']=html_entity_decode($option['xtheme']);
 $option['stats']=html_entity_decode($option['stats']);
 
 $option['wpmap']=html_entity_decode($option['wpmap']);
+$option['wpdash']=html_entity_decode($option['wpdash']);
 
 
 $magicable=0; //temporary disable magic feature
@@ -1049,6 +1052,13 @@ if (current_user_can('manage_options')){
 
 </p>
 
+<p>
+
+
+
+<input type="radio" value="2" name="wpdash"  style="width: 22px; height: 20px;" <?php if ($option['wpdash']==2) echo "checked"; ?>>Yes&nbsp;
+<input type="radio" value="1" name="wpdash"  style="width: 22px; height: 20px;" <?php if ($option['wpdash']==1) echo "checked"; ?>>No&nbsp;&nbsp;&nbsp;Show mini Hitsniffer dashboard (Recent visitors) in wordpress admin dashboard?
+</p>
 
 <p>
 Show Visitor Map in wordpress admin dashboard?
@@ -1297,7 +1307,6 @@ if ($option['wgd']!=2){
     if (function_exists('wp_add_dashboard_widget')){
     if (current_user_can('manage_options')||$option['wgl']!=2) {
       wp_add_dashboard_widget('hitsniffer_dashboard_widget', 'Hit Sniffer - Your Analytics Summary', 'hitsniffer_dashboard_widget_function');	
-      wp_add_dashboard_widget('hitsniffer_minidashboard_widget', 'Hit Sniffer - Recent visitors', 'hitsniffer_minidashboard_widget_function');	
     }
     }
 }
@@ -1311,11 +1320,15 @@ if ($option['wpmap']!=3){
     }
     }
 }
-
+if ($option['wpdash']!=1){
+    if (function_exists('wp_add_dashboard_widget')){
+    if (current_user_can('manage_options')||$option['wgl']!=2) {
+      wp_add_dashboard_widget('hitsniffer_minidashboard_widget', 'Hit Sniffer - Recent visitors', 'hitsniffer_minidashboard_widget_function');	
+    }
+    }
 }
 
-
-
+}
 
 
 add_action('wp_dashboard_setup', 'hitsniffer_add_dashboard_widgets' );
@@ -1490,7 +1503,8 @@ if (round($option['xtheme'])==0) $option['xtheme']=2;
 
 if (round($option['stats'])==0) $option['stats']=2;
 
-if (round($option['wpmap'])==0) $option['wpmap']=2;
+if (round($option['wpmap'])==0)  $option['wpmap'] =2;
+if (round($option['wpdash'])==0) $option['wpdash']=1;
 
 
 return $option;
@@ -1734,6 +1748,7 @@ if (round($option['xtheme'])==0) $option['xtheme']=2;
 if (round($option['stats'])==0) $option['stats']=2;
 
 if (round($option['wpmap'])==0) $option['wpmap']=2;
+if (round($option['wpdash'])==0) $option['wpdash']=1;
 
 return $option;
 
