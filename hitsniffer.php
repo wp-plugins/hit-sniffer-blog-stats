@@ -4,7 +4,7 @@ Plugin Name: Hit Sniffer Live Blog Analytics
 Plugin URI: http://www.hitsniffer.com/
 Description: Hit Sniffer is a powerful real time website visitor activity tracker. It will  website visitors actions live and in real time.
 Author: hitsniffer.com
-Version: 2.8.3.2
+Version: 2.8.3.3
 Author URI: http://www.hitsniffer.com/
 */ 
 
@@ -306,7 +306,7 @@ if (round($option['xtheme'])==0) $option['xtheme']=2;
 if (round($option['stats'])==0) $option['stats']=2;
 
 if (round($option['wpmap'])==0) $option['wpmap']=2;
-if (round($option['wpdash'])==0) $option['wpdash']=1;
+if (round($option['wpdash'])==0) $option['wpdash']=2;
 
 
 
@@ -1504,7 +1504,8 @@ if (round($option['xtheme'])==0) $option['xtheme']=2;
 if (round($option['stats'])==0) $option['stats']=2;
 
 if (round($option['wpmap'])==0)  $option['wpmap'] =2;
-if (round($option['wpdash'])==0) $option['wpdash']=1;
+
+if (round($option['wpdash'])==0) $option['wpdash']=2;
 
 
 return $option;
@@ -1748,7 +1749,7 @@ if (round($option['xtheme'])==0) $option['xtheme']=2;
 if (round($option['stats'])==0) $option['stats']=2;
 
 if (round($option['wpmap'])==0) $option['wpmap']=2;
-if (round($option['wpdash'])==0) $option['wpdash']=1;
+if (round($option['wpdash'])==0) $option['wpdash']=2;
 
 return $option;
 
