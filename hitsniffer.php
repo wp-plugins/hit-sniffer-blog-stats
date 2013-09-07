@@ -4,7 +4,7 @@ Plugin Name: Hit Sniffer Live Blog Analytics
 Plugin URI: http://www.hitsniffer.com/
 Description: Hit Sniffer is a powerful real time website visitor activity tracker. It will  website visitors actions live and in real time.
 Author: hitsniffer.com
-Version: 2.8.3.17
+Version: 2.8.3.18
 Author URI: http://www.hitsniffer.com/
 */ 
 
@@ -14,24 +14,21 @@ add_action('wp_footer', 'hitsniffer');
 add_action('wp_head', 'hitsniffer');
 hitsniffer_admin_warnings();
 
-
 function hitsniffer() {
-
 global $_SERVER,$_COOKIE,$hitsniffer_tracker;
 
-$option=get_hs_conf();
+$option =get_hs_conf();
 $option['code']=str_replace("\r",'',str_replace("\n",'',str_replace(" ","",trim(html_entity_decode($option['code'])))));
 
 	if( round($option['iga'])==1 && current_user_can("manage_options") ) {
 
 		echo "\n<!-- ".__("Hit Sniffer tracking code not shown because you're an administrator and you've configured Hit Sniffer plugin to ignore administrators.", 'hitsniffer')." -->\n";
-
 		return;
 
 	}
-
+$wpsniffer=0;
 $htmlpar='';
-$purl='http://www.';
+ $purl='http://www.';
 $htssl='';
   if (isset($_SERVER["HTTPS"])){
       if ($_SERVER["HTTPS"]=='on'){
