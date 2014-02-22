@@ -4,7 +4,7 @@ Plugin Name: Hit Sniffer Live Blog Analytics
 Plugin URI: http://www.hitsniffer.com/
 Description: Hit Sniffer is a powerful real time website visitor activity tracker. It will  website visitors actions live and in real time.
 Author: hitsniffer.com
-Version: 2.8.5
+Version: 2.8.6
 Author URI: http://www.hitsniffer.com/
 */ 
 
@@ -40,7 +40,7 @@ $htssl='';
       }
   }
 
-?><!-- HITSNIFFER TRACKING CODE<?php echo $htssl; ?> v2.8.5 - DO NOT CHANGE --><?php
+?><!-- HITSNIFFER TRACKING CODE<?php echo $htssl; ?> v2.8.6 - DO NOT CHANGE --><?php
 
 
 
@@ -231,7 +231,7 @@ htssc.parentNode.insertBefore(hstc, htssc);
 <?php }else{ ?>var nochat=0;<?php } ?>
 
 </script>
-<?php if (round($option['allowchat'])!=2){ ?>
+<?php if (round($option['allowfloat'])!=2){ ?>
 <script src="<?php echo $purl; ?>hitsniffer.com/onlinefloat.php?code=<?php echo substr($option['code'],0,32); ?>" type="text/javascript" ></script>
 <?php } ?>
 <?php }else{ ?>
@@ -296,6 +296,7 @@ if (round($option['tkn'])==0) $option['tkn']=1;
 if (round($option['iga'])==0) $option['iga']=0;
 
 if (round($option['allowchat'])==0) $option['allowchat']=1;
+if (round($option['allowfloat'])==0) $option['allowfloat']=2;
 
 if (round($option['xtheme'])==0) $option['xtheme']=2;
 
@@ -337,6 +338,7 @@ $option['wgd']=html_entity_decode($option['wgd']);
 $option['wgl']=html_entity_decode($option['wgl']);
 
 $option['allowchat']=html_entity_decode($option['allowchat']);
+$option['allowfloat']=html_entity_decode($option['allowfloat']);
 
 $option['xtheme']=html_entity_decode($option['xtheme']);
 
@@ -1042,6 +1044,12 @@ if (current_user_can('manage_options')){
 
 </p>
 
+<p><input type="radio" value="1" name="allowfloat"  style="width: 22px; height: 20px;" <?php if ($option['allowfloat']!=2) echo "checked"; ?> checked>Yes&nbsp;
+
+<input type="radio" value="2" name="allowfloat"  style="width: 22px; height: 20px;" <?php if ($option['allowfloat']==2) echo "checked"; ?>>No&nbsp;&nbsp;&nbsp;Enable floating chat widget on bottom right of site
+
+</p>
+
 <p><input type="radio" value="2" name="xtheme"  style="width: 22px; height: 20px;" <?php if ($option['xtheme']==2) echo "checked"; ?> checked>Yes&nbsp;
 
 <input type="radio" value="1" name="xtheme"  style="width: 22px; height: 20px;" <?php if ($option['xtheme']!=2) echo "checked"; ?>>No&nbsp;&nbsp;&nbsp;Use the compact Theme for wordpress dashboard widget?
@@ -1399,7 +1407,7 @@ $htssl=" - SSL";
                         echo $before_title . $title . $after_title; ?>
 
 <div style="text-align: center;" class="hs-wordpress-chat-placeholder">
-<!-- HITSNIFFER ONLINE SUPPORT CODE v2.8.5 - DO NOT CHANGE --><script type="text/javascript">
+<!-- HITSNIFFER ONLINE SUPPORT CODE v2.8.6 - DO NOT CHANGE --><script type="text/javascript">
 document.write('<div id="hs-live-chat-pos"></div>');(function(){var hschatc=document.createElement('script');var hschatcs='www.';if (document.location.protocol=='https:') hschatcs='';hschatc.src=document.location.protocol+'//'+hschatcs+'hitsniffer.com/online2.php?code=<?php echo $option['code']; ?>&img=<?php echo urlencode($instance['wd_img']); ?>&off=<?php echo urlencode($instance['wd_off']); ?>';hschatc.async=true;var htsscc = document.getElementById('hs-live-chat-pos');htsscc.appendChild(hschatc);})();
 </script><!-- HITSNIFFER ONLINE SUPPORT CODE - DO NOT CHANGE -->
 </div>
@@ -1494,6 +1502,7 @@ if (round($option['tkn'])==0) $option['tkn']=1;
 if (round($option['iga'])==0) $option['iga']=2;
 
 if (round($option['allowchat'])==0) $option['allowchat']=1;
+if (round($option['allowfloat'])==0) $option['allowfloat']=2;
 
 if (round($option['xtheme'])==0) $option['xtheme']=2;
 
@@ -1739,6 +1748,7 @@ if (round($option['tkn'])==0) $option['tkn']=1;
 if (round($option['iga'])==0) $option['iga']=2;
 
 if (round($option['allowchat'])==0) $option['allowchat']=1;
+if (round($option['allowfloat'])==0) $option['allowfloat']=2;
 
 if (round($option['xtheme'])==0) $option['xtheme']=2;
 
